@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://image/bar.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform sampler2D curve;
+uniform float strength : hint_range(-1, 1) = 0.5;
+
+void fragment() {
+	vec2 vecToCenter = vec2(0.5, 0.5) - UV;
+	float distToCenter = length(vecToCenter);
+	float curveVal = texture(curve, vec2(distToCenter)).r;
+	vec2 diff = normalize(vecToCenter) * strength * curveVal;
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - diff);
+}"
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.0260116, 0.668182 ), 0.0, 0.0, 0, 0, Vector2( 0.141618, 0.277273 ), 0.190633, 0.190633, 0, 0, Vector2( 0.291907, 0.8 ), -1.40718, 0.904318, 0, 0, Vector2( 0.349711, 0.459091 ), -2.00165, -2.00165, 0, 0, Vector2( 0.436416, 0.286364 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/strength = 0.5
+shader_param/curve = SubResource( 4 )
+
+[node name="Black" type="Sprite"]
+position = Vector2( 709, 512 )
+scale = Vector2( 21.4063, 12.25 )
+texture = ExtResource( 1 )
+
+[node name="Icon" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( -8.82919, 14.3673 )
+scale = Vector2( 0.244565, 0.279412 )
+texture = ExtResource( 2 )
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+position = Vector2( -3.59708, -0.653061 )
+scale = Vector2( 0.244565, 0.279412 )
+copy_mode = 2
+
+[node name="Icon2" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 10.2307, -5.87755 )
+scale = Vector2( 0.244565, 0.279412 )
+texture = ExtResource( 2 )
