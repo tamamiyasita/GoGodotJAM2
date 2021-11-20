@@ -54,7 +54,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 24, 28 )
 
-[node name="Hammer" type="Node"]
+[node name="Hammer" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -64,7 +64,7 @@ anims/return = SubResource( 6 )
 anims/shot = SubResource( 3 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 1504, 801 )
+position = Vector2( 1504, 816 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 4 )

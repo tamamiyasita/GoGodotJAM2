@@ -6,6 +6,7 @@ onready var L_Bar := $L_Bar
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed('left_c'):
 		anime.play('bar_L')
+		print("LLL")
 	if Input.is_action_pressed('rigit_c'):
 		anime.play('bar_R')
 		

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://image/bar.png" type="Texture" id=1]
+
+[node name="UnderView" type="Node2D"]
+
+[node name="Bar" type="Sprite" parent="."]
+position = Vector2( 96, 32 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 100, 100, 100, 100 )
+region_filter_clip = true
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "dsgrg"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1600.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 1600, 200 )
+color = Color( 0.560784, 0.521569, 0.521569, 0.572549 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
