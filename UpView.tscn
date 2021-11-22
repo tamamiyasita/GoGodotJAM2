@@ -96,7 +96,7 @@ position = Vector2( 288, -95 )
 rotation = -1.38928
 
 [node name="Cannon2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 830, -101 )
+position = Vector2( 848, -216 )
 
 [node name="Cannon3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 546, -234 )

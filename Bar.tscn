@@ -283,7 +283,7 @@ tracks/0/keys = {
 "values": [ 180.0, 230.0, 180.0 ]
 }
 
-[node name="Bar" type="Node2D"]
+[node name="Bar" type="Node2D" groups=["bar"]]
 script = ExtResource( 2 )
 
 [node name="L_pos" type="Position2D" parent="."]
@@ -333,12 +333,12 @@ collision_layer = 4
 
 [node name="Polygon2D" type="Polygon2D" parent="R_pos/R_Bar"]
 position = Vector2( 72, -24 )
-polygon = PoolVector2Array( -296, 72.0001, 104, 8, 104, -7.99951, -296, 32.0001 )
+polygon = PoolVector2Array( -296, 72.0001, 120, 8.00006, 120, -7.99994, -296, 32.0001 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_pos/R_Bar"]
 position = Vector2( 72, -24 )
 build_mode = 1
-polygon = PoolVector2Array( 104, 8, -296, 72.0001, -296, 32.0001, 104, -7.99951 )
+polygon = PoolVector2Array( 120, 8.00006, -296, 72.0001, -296, 32.0001, 120, -7.99994 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="R_pos/R_Bar"]
 position = Vector2( -24.0001, -36 )
