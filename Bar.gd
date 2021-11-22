@@ -1,22 +1,23 @@
 extends Node
 
-onready var anime := $AnimationPlayer
-onready var L_Bar := $L_Bar
+onready var L_anime :AnimationPlayer = $L_pos/L_AnimationPlayer
+onready var R_anime :AnimationPlayer = $R_pos/R_AnimationPlayer
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed('left_c'):
-		anime.play('bar_L')
+#		yield(anime, "animation_finished" )
+		L_anime.play('bar_L')
 		print("LLL")
 	if Input.is_action_pressed('rigit_c'):
-		anime.play('bar_R')
+		R_anime.play('bar_R')
 		
 #	if Input.is_action_just_released('left_c'):
 #		anime.play('bar_D')
 
 
 
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	if anim_name == "bar_L":
-		anime.play('bar_D')
-	if anim_name == "bar_R":
-		anime.play('bar_D2')
+#func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+#	if anim_name == "bar_L":
+#		anime.play('bar_D')
+#	if anim_name == "bar_R":
+#		anime.play('bar_D2')
