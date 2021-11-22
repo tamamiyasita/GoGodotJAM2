@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://MobPathFollow2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=2]
@@ -6,11 +6,14 @@
 [ext_resource path="res://SpownPoint.gd" type="Script" id=4]
 [ext_resource path="res://Tower.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Path_curve/curve2d_1.tres" type="Curve2D" id=6]
-[ext_resource path="res://Ball.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ReturnArea2D.gd" type="Script" id=7]
 [ext_resource path="res://Cannon.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 761, 113.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 624, 14.5 )
 
 [node name="UpView" type="Node2D"]
 
@@ -44,9 +47,6 @@ curve = ExtResource( 6 )
 [node name="Timer" type="Timer" parent="SpownPoint"]
 autostart = true
 
-[node name="Hammer" parent="." instance=ExtResource( 3 )]
-position = Vector2( -27, -296 )
-
 [node name="Bar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, -352 )
 
@@ -69,7 +69,7 @@ build_mode = 1
 polygon = PoolVector2Array( 8.00012, 216, 8, -576, -8, -608, -32, -648, -64.731, -698.46, -97.6, -736.8, -133.239, -771.712, -169.6, -800.8, -233.6, -824.8, -345.6, -848.8, -185.6, -856.8, -121.6, -816.8, -73.6, -776.8, -33.6, -736.8, -1.59998, -696.8, 14.4, -664.8, 24, -628, 24, -568, 24.0001, 216 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1497.6, -248.2 )
+position = Vector2( 1504, -248 )
 build_mode = 1
 polygon = PoolVector2Array( 15.9999, 801, 15.9999, -551, 11.4, -577.8, 6.40002, -599.8, 2.26932, -612.192, -1.59998, -623.8, -8.00012, -640, -15.0001, -657, -26.0001, -677, -38.6, -696.8, -51.6, -711.8, -61.6, -722.8, -75.6, -736.8, -89.6, -750.8, -106, -766, -132, -787, -164, -807, -216, -832, 102.4, -839.8, 94.4, 800.2 )
 
@@ -77,7 +77,13 @@ polygon = PoolVector2Array( 15.9999, 801, 15.9999, -551, 11.4, -577.8, 6.40002, 
 position = Vector2( 829, -1217 )
 shape = SubResource( 6 )
 
-[node name="Ball" parent="." instance=ExtResource( 7 )]
+[node name="ReturnArea2D" type="Area2D" parent="Wall"]
+collision_layer = 0
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/ReturnArea2D"]
+position = Vector2( 656, 625.5 )
+shape = SubResource( 7 )
 
 [node name="Tower" parent="." instance=ExtResource( 5 )]
 position = Vector2( 488, 96 )
@@ -100,4 +106,8 @@ rotation = -1.91812
 position = Vector2( 404, 254 )
 rotation = -0.794125
 
+[node name="Hammer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1480, 512 )
+
 [connection signal="timeout" from="SpownPoint/Timer" to="SpownPoint" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Wall/ReturnArea2D" to="Wall/ReturnArea2D" method="_on_ReturnArea2D_body_entered"]

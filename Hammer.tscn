@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://image/bar.png" type="Texture" id=1]
 [ext_resource path="res://Hammer.gd" type="Script" id=2]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -15,7 +16,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1504, 816 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -29,9 +30,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 0.176777, 1 ),
+"transitions": PoolRealArray( 1.23115, 1 ),
 "update": 0,
-"values": [ Vector2( 1504, 516 ), Vector2( 1504, 816 ) ]
+"values": [ Vector2( 0, 750 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -48,14 +49,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.69 ),
 "transitions": PoolRealArray( 1, -2 ),
 "update": 0,
-"values": [ Vector2( 1504, 816 ), Vector2( 1504, 116 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -750 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 24, 28 )
 
-[node name="Hammer" type="Node2D"]
+[node name="Hammer" type="Node2D" groups=["hammer"]]
 script = ExtResource( 2 )
+Ball = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../KinematicBody2D")
@@ -64,7 +66,6 @@ anims/return = SubResource( 6 )
 anims/shot = SubResource( 3 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 1504, 816 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 4 )
