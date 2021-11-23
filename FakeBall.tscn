@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://FakeBall.gd" type="Script" id=1]
 [ext_resource path="res://image/ball.png" type="Texture" id=2]
+[ext_resource path="res://image/ball2.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=5]
 friction = 0.0
@@ -46,7 +47,6 @@ scale_curve = SubResource( 11 )
 resource_name = "charge"
 
 [node name="FakeBall" type="RigidBody2D"]
-modulate = Color( 2, 2, 2, 1 )
 position = Vector2( 1477, 416 )
 collision_mask = 28
 mode = 3
@@ -63,10 +63,10 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="BodySprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 3, 3, 3, 0 )
+modulate = Color( 5, 5, 5, 0 )
 texture = ExtResource( 2 )
 
 [node name="TrailParticles2D" type="Particles2D" parent="Sprite"]

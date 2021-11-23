@@ -333,12 +333,12 @@ collision_layer = 4
 
 [node name="Polygon2D" type="Polygon2D" parent="R_pos/R_Bar"]
 position = Vector2( 72, -24 )
-polygon = PoolVector2Array( -296, 72.0001, 120, 8.00006, 120, -7.99994, -296, 32.0001 )
+polygon = PoolVector2Array( -296, 72.0001, 104, 8.0011, 104, -7.9989, -296, 32.0001 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_pos/R_Bar"]
 position = Vector2( 72, -24 )
 build_mode = 1
-polygon = PoolVector2Array( 120, 8.00006, -296, 72.0001, -296, 32.0001, 120, -7.99994 )
+polygon = PoolVector2Array( 104, 8.0011, -296, 72.0001, -296, 32.0001, 104, -7.9989 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="R_pos/R_Bar"]
 position = Vector2( -24.0001, -36 )

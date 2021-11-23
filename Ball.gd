@@ -3,6 +3,8 @@ extends RigidBody2D
 onready var sprite := $Sprite
 onready var camera := $Camera2D
 onready var ball_energy = 30
+onready var buff = 0
+onready var ball_value = 5 
 
 const CLAMP_VELOCITY = 1700.0
 
@@ -26,7 +28,21 @@ func _unhandled_input(event: InputEvent) -> void:
 			applied_force = Vector2(0,0)
 
 
-func _on_Area2D_area_entered(area: Area2D) -> void:
+func energy_charge() -> void:
 	ball_energy -= 1
-	sprite.modulate.a -= .01
-	print(ball_energy)
+	if ball_energy >= 20:
+		ball_value = 5
+		sprite.modulate.a = 1.0
+	elif ball_energy >= 10:
+		ball_value = 3
+		sprite.modulate.a = 0.15
+	elif ball_energy < 10:
+		sprite.modulate.a = 0.04
+		ball_value = 1 
+#
+	
+	
+
+func _on_Area2D_area_entered(area: Area2D) -> void:
+	energy_charge()
+	print("ball_energy", ball_energy)
