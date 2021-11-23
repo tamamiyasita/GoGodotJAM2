@@ -30,9 +30,9 @@ func movement(delta: float) -> void:
 	_velocity.x = _h_direction * speed
 	_velocity.y += gravity * delta
 	if _velocity.x > 0:
-		sprite.flip_h = false
-	if _velocity.x < 0:
 		sprite.flip_h = true
+	if _velocity.x < 0:
+		sprite.flip_h = false
 #		$Run.play()
 	
 	if abs(_velocity.x) == 0 and is_on_floor():
@@ -58,3 +58,7 @@ func is_block_push() -> void:
 
 func is_jumping() -> bool:
 	return Input.is_action_just_pressed('jump') and is_on_floor()
+
+
+func _on_Timer_timeout() -> void:
+	pass # Replace with function body.

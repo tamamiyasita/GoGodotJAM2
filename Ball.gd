@@ -2,7 +2,7 @@ extends RigidBody2D
 
 onready var sprite := $Sprite
 onready var camera := $Camera2D
-onready var ball_energy = 30
+onready var ball_energy = 50
 onready var buff = 0
 onready var ball_value = 5 
 
