@@ -8,6 +8,10 @@ onready var ball_value = 5
 
 const CLAMP_VELOCITY = 1700.0
 
+
+func _ready() -> void:
+	get_tree().call_group("ui", "update_en", ball_energy)
+
 func _process(delta):
 	var speed = get_linear_velocity().length()
 
@@ -29,16 +33,21 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func energy_charge() -> void:
-	ball_energy -= 1
+	get_tree().call_group("ui", "update_en", ball_energy)
+
+#	ball_energy -= 1
 	if ball_energy >= 20:
 		ball_value = 5
 		sprite.modulate.a = 1.0
 	elif ball_energy >= 10:
 		ball_value = 3
-		sprite.modulate.a = 0.15
-	elif ball_energy < 10:
-		sprite.modulate.a = 0.04
+		sprite.modulate.a = 0.18
+	elif ball_energy >= 1:
+		sprite.modulate.a = 0.06
 		ball_value = 1 
+	elif ball_energy < 1:
+		sprite.modulate.a = 0.0
+		ball_value = 0
 #
 	
 	
