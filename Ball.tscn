@@ -46,7 +46,7 @@ scale_curve = SubResource( 11 )
 [sub_resource type="CircleShape2D" id=12]
 radius = 35.2278
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" groups=["ball"]]
 position = Vector2( 1477, 416 )
 collision_mask = 28
 mode = 2

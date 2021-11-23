@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://MobPathFollow2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Path_curve/curve2d_1.tres" type="Curve2D" id=6]
 [ext_resource path="res://ReturnArea2D.gd" type="Script" id=7]
 [ext_resource path="res://Cannon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Chest.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Pebbles.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Wood.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 761, 113.5 )
@@ -16,6 +19,18 @@ extents = Vector2( 761, 113.5 )
 extents = Vector2( 624, 14.5 )
 
 [node name="UpView" type="Node2D"]
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1752.0
+margin_right = 1600.0
+margin_bottom = -852.0
+rect_min_size = Vector2( 1600, 5000 )
+color = Color( 0.858824, 0.85098, 0.686275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 1248.0
@@ -85,29 +100,53 @@ script = ExtResource( 7 )
 position = Vector2( 656, 625.5 )
 shape = SubResource( 7 )
 
-[node name="Tower" parent="." instance=ExtResource( 5 )]
+[node name="Hammer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1480, 512 )
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="Tower" parent="Towers" instance=ExtResource( 5 )]
 position = Vector2( 488, 96 )
 
-[node name="Tower2" parent="." instance=ExtResource( 5 )]
+[node name="Tower2" parent="Towers" instance=ExtResource( 5 )]
 position = Vector2( 1088, 112 )
 
-[node name="Cannon" parent="." instance=ExtResource( 8 )]
+[node name="Cannon" parent="Towers" instance=ExtResource( 8 )]
 position = Vector2( 288, -95 )
 rotation = -1.38928
 
-[node name="Cannon2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 848, -216 )
+[node name="Cannon2" parent="Towers" instance=ExtResource( 8 )]
+position = Vector2( 840, -136 )
 
-[node name="Cannon3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 546, -234 )
+[node name="Cannon3" parent="Towers" instance=ExtResource( 8 )]
+position = Vector2( 1064, 432 )
 rotation = -1.91812
 
-[node name="Cannon4" parent="." instance=ExtResource( 8 )]
+[node name="Cannon4" parent="Towers" instance=ExtResource( 8 )]
 position = Vector2( 404, 254 )
 rotation = -0.794125
 
-[node name="Hammer" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1480, 512 )
+[node name="Obstacle" type="Node2D" parent="."]
+
+[node name="Pebbles" parent="Obstacle" instance=ExtResource( 10 )]
+position = Vector2( 336, 152 )
+
+[node name="Pebbles2" parent="Obstacle" instance=ExtResource( 10 )]
+position = Vector2( 816, 80 )
+
+[node name="Pebbles3" parent="Obstacle" instance=ExtResource( 10 )]
+position = Vector2( 648, -256 )
+
+[node name="Pebbles4" parent="Obstacle" instance=ExtResource( 10 )]
+position = Vector2( 1400, -440 )
+
+[node name="Gift" type="Node2D" parent="."]
+
+[node name="Chest" parent="Gift" instance=ExtResource( 9 )]
+position = Vector2( 928, 360 )
+
+[node name="Wood" parent="Gift" instance=ExtResource( 11 )]
+position = Vector2( 1136, -208 )
 
 [connection signal="timeout" from="SpownPoint/Timer" to="SpownPoint" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Wall/ReturnArea2D" to="Wall/ReturnArea2D" method="_on_ReturnArea2D_body_entered"]
