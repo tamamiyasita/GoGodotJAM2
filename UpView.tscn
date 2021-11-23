@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://MobPathFollow2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Chest.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Pebbles.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Wood.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Base.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 761, 113.5 )
@@ -143,10 +144,13 @@ position = Vector2( 1400, -440 )
 [node name="Gift" type="Node2D" parent="."]
 
 [node name="Chest" parent="Gift" instance=ExtResource( 9 )]
-position = Vector2( 928, 360 )
+position = Vector2( 1128, -944 )
 
 [node name="Wood" parent="Gift" instance=ExtResource( 11 )]
 position = Vector2( 1136, -208 )
+
+[node name="Base" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1296, 304 )
 
 [connection signal="timeout" from="SpownPoint/Timer" to="SpownPoint" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Wall/ReturnArea2D" to="Wall/ReturnArea2D" method="_on_ReturnArea2D_body_entered"]

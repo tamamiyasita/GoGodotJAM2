@@ -2,7 +2,7 @@ extends PathFollow2D
 
 onready var mob := $Area2D
 export(PackedScene) var explosion
-
+export var damage := 1
 #func _ready() -> void:
 #	randomize()
 #	h_offset += randi() % 3

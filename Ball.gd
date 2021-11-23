@@ -33,7 +33,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func energy_charge() -> void:
-	get_tree().call_group("ui", "update_en", ball_energy)
 
 #	ball_energy -= 1
 	if ball_energy >= 20:
@@ -50,8 +49,15 @@ func energy_charge() -> void:
 		ball_value = 0
 #
 	
+	yield(get_tree().create_timer(0.1), "timeout")
+	get_tree().call_group("ui", "update_en", ball_energy)
 	
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
 	energy_charge()
 	print("ball_energy", ball_energy)
+
+
+func home() -> void:
+	queue_free()
+

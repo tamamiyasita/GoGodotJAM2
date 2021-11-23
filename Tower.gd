@@ -3,15 +3,50 @@ extends Node2D
 onready var rigid_body := $RigidBody2D
 export(PackedScene) var Fire
 
+var energy := 0
+var energy_consumption := 3
 
-func _on_Area2D_area_entered(area: Area2D) -> void:
+func _ready() -> void:
+	set_process(false)
+	
+func _process(delta: float) -> void:
+	if energy > 2:
+		fire()
+		set_process(false)
+	else:
+		$AnimationPlayer.play('RESET')
+		set_process(false)
 
 
-	pass # Replace with function body.
+
+
+
+
+func ball_energy_charge(body) -> void:
+	if body.is_in_group("ball"):
+		energy += body.ball_value
+		body.ball_energy -= energy_consumption
+		set_process(true)
+	if energy > 0:
+		$AnimationPlayer.play('hit')
+
+
+
+
+
+
+
+func fire()->void:
+	var fire = Fire.instance()
+	rigid_body.add_child(fire)
+	energy -= 3
+	if energy < 0:
+		energy = 0
+	yield(get_tree().create_timer(0.5), "timeout")
+	set_process(true)
+	print(energy, "  eneger")
+
+
 
 func _on_Area2D_body_entered(body: Node) -> void:
-	print("body_on")
-	var fire = Fire.instance()
-#	fire.position = body.position
-	rigid_body.add_child(fire)
-	$AnimationPlayer.play('hit')
+	ball_energy_charge(body)

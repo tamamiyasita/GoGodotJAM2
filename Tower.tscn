@@ -54,6 +54,7 @@ tracks/0/keys = {
 }
 
 [node name="Tower" type="Node2D" groups=["tower"]]
+position = Vector2( 416, 168 )
 script = ExtResource( 2 )
 Fire = ExtResource( 3 )
 
