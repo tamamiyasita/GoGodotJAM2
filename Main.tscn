@@ -14,8 +14,10 @@ position = Vector2( 497, 424 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1600.0
-margin_bottom = 900.0
+margin_left = -497.0
+margin_top = -424.0
+margin_right = 1103.0
+margin_bottom = 510.0
 rect_min_size = Vector2( 1600, 900 )
 size_flags_horizontal = 15
 size_flags_vertical = 15
