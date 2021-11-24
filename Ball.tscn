@@ -94,9 +94,14 @@ process_material = SubResource( 9 )
 texture = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+rotating = true
 current = true
 zoom = Vector2( 2, 2 )
 process_mode = 0
+limit_left = -1000
+limit_top = -2100
+limit_right = 2500
+limit_bottom = 600
 limit_smoothed = true
 smoothing_enabled = true
 

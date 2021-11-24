@@ -12,7 +12,7 @@ func _ready() -> void:
 	set_process(false)
 	
 func _process(delta: float) -> void:
-	if energy > 2:
+	if energy > 0:
 		muzzle.look_at(ball.global_position)
 
 	else:
@@ -28,7 +28,7 @@ func ball_energy_charge(body) -> void:
 		ball = body
 		energy += body.ball_value
 		body.ball_energy -= energy_consumption
-		fire()
+		fire(energy)
 		set_process(true)
 	if energy > 0:
 		pass
@@ -39,11 +39,11 @@ func ball_energy_charge(body) -> void:
 
 
 
-func fire()->void:
+func fire(value)->void:
 	var fire = Fire.instance()
 	$Muzzle/shotPos.add_child(fire)
-	fire.timer_set(energy)
-	$Timer.start()
+	fire.timer_set(value)
+	$Timer.start(1)
 #	energy -= 3
 #	if energy < 0:
 #		energy = 0
@@ -62,6 +62,6 @@ func _on_Area2D_body_entered(body: Node) -> void:
 func _on_Timer_timeout() -> void:
 	if energy > 0:
 		energy -= 1
-		$Timer.start()
+		$Timer.start(1)
 	else:
 		set_process(false)

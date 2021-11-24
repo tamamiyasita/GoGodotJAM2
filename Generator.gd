@@ -27,8 +27,8 @@ func _on_Generator_body_entered(body: Node) -> void:
 		
 
 func _process(delta: float) -> void:
-	energy_bar.value += .7
-	ball.sprite.modulate.a += .003
+	energy_bar.value += .9
+	ball.sprite.modulate.a += .007
 	if energy_bar.value == energy_bar.max_value:
 		get_tree().call_group("hammer", "shot")
 		energy_bar.value = 0
