@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ElecTower.gd" type="Script" id=1]
+[ext_resource path="res://image/spot.png" type="Texture" id=2]
+[ext_resource path="res://Electric.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://image/pan.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 24 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 24.0
+
+[node name="ElecTower" type="Node2D" groups=["tower"]]
+script = ExtResource( 1 )
+Fire = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( -1.43051e-06, -1.43051e-06 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Muzzle" type="Sprite" parent="."]
+position = Vector2( 0, 2.72848e-12 )
+texture = ExtResource( 5 )
+offset = Vector2( 31.6562, -2.44022 )
+
+[node name="shotPos" type="Position2D" parent="Muzzle"]
+position = Vector2( 56, -1.09139e-11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+shape = SubResource( 4 )
+disabled = true
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

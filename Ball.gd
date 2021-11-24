@@ -1,3 +1,4 @@
+class_name ball
 extends RigidBody2D
 
 onready var sprite := $Sprite

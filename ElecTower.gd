@@ -1,7 +1,9 @@
 extends Node2D
 
 onready var rigid_body := $RigidBody2D
+onready var muzzle := $Muzzle
 export(PackedScene) var Fire
+var ball
 
 var energy := 0
 var energy_consumption := 3
@@ -11,10 +13,9 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if energy > 2:
-		fire()
-		set_process(false)
+		muzzle.look_at(ball.global_position)
+
 	else:
-		$AnimationPlayer.play('RESET')
 		set_process(false)
 
 
@@ -24,11 +25,13 @@ func _process(delta: float) -> void:
 
 func ball_energy_charge(body) -> void:
 	if body.is_in_group("ball"):
+		ball = body
 		energy += body.ball_value
 		body.ball_energy -= energy_consumption
+		fire()
 		set_process(true)
 	if energy > 0:
-		$AnimationPlayer.play('hit')
+		pass
 
 
 
@@ -38,12 +41,12 @@ func ball_energy_charge(body) -> void:
 
 func fire()->void:
 	var fire = Fire.instance()
-	$Position2D.add_child(fire)
-	energy -= 3
-	if energy < 0:
-		energy = 0
-	yield(get_tree().create_timer(0.5), "timeout")
-	set_process(true)
+	$Muzzle/shotPos.add_child(fire)
+#	energy -= 3
+#	if energy < 0:
+#		energy = 0
+#	yield(get_tree().create_timer(0.5), "timeout")
+#	set_process(true)
 	print(energy, "  eneger")
 
 

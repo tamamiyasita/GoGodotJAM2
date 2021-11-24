@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spark_07.png-bb4af08be8c2fa7113b6f1bb60fb4de6.stex"
+path="res://.import/kazan2.png-2710ad8388108ba1253f11f64e8210bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/kenney_particle_pack/spark_07.png"
-dest_files=[ "res://.import/spark_07.png-bb4af08be8c2fa7113b6f1bb60fb4de6.stex" ]
+source_file="res://image/kazan2.png"
+dest_files=[ "res://.import/kazan2.png-2710ad8388108ba1253f11f64e8210bd.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
