@@ -36,7 +36,7 @@ func movement(delta: float) -> void:
 #		$Run.play()
 	
 	if abs(_velocity.x) == 0 and is_on_floor():
-		anime.play('default')
+		anime.play('idel')
 	if is_jumping():
 #		$AudioStreamPlayer.play()
 		_velocity.y = -jump_pow
@@ -44,7 +44,8 @@ func movement(delta: float) -> void:
 		
 		
 	elif abs(_velocity.x) > 0 and !anime.current_animation == "jump":
-		anime.play('move')	
+		anime.play('idel')
+#		anime.play('move')	
 
 	
 func sit() -> void:

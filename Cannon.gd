@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		set_process(false)
 	else:
 		$AnimationPlayer2.play('RESET')
-		$AnimationPlayer.play('RESET')
+		$AnimationPlayer.stop()
 		set_process(false)
 
 
@@ -41,6 +41,8 @@ func _on_Area2D_body_entered(body: Node) -> void:
 
 func shoot():
 	energy -= 1
+	if energy < 0:
+		energy = 0
 	for i in range(3):
 		var b = Bullet.instance()
 		muzzle.add_child(b)

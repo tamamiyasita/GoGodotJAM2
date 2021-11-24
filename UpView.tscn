@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MobPathFollow2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=2]
@@ -11,12 +11,21 @@
 [ext_resource path="res://Chest.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Pebbles.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Wood.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Base.tscn" type="PackedScene" id=12]
+[ext_resource path="res://image/ETCMGsVUYAA3iDH.jpg" type="Texture" id=13]
+[ext_resource path="res://Bar3.tscn" type="PackedScene" id=15]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 761, 113.5 )
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 39.9999
+height = 2508.0
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 624, 14.5 )
+extents = Vector2( 1352, 18.5 )
+
+[sub_resource type="Curve2D" id=9]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -8, -1128, 0, 0, 0, 0, 208, -816, 0, 0, 0, 0, 256, -808, 0, 0, 0, 0, 456, -800, 0, 0, 0, 0, 592, -680, -78.4003, -38.1407, 78.4003, 38.1407, 680, -328, 0, 0, 0, 0, 1096, -272, -69.9246, -12.7136, 69.9246, 12.7136, 1424, -296, -50, -86, 50, 86, 1448, 24, 0, 0, 0, 0, 1592, 168 )
+}
 
 [node name="UpView" type="Node2D"]
 
@@ -51,102 +60,159 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpownPoint" type="Node" parent="."]
-script = ExtResource( 4 )
-Mob = ExtResource( 1 )
-curve = ExtResource( 6 )
-
-[node name="Path2D" type="Path2D" parent="SpownPoint"]
-curve = ExtResource( 6 )
-
-[node name="Timer" type="Timer" parent="SpownPoint"]
-autostart = true
-
-[node name="Bar" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8, -352 )
+[node name="EtcmgsVuyaa3iDh" type="Sprite" parent="."]
+position = Vector2( 808, -736 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 collision_layer = 2
 
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( -432, -1544, 1904, -1560, 1872, -1080, 1416, -1352, 1208, -1416, 1016, -1440, 808, -1464, 584, -1448, 392, -1432, 168, -1416, -80, -1392, -520, -1064 )
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1.60001, -215.2 )
+position = Vector2( -592, -200 )
 build_mode = 1
-polygon = PoolVector2Array( 0, -1448, -1.60001, 743.2, 550.4, 767.2, 238.4, 695.2, 224, 568, 152, 472, 72, 304, 56.6986, 108.71, 56, -1448 )
+polygon = PoolVector2Array( 0, -1448, -1.60001, 743.2, 48, 184, 360, 504, 816, 688, 816, 672, 344, 472, 56, 168, 56, -1448 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1377.6, -215.2 )
+position = Vector2( 1942.08, -203.16 )
 build_mode = 1
-polygon = PoolVector2Array( 22.4, 343.2, -9.59998, 551.2, -321.6, 711.2, -617.6, 767.2, 64, 768, 64, 640, 62.4, 287.2 )
+polygon = PoolVector2Array( -326.08, 475.16, -750.08, 659.16, -846.08, 683.16, -902.08, 691.16, -846.08, 691.16, -734.08, 667.16, -326.08, 499.16, -14.0801, 187.16, 65.9199, 771.16, 49.9199, 67.1599 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1417.6, -159.2 )
+position = Vector2( 1982.08, -147.16 )
 build_mode = 1
-polygon = PoolVector2Array( 8.00012, 216, 8, -576, -8, -608, -32, -648, -64.731, -698.46, -97.6, -736.8, -133.239, -771.712, -169.6, -800.8, -233.6, -824.8, -345.6, -848.8, -185.6, -856.8, -121.6, -816.8, -73.6, -776.8, -33.6, -736.8, -1.59998, -696.8, 14.4, -664.8, 24, -628, 24, -568, 24.0001, 216 )
+polygon = PoolVector2Array( 8.00012, 216, 8, -576, -8, -608, -32, -648, -64.731, -698.46, -97.6, -736.8, -133.239, -771.712, -169.6, -800.8, -166.08, -828.84, -185.6, -856.8, -121.6, -816.8, -73.6, -776.8, -33.6, -736.8, -1.59998, -696.8, 14.4, -664.8, 24, -628, 24, -568, 24.0001, 216 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 1504, -248 )
+position = Vector2( 2068.48, -235.96 )
 build_mode = 1
 polygon = PoolVector2Array( 15.9999, 801, 15.9999, -551, 11.4, -577.8, 6.40002, -599.8, 2.26932, -612.192, -1.59998, -623.8, -8.00012, -640, -15.0001, -657, -26.0001, -677, -38.6, -696.8, -51.6, -711.8, -61.6, -722.8, -75.6, -736.8, -89.6, -750.8, -106, -766, -132, -787, -164, -807, -216, -832, 102.4, -839.8, 94.4, 800.2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2( 829, -1217 )
-shape = SubResource( 6 )
+position = Vector2( 744, -1584 )
+rotation = 1.5708
+shape = SubResource( 8 )
 
 [node name="ReturnArea2D" type="Area2D" parent="Wall"]
 collision_layer = 0
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/ReturnArea2D"]
-position = Vector2( 656, 625.5 )
+position = Vector2( 640, 629.5 )
 shape = SubResource( 7 )
 
-[node name="Hammer" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1480, 512 )
+[node name="MOB_POP" type="Node" parent="."]
+
+[node name="SpownPoint" type="Node" parent="MOB_POP"]
+script = ExtResource( 4 )
+mob_num = 8
+pop_time = 5.0
+Mob = ExtResource( 1 )
+curve = ExtResource( 6 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint"]
+curve = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint"]
+process_mode = 0
+
+[node name="SpownPoint2" type="Node" parent="MOB_POP"]
+script = ExtResource( 4 )
+pop_time = 3.0
+Mob = ExtResource( 1 )
+curve = ExtResource( 6 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint2"]
+curve = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint2"]
+process_mode = 0
+
+[node name="Manipulate" type="Node" parent="."]
+
+[node name="Hammer" parent="Manipulate" instance=ExtResource( 3 )]
+position = Vector2( 2048, 152 )
+
+[node name="Bar" parent="Manipulate" instance=ExtResource( 2 )]
+position = Vector2( 8, -360 )
+
+[node name="Bar2" parent="Manipulate" instance=ExtResource( 15 )]
+position = Vector2( 8, -376 )
 
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="Tower" parent="Towers" instance=ExtResource( 5 )]
-position = Vector2( 488, 96 )
+position = Vector2( 328, -576 )
+
+[node name="Tower4" parent="Towers" instance=ExtResource( 5 )]
+position = Vector2( 688, -208 )
 
 [node name="Tower2" parent="Towers" instance=ExtResource( 5 )]
-position = Vector2( 1088, 112 )
+position = Vector2( 584, -824 )
+
+[node name="Tower3" parent="Towers" instance=ExtResource( 5 )]
+position = Vector2( 1592, -136 )
 
 [node name="Cannon" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( 288, -95 )
+position = Vector2( 1280, -32 )
 rotation = -1.38928
 
 [node name="Cannon2" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( 840, -136 )
+position = Vector2( -200, -880 )
 
 [node name="Cannon3" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( 1064, 432 )
+position = Vector2( 960, -584 )
 rotation = -1.91812
 
+[node name="Cannon5" parent="Towers" instance=ExtResource( 8 )]
+position = Vector2( 1808, -616 )
+rotation = -3.24108
+
+[node name="Cannon6" parent="Towers" instance=ExtResource( 8 )]
+position = Vector2( 1864, -48 )
+rotation = -2.05076
+
 [node name="Cannon4" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( 404, 254 )
+position = Vector2( -152, -520 )
 rotation = -0.794125
+
+[node name="Cannon7" parent="Towers" instance=ExtResource( 8 )]
+position = Vector2( 232, 96 )
+rotation = -1.60396
 
 [node name="Obstacle" type="Node2D" parent="."]
 
 [node name="Pebbles" parent="Obstacle" instance=ExtResource( 10 )]
-position = Vector2( 336, 152 )
+position = Vector2( -456, -1000 )
 
 [node name="Pebbles2" parent="Obstacle" instance=ExtResource( 10 )]
-position = Vector2( 816, 80 )
+position = Vector2( 1736, -680 )
 
 [node name="Pebbles3" parent="Obstacle" instance=ExtResource( 10 )]
-position = Vector2( 648, -256 )
+position = Vector2( 1848, -272 )
 
 [node name="Pebbles4" parent="Obstacle" instance=ExtResource( 10 )]
-position = Vector2( 1400, -440 )
+position = Vector2( -272, -144 )
 
 [node name="Gift" type="Node2D" parent="."]
 
 [node name="Chest" parent="Gift" instance=ExtResource( 9 )]
-position = Vector2( 928, 360 )
+position = Vector2( 1128, -944 )
 
 [node name="Wood" parent="Gift" instance=ExtResource( 11 )]
-position = Vector2( 1136, -208 )
+position = Vector2( 1920, -424 )
 
-[connection signal="timeout" from="SpownPoint/Timer" to="SpownPoint" method="_on_Timer_timeout"]
+[node name="Base" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1600, 168 )
+
+[node name="Camera2D" type="Camera2D" parent="Base"]
+position = Vector2( -16, 1048 )
+zoom = Vector2( 5, 5 )
+limit_bottom = 900
+
 [connection signal="body_entered" from="Wall/ReturnArea2D" to="Wall/ReturnArea2D" method="_on_ReturnArea2D_body_entered"]
+[connection signal="timeout" from="MOB_POP/SpownPoint/Timer" to="MOB_POP/SpownPoint" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint2/Timer" to="MOB_POP/SpownPoint2" method="_on_Timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Bar.gd" type="Script" id=2]
 
@@ -17,7 +17,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../R_pos/R_Bar:rotation_degrees")
+tracks/1/path = NodePath("..:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -26,87 +26,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 180.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../Position2D:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
 "values": [ 0.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../R_pos:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("..:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("../../R_pos:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 180.0 ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "bar_D"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -90.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=10]
-resource_name = "bar_D2"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("../R_pos/R_Bar:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 270.0, 180.0 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -125,151 +45,27 @@ tracks/0/keys = {
 "values": [ 0.0, -50.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "bar_R"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("../../R_pos:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9, 1.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 180.0, 250.0, 180.0 ]
-}
-
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 200, 4 )
 
 [sub_resource type="Animation" id=13]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/path = NodePath("../../R_pos:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../R_pos/R_Bar:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 180.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../Position2D:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../R_pos:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("..:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("../../R_pos:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 180.0 ]
-}
-
-[sub_resource type="Animation" id=14]
-resource_name = "bar_D"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -90.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=15]
-resource_name = "bar_D2"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("../R_pos/R_Bar:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 270.0, 180.0 ]
-}
-
-[sub_resource type="Animation" id=16]
-resource_name = "bar_L"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("..:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9, 1.9 ),
-"transitions": PoolRealArray( 1, 2, 1 ),
-"update": 0,
-"values": [ 0.0, -70.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=17]
 resource_name = "bar_R"
-length = 0.8
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../R_pos:rotation_degrees")
 tracks/0/interp = 1
@@ -277,7 +73,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.8 ),
+"times": PoolRealArray( 0, 0.3, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 180.0, 230.0, 180.0 ]
@@ -292,24 +88,21 @@ position = Vector2( 216, 864 )
 [node name="L_AnimationPlayer" type="AnimationPlayer" parent="L_pos"]
 root_node = NodePath("../L_Bar")
 anims/RESET = SubResource( 7 )
-anims/bar_D = SubResource( 9 )
-anims/bar_D2 = SubResource( 10 )
 anims/bar_L = SubResource( 8 )
-anims/bar_R = SubResource( 11 )
 
 [node name="L_Bar" type="KinematicBody2D" parent="L_pos"]
 position = Vector2( 152, 16 )
 collision_layer = 4
-
-[node name="Polygon2D" type="Polygon2D" parent="L_pos/L_Bar"]
-position = Vector2( -80, -48 )
-polygon = PoolVector2Array( -72, 48, 328, 88, 328, 72, -72, 0 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="L_pos/L_Bar"]
 position = Vector2( -80, 7.99994 )
 scale = Vector2( 1.0049, 2.22716 )
 build_mode = 1
 polygon = PoolVector2Array( 326.401, 14.3681, -71.6491, -3.59201, -71.6491, -25.1441, 326.401, 7.18405 )
+
+[node name="Polygon2D" type="Polygon2D" parent="L_pos/L_Bar"]
+position = Vector2( -80, -48 )
+polygon = PoolVector2Array( -72, 48, 328, 88, 328, 72, -72, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L_pos/L_Bar"]
 position = Vector2( 48, 44 )
@@ -322,23 +115,20 @@ rotation = 3.14159
 [node name="R_AnimationPlayer" type="AnimationPlayer" parent="R_pos"]
 root_node = NodePath("../../L_pos/L_Bar")
 anims/RESET = SubResource( 13 )
-anims/bar_D = SubResource( 14 )
-anims/bar_D2 = SubResource( 15 )
-anims/bar_L = SubResource( 16 )
 anims/bar_R = SubResource( 17 )
 
 [node name="R_Bar" type="KinematicBody2D" parent="R_pos"]
 position = Vector2( 224, -24.0001 )
 collision_layer = 4
 
-[node name="Polygon2D" type="Polygon2D" parent="R_pos/R_Bar"]
-position = Vector2( 72, -24 )
-polygon = PoolVector2Array( -296, 72.0001, 104, 8.0011, 104, -7.9989, -296, 32.0001 )
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_pos/R_Bar"]
 position = Vector2( 72, -24 )
 build_mode = 1
 polygon = PoolVector2Array( 104, 8.0011, -296, 72.0001, -296, 32.0001, 104, -7.9989 )
+
+[node name="Polygon2D" type="Polygon2D" parent="R_pos/R_Bar"]
+position = Vector2( 72, -24 )
+polygon = PoolVector2Array( -296, 72.0001, 104, 8.0011, 104, -7.9989, -296, 32.0001 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="R_pos/R_Bar"]
 position = Vector2( -24.0001, -36 )
