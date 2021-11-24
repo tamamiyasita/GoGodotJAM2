@@ -62,7 +62,7 @@ __meta__ = {
 }
 
 [node name="EtcmgsVuyaa3iDh" type="Sprite" parent="."]
-position = Vector2( 808, -736 )
+position = Vector2( 816, -744 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 13 )
 

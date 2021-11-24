@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Lightning.gd" type="Script" id=1]
 [ext_resource path="res://addons/kenney_particle_pack/spark_07.png" type="Texture" id=2]
 [ext_resource path="res://addons/kenney_particle_pack/spark_01.png" type="Texture" id=3]
+[ext_resource path="res://Electric.gd" type="Script" id=4]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -28,6 +29,7 @@ shader = SubResource( 3 )
 [sub_resource type="CircleShape2D" id=5]
 
 [node name="Electric" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Lightning" type="RayCast2D" parent="."]
 enabled = true
@@ -60,3 +62,7 @@ collision_mask = 19
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lightning/End/Area2D"]
 shape = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

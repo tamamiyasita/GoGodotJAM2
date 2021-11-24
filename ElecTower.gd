@@ -42,6 +42,8 @@ func ball_energy_charge(body) -> void:
 func fire()->void:
 	var fire = Fire.instance()
 	$Muzzle/shotPos.add_child(fire)
+	fire.timer_set(energy)
+	$Timer.start()
 #	energy -= 3
 #	if energy < 0:
 #		energy = 0
@@ -53,3 +55,13 @@ func fire()->void:
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	ball_energy_charge(body)
+
+
+
+
+func _on_Timer_timeout() -> void:
+	if energy > 0:
+		energy -= 1
+		$Timer.start()
+	else:
+		set_process(false)
