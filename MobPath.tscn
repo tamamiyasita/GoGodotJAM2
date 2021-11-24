@@ -48,6 +48,9 @@ position = Vector2( 72.1926, 65.4279 )
 rotation = 1.43592
 offset = 1.81334
 
+[node name="Area2D" parent="MobPathFollow2D" index="0"]
+collision_mask = 32
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MobPathFollow2D"]
 root_node = NodePath("../..")
 autoplay = "enemy_move"

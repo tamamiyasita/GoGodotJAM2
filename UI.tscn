@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI.gd" type="Script" id=2]
@@ -12,6 +12,10 @@ extra_spacing_space = 1
 font_data = ExtResource( 1 )
 
 [sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/bar.png-6075b58fc41bf43c64c9c9799285feb5.stex"
+
+[sub_resource type="StreamTexture" id=5]
 flags = 4
 load_path = "res://.import/bar.png-6075b58fc41bf43c64c9c9799285feb5.stex"
 
@@ -71,8 +75,8 @@ rect_min_size = Vector2( 170, 30 )
 custom_colors/default_color = Color( 0.203922, 0.627451, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = " Ball Energy 50"
-text = " Ball Energy 50"
+bbcode_text = " Ball Energy 0"
+text = " Ball Energy 0"
 scroll_active = false
 
 [node name="ENProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer2"]
@@ -80,9 +84,35 @@ margin_left = 174.0
 margin_right = 324.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 0 )
-max_value = 50.0
-value = 20.0
 texture_progress = SubResource( 4 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 68.0
+margin_right = 324.0
+margin_bottom = 98.0
+
+[node name="ENTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3"]
+margin_right = 170.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 170, 30 )
+custom_colors/default_color = Color( 0.203922, 0.627451, 0, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = " Ball Energy 50"
+text = " Ball Energy 50"
+scroll_active = false
+
+[node name="ENProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 174.0
+margin_right = 324.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 0 )
+value = 20.0
+texture_progress = SubResource( 5 )
 nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false

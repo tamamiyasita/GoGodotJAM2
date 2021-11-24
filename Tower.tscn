@@ -73,6 +73,7 @@ contact_monitor = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource( 10 )
+disabled = true
 
 [node name="Icon" type="Sprite" parent="RigidBody2D"]
 modulate = Color( 0.92549, 0.0941176, 0.0941176, 1 )

@@ -20,6 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=10]
 resource_name = "fire"
+length = 2.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -27,7 +28,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -41,7 +42,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4, 1 ),
+"times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0, 0.0 ]
@@ -74,7 +75,7 @@ orbit_velocity_random = 0.0
 linear_accel = -52.46
 radial_accel = 100.0
 radial_accel_random = 0.47
-scale = 4.0
+scale = 9.0
 scale_curve = SubResource( 14 )
 color_ramp = SubResource( 12 )
 
@@ -82,6 +83,7 @@ color_ramp = SubResource( 12 )
 radius = 144.0
 
 [node name="Fire" type="Area2D"]
+scale = Vector2( 2, 2 )
 collision_layer = 32
 collision_mask = 16
 script = ExtResource( 1 )

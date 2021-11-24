@@ -2,7 +2,7 @@ extends RigidBody2D
 
 onready var sprite := $Sprite
 onready var camera := $Camera2D
-onready var ball_energy = 50
+export(int) var ball_energy := 50
 onready var buff = 0
 onready var ball_value = 5 
 
@@ -11,7 +11,7 @@ const CLAMP_VELOCITY = 1700.0
 
 func _ready() -> void:
 	get_tree().call_group("ui", "update_en", ball_energy)
-
+	get_tree().call_group("ui", "update_max_en", ball_energy)
 func _process(delta):
 	var speed = get_linear_velocity().length()
 
@@ -32,7 +32,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			applied_force = Vector2(0,0)
 
 
-func energy_charge() -> void:
+func energy_charge(obj) -> void:
+	if obj.is_in_group("mob"):
+		ball_energy -= 1
 
 #	ball_energy -= 1
 	if ball_energy >= 20:
@@ -54,7 +56,7 @@ func energy_charge() -> void:
 	
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
-	energy_charge()
+	energy_charge(area)
 	print("ball_energy", ball_energy)
 
 

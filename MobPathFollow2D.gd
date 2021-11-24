@@ -14,7 +14,9 @@ func _process(delta: float) -> void:
 
 
 func dead() -> void:
+	$Area2D/CollisionShape2D.disabled = true
 	$Area2D/Icon.hide()
+	get_tree().call_group("ui", "update_enemies")
 	var e = explosion.instance()
 	e.global_position = mob.global_position
 	add_child(e)
@@ -23,8 +25,8 @@ func dead() -> void:
 	queue_free()
 
 
-func _on_Area2D_body_entered(body: Node) -> void:
-	dead()
+#func _on_Area2D_body_entered(body: Node) -> void:
+#	dead()
 
 
 func _on_Area2D_area_entered(area: Area2D) -> void:

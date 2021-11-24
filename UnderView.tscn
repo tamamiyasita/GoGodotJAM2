@@ -1,50 +1,16 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Generator.tscn" type="PackedScene" id=3]
 [ext_resource path="res://LSwitch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://RSwitch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ReturnSwitch.tscn" type="PackedScene" id=6]
-[ext_resource path="res://image/主人公１.png" type="Texture" id=8]
-[ext_resource path="res://image/主人公２.png" type="Texture" id=9]
+[ext_resource path="res://LSwitch2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://RSwitch2.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 808.5, 9 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 21, 26.5 )
-
-[sub_resource type="Animation" id=4]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 9 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "idel"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 9 ), ExtResource( 8 ) ]
-}
 
 [node name="UnderView" type="Node2D"]
 
@@ -70,39 +36,25 @@ polygon = PoolVector2Array( 1608, 208, 1608, 0, 1600, 0, 1600, 200, 0, 200, 0, 0
 position = Vector2( 800.5, -9 )
 shape = SubResource( 1 )
 
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 1352, 168 )
-collision_layer = 64
-collision_mask = 0
-script = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 0, 1.5 )
-shape = SubResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="Player"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-autoplay = "idel"
-anims/RESET = SubResource( 4 )
-anims/idel = SubResource( 5 )
-
-[node name="Timer" type="Timer" parent="Player"]
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1224, 170 )
 
 [node name="Generator" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1432, 48 )
+position = Vector2( 1440, 54 )
 
 [node name="Switchs" type="Node2D" parent="."]
 
 [node name="LSwitch" parent="Switchs" instance=ExtResource( 4 )]
-position = Vector2( 720, 32 )
+position = Vector2( 760, 32 )
+
+[node name="LSwitch2" parent="Switchs" instance=ExtResource( 7 )]
+position = Vector2( 608, 32 )
 
 [node name="RSwitch" parent="Switchs" instance=ExtResource( 5 )]
 position = Vector2( 968, 34 )
 
-[node name="ReturnSwitch" parent="Switchs" instance=ExtResource( 6 )]
-position = Vector2( 1264, 30 )
+[node name="RSwitch2" parent="Switchs" instance=ExtResource( 8 )]
+position = Vector2( 1120, 34 )
 
-[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
+[node name="ReturnSwitch" parent="Switchs" instance=ExtResource( 6 )]
+position = Vector2( 1352, 34 )

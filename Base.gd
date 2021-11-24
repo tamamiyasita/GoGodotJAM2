@@ -5,6 +5,7 @@ var HP = 10
 func _ready() -> void:
 	get_tree().call_group("ui", "update_hp", HP)
 	get_tree().call_group("ui", "update_max_hp", HP)
+	$Camera2D.current = true
 
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
