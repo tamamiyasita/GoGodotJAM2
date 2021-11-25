@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Lightning.gd" type="Script" id=1]
-[ext_resource path="res://addons/kenney_particle_pack/spark_07.png" type="Texture" id=2]
-[ext_resource path="res://addons/kenney_particle_pack/spark_01.png" type="Texture" id=3]
+[ext_resource path="res://image/spark_07.png" type="Texture" id=2]
+[ext_resource path="res://image/spark_01.png" type="Texture" id=3]
 [ext_resource path="res://Electric.gd" type="Script" id=4]
 
 [sub_resource type="Shader" id=1]

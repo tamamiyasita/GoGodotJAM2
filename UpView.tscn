@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://MobPathFollow2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=2]
@@ -15,6 +15,75 @@
 [ext_resource path="res://image/ETCMGsVUYAA3iDH.jpg" type="Texture" id=13]
 [ext_resource path="res://ElecTower.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Bar3.tscn" type="PackedScene" id=15]
+[ext_resource path="res://UpView.gd" type="Script" id=16]
+[ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=17]
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("fadeOnOut:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/RichTextLabel:custom_fonts/normal_font:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 400 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("fadeOnOut:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.3, 2, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1.5, 1.5, 1.5, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 39.9999
@@ -28,9 +97,22 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -8, -1128, 0, 0, 0, 0, 208, -816, 0, 0, 0, 0, 256, -808, 0, 0, 0, 0, 456, -800, 0, 0, 0, 0, 592, -680, -78.4003, -38.1407, 78.4003, 38.1407, 680, -328, 0, 0, 0, 0, 1096, -272, -69.9246, -12.7136, 69.9246, 12.7136, 1424, -296, -50, -86, 50, 86, 1448, 24, 0, 0, 0, 0, 1592, 168 )
 }
 
-[node name="UpView" type="Node2D"]
+[sub_resource type="DynamicFont" id=12]
+size = 400
+outline_size = 30
+outline_color = Color( 0.168627, 0.882353, 0.470588, 1 )
+font_data = ExtResource( 17 )
+
+[node name="UpView" type="Node2D" groups=["up"]]
+script = ExtResource( 16 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/RESET = SubResource( 10 )
+anims/start = SubResource( 11 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -1752.0
@@ -38,25 +120,6 @@ margin_right = 1600.0
 margin_bottom = -852.0
 rect_min_size = Vector2( 1600, 5000 )
 color = Color( 0.858824, 0.85098, 0.686275, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 1248.0
-margin_top = 264.0
-margin_right = 1336.0
-margin_bottom = 344.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 80.0
-margin_top = -1072.0
-margin_right = 168.0
-margin_bottom = -992.0
-color = Color( 0.0627451, 0.109804, 0.384314, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -109,7 +172,7 @@ shape = SubResource( 7 )
 
 [node name="SpownPoint" type="Node" parent="MOB_POP"]
 script = ExtResource( 4 )
-mob_num = 8
+mob_num = 12
 pop_time = 5.0
 Mob = ExtResource( 1 )
 curve = ExtResource( 6 )
@@ -122,6 +185,7 @@ process_mode = 0
 
 [node name="SpownPoint2" type="Node" parent="MOB_POP"]
 script = ExtResource( 4 )
+mob_num = 1
 pop_time = 3.0
 Mob = ExtResource( 1 )
 curve = ExtResource( 6 )
@@ -132,7 +196,7 @@ curve = SubResource( 9 )
 [node name="Timer" type="Timer" parent="MOB_POP/SpownPoint2"]
 process_mode = 0
 
-[node name="Manipulate" type="Node" parent="."]
+[node name="Manipulate" type="Node2D" parent="."]
 
 [node name="Hammer" parent="Manipulate" instance=ExtResource( 3 )]
 position = Vector2( 2048, 152 )
@@ -185,7 +249,16 @@ position = Vector2( 232, 96 )
 rotation = -1.60396
 
 [node name="ElecTower" parent="Towers" instance=ExtResource( 14 )]
-position = Vector2( 792, -1384 )
+position = Vector2( 1552, -1072 )
+
+[node name="ElecTower2" parent="Towers" instance=ExtResource( 14 )]
+position = Vector2( 1440, -1192 )
+
+[node name="ElecTower3" parent="Towers" instance=ExtResource( 14 )]
+position = Vector2( 1552, -1152 )
+
+[node name="ElecTower4" parent="Towers" instance=ExtResource( 14 )]
+position = Vector2( 1304, -1256 )
 
 [node name="Obstacle" type="Node2D" parent="."]
 
@@ -216,6 +289,48 @@ position = Vector2( 1600, 168 )
 position = Vector2( -16, 1048 )
 zoom = Vector2( 5, 5 )
 limit_bottom = 900
+
+[node name="fadeOnOut" type="ColorRect" parent="."]
+visible = false
+margin_left = -2864.0
+margin_top = -3984.0
+margin_right = 6168.0
+margin_bottom = 2032.0
+color = Color( 0, 0.0235294, 0.14902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -760.0
+margin_right = 1608.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer"]
+margin_top = 130.0
+margin_right = 3500.0
+margin_bottom = 630.0
+rect_min_size = Vector2( 3500, 500 )
+size_flags_horizontal = 15
+size_flags_vertical = 15
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_text = "wave 1 Start!"
+tab_size = 6
+text = "wave 1 Start!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+pause_mode = 2
+position = Vector2( 1232, -448 )
+zoom = Vector2( 3, 3 )
+process_mode = 0
 
 [connection signal="body_entered" from="Wall/ReturnArea2D" to="Wall/ReturnArea2D" method="_on_ReturnArea2D_body_entered"]
 [connection signal="timeout" from="MOB_POP/SpownPoint/Timer" to="MOB_POP/SpownPoint" method="_on_Timer_timeout"]

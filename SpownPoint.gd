@@ -1,6 +1,6 @@
 extends Node
 
-export (int) var mob_num := 5
+export (int) var mob_num := 0
 export (float) var pop_time := 2.0
 
 export(PackedScene) var Mob
