@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://image/宝箱下部分.png" type="Texture" id=1]
-[ext_resource path="res://image/宝箱蓋　閉じてる.png" type="Texture" id=2]
-[ext_resource path="res://image/宝箱蓋　開いた.png" type="Texture" id=3]
+[ext_resource path="res://image/chest_d.png" type="Texture" id=1]
+[ext_resource path="res://image/chest_1.png" type="Texture" id=2]
+[ext_resource path="res://image/chest_2.png" type="Texture" id=3]
 [ext_resource path="res://Chest.gd" type="Script" id=4]
-[ext_resource path="res://image/ケーキ.png" type="Texture" id=5]
+[ext_resource path="res://image/cake.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 20.0

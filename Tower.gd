@@ -38,7 +38,7 @@ func ball_energy_charge(body) -> void:
 
 func fire()->void:
 	var fire = Fire.instance()
-	rigid_body.add_child(fire)
+	$Position2D.add_child(fire)
 	energy -= 3
 	if energy < 0:
 		energy = 0

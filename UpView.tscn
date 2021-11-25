@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://MobPathFollow2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Wood.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Base.tscn" type="PackedScene" id=12]
 [ext_resource path="res://image/ETCMGsVUYAA3iDH.jpg" type="Texture" id=13]
+[ext_resource path="res://ElecTower.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Bar3.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CapsuleShape2D" id=8]
@@ -61,7 +62,7 @@ __meta__ = {
 }
 
 [node name="EtcmgsVuyaa3iDh" type="Sprite" parent="."]
-position = Vector2( 808, -736 )
+position = Vector2( 816, -744 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 13 )
 
@@ -182,6 +183,9 @@ rotation = -0.794125
 [node name="Cannon7" parent="Towers" instance=ExtResource( 8 )]
 position = Vector2( 232, 96 )
 rotation = -1.60396
+
+[node name="ElecTower" parent="Towers" instance=ExtResource( 14 )]
+position = Vector2( 792, -1384 )
 
 [node name="Obstacle" type="Node2D" parent="."]
 
