@@ -9,8 +9,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 func shot() -> void:
 	var b = Ball.instance()
-	b.global_position = global_position
-	b.global_position.y -= 130
+	b.position = position
+	b.position.y -= 130
 	get_parent().add_child(b)
 	yield(get_tree().create_timer(1.0), "timeout") 
 	

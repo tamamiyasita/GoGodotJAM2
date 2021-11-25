@@ -24,7 +24,7 @@ func dead() -> void:
 	var e = explosion.instance()
 	e.global_position = mob.global_position
 	add_child(e)
-	queue_free()
+
 
 
 
