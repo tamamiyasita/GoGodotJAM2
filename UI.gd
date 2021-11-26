@@ -42,3 +42,4 @@ func update_enemies() -> void:
 	ENEM_progress.value = enemies_count
 	if 1 > enemies_count:
 		print("wave_clear")
+		get_tree().call_group("level", "level_change")

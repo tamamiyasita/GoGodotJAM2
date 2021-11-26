@@ -15,7 +15,7 @@ radius = 33.5
 offsets = PoolRealArray( 0, 0.569659 )
 colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=8]
+[sub_resource type="GradientTexture" id=15]
 gradient = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=6]
@@ -23,7 +23,7 @@ flag_align_y = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1.0
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 15 )
 
 [sub_resource type="Curve" id=10]
 _data = [ Vector2( 0, 0.0602273 ), 0.0, 0.0, 0, 0, Vector2( 0.523121, 1 ), -1.24004, -1.24004, 0, 0, Vector2( 1, 0.196591 ), 0.0, 0.0, 0, 0 ]
@@ -98,10 +98,10 @@ rotating = true
 current = true
 zoom = Vector2( 2, 2 )
 process_mode = 0
-limit_left = -1000
-limit_top = -2100
-limit_right = 2500
-limit_bottom = 600
+limit_left = -512
+limit_top = -768
+limit_right = 2712
+limit_bottom = 1032
 limit_smoothed = true
 smoothing_enabled = true
 
