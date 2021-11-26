@@ -95,12 +95,11 @@ texture = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 rotating = true
-current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 2.5, 2.5 )
 process_mode = 0
 limit_left = -512
 limit_top = -768
-limit_right = 2712
+limit_right = 2860
 limit_bottom = 1032
 limit_smoothed = true
 smoothing_enabled = true

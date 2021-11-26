@@ -12,7 +12,7 @@ func shot() -> void:
 	b.position = position
 	b.position.y -= 130
 	get_parent().add_child(b)
-	yield(get_tree().create_timer(1.0), "timeout") 
+	yield(get_tree().create_timer(0.2), "timeout") 
 	
 	anime.play('shot')
 	yield(anime, "animation_finished" )
