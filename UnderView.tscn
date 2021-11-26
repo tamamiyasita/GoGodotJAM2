@@ -10,7 +10,7 @@
 [ext_resource path="res://RSwitch2.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 808.5, 9 )
+extents = Vector2( 804, 9 )
 
 [node name="UnderView" type="Node2D"]
 
@@ -33,14 +33,11 @@ collision_mask = 65
 polygon = PoolVector2Array( 1608, 208, 1608, 0, 1600, 0, 1600, 200, 0, 200, 0, 0, -8, 0, -8, 208 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
-position = Vector2( 800.5, -9 )
+position = Vector2( 796, -9 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1224, 170 )
-
-[node name="Generator" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1440, 54 )
 
 [node name="Switchs" type="Node2D" parent="."]
 
@@ -58,3 +55,6 @@ position = Vector2( 1120, 34 )
 
 [node name="ReturnSwitch" parent="Switchs" instance=ExtResource( 6 )]
 position = Vector2( 1352, 34 )
+
+[node name="Generator" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1440, 72 )

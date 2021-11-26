@@ -11,6 +11,8 @@ onready var timer := $Timer
 
 
 func _ready() -> void:
+	randomize()
+	pop_time += rand_range(-1.5, 1.5)
 	timer.wait_time = pop_time
 	timer.start()
 	get_tree().call_group("ui", "enemies_number", mob_num)

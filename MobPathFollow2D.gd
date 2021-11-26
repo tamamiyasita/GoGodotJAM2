@@ -2,19 +2,21 @@ extends PathFollow2D
 
 onready var mob := $Area2D
 export(PackedScene) var explosion
+export(float) var move_speed := 3.0
 export var damage := 1
 export var hp = 1
 onready var col = $Area2D/CollisionShape2D as CollisionShape2D
 onready var anime := $AnimationPlayer
 
-#func _ready() -> void:
+func _ready() -> void:
+	move_speed *= 0.0001
 #	randomize()
 #	h_offset += randi() % 3
 #	v_offset += randi() % 3
 	
 	
 func _process(delta: float) -> void:
-	unit_offset += 0.0004
+	unit_offset += move_speed
 
 
 func dead() -> void:
@@ -24,6 +26,8 @@ func dead() -> void:
 	var e = explosion.instance()
 	e.global_position = mob.global_position
 	add_child(e)
+	yield(get_tree().create_timer(0.35), "timeout")
+	queue_free()
 
 
 
@@ -38,6 +42,7 @@ func _damege_flash() -> void:
 		hp -= 1
 		col.disabled = false
 		mob.monitoring = true
+
 	else:
 		dead()
 	

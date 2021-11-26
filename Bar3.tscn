@@ -5,7 +5,7 @@
 [sub_resource type="Animation" id=7]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -14,19 +14,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 180.0 ]
+"values": [ Vector2( 336, 376 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -37,12 +25,24 @@ tracks/0/path = NodePath("..:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 60.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 336, 376 ), Vector2( 336, -176 ), Vector2( 336, 376 ) ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -196,7 +196,7 @@ anims/RESET = SubResource( 7 )
 anims/bar_L = SubResource( 8 )
 
 [node name="L_Bar" type="KinematicBody2D" parent="L_pos"]
-position = Vector2( 152, 16 )
+position = Vector2( 336, 376 )
 collision_layer = 4
 
 [node name="Polygon2D" type="Polygon2D" parent="L_pos/L_Bar"]

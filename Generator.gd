@@ -21,14 +21,15 @@ func _on_Generator_body_entered(body: Node) -> void:
 	print("player_on")
 	if on_ball:
 		ball.show()
+#		player.anime.play("charge")
 		player.hide()
 		anime.play('power_on')
 		set_process(true)
 		
 
 func _process(delta: float) -> void:
-	energy_bar.value += .9
-	ball.sprite.modulate.a += .007
+	energy_bar.value += 1.9
+	ball.sprite.modulate.a += .016
 	if energy_bar.value == energy_bar.max_value:
 		get_tree().call_group("hammer", "shot")
 		energy_bar.value = 0
