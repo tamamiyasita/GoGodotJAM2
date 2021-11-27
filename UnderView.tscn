@@ -105,7 +105,7 @@ anims/light = SubResource( 4 )
 position = Vector2( 1352, 34 )
 
 [node name="Generator" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1440, 72 )
+position = Vector2( 1458, 37 )
 
 [editable path="Switchs/LSwitch"]
 [editable path="Switchs/LSwitch2"]
