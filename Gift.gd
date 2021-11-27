@@ -4,10 +4,10 @@ onready var chest_pos := $ChestPosition2D
 onready var timer := $Timer
 
 func _ready() -> void:
-	pass
+	timer.start()
 
 
 func _on_Timer_timeout() -> void:
 	var c = Chest.instance()
 	chest_pos.add_child(c)
-	
+	timer.stop()
