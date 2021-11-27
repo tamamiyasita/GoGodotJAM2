@@ -24,6 +24,10 @@ config/name="GoGodotJAM"
 run/main_scene="res://Level1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+BaseInfo="*res://BaseInfo.gd"
+
 [display]
 
 window/size/width=1600

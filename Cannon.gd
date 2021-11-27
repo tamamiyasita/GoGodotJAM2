@@ -25,8 +25,8 @@ func _process(delta: float) -> void:
 
 func ball_energy_charge(body) -> void:
 	if body.is_in_group("ball"):
-		energy += body.ball_value
-		body.ball_energy -= energy_consumption
+		energy += BaseInfo.ball_value
+		BaseInfo.ball_energy -= energy_consumption
 		set_process(true)
 	if energy > 0:
 		$AnimationPlayer2.play('lighit')

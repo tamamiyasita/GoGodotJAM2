@@ -10,7 +10,8 @@ var player
 
 func _ready() -> void:
 	set_process(false)
-	ball.hide()
+#	ball.hide()
+	ball.sprite.modulate.a = 0
 
 func return_ball() -> void:
 	on_ball = true
@@ -22,10 +23,10 @@ func _on_Generator_body_entered(body: Node) -> void:
 	if on_ball:
 		ball.show()
 #		player.anime.play("charge")
-		player.hide()
+		player.sprite.hide()
 		anime.play('power_on')
 		set_process(true)
-		
+		$AudioStreamPlayer.play()
 
 func _process(delta: float) -> void:
 	energy_bar.value += 1.9
@@ -38,13 +39,13 @@ func _process(delta: float) -> void:
 		on_ball = false
 		ball.sprite.modulate.a = 0
 		ball.hide()
-		player.show()
+		player.sprite.show()
 
 		
 
 
 func _on_Generator_body_exited(body: Node) -> void:
 	player = body
-	player.show()
+	player.sprite.show()
 	anime.play('power_off')
 	set_process(false)
