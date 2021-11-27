@@ -3,7 +3,7 @@ extends Node2D
 
 onready var anime := $AnimationPlayer
 func _ready() -> void:
-	pass
+	$Particles2D2.emitting = true
 
 
 func _on_Area2D_body_entered(body: Node) -> void:
