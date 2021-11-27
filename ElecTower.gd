@@ -26,8 +26,8 @@ func _process(delta: float) -> void:
 func ball_energy_charge(body) -> void:
 	if body.is_in_group("ball"):
 		ball = body
-		energy += body.ball_value
-		body.ball_energy -= energy_consumption
+		energy += BaseInfo.ball_value
+		BaseInfo.ball_energy -= energy_consumption
 		fire(energy)
 		set_process(true)
 	if energy > 0:

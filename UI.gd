@@ -20,6 +20,9 @@ func update_en(value) -> void:
 	EN_label.bbcode_text =  " Ball Energy " + str(value)
 	EN_progress.value = value
 	
+func update_max_en(value) -> void:
+	EN_progress.max_value = value
+	
 
 func update_hp(value) -> void:
 	HP_label.bbcode_text = " Base HP " + str(value)
@@ -28,8 +31,6 @@ func update_hp(value) -> void:
 func update_max_hp(value) -> void:
 	HP_progress.max_value = value
 	
-func update_max_en(value) -> void:
-	EN_progress.max_value = value
 
 func enemies_number(value) -> void:
 	enemies_count += value
