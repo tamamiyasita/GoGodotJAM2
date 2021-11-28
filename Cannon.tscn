@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Cannon.gd" type="Script" id=1]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://image/dsdfsfs.png" type="Texture" id=3]
 [ext_resource path="res://image/spot.png" type="Texture" id=4]
 [ext_resource path="res://image/object.png" type="Texture" id=5]
+[ext_resource path="res://sound/Holy_Impact.wav" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -20,6 +21,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0.45098, 0.462745, 0.466667, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "lighit"
@@ -34,7 +47,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 2, 2, 2, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 3, 3, 2, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Shader" id=24]
@@ -109,7 +134,7 @@ shader_param/tint_color = Color( 1, 1, 1, 1 )
 shader_param/tint_effect_factor = 0.0
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 40 )
+extents = Vector2( 40, 52 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -155,7 +180,7 @@ root_node = NodePath("../Light2D")
 anims/RESET = SubResource( 5 )
 anims/lighit = SubResource( 6 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["tower"]]
 collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
@@ -165,6 +190,7 @@ texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
+position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 
 [node name="Muzzle" type="Sprite" parent="."]
@@ -188,5 +214,9 @@ disabled = true
 [node name="Light2D" type="Light2D" parent="."]
 visible = false
 texture = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -17.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

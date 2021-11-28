@@ -3,7 +3,7 @@
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://UnderView.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UpView4.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Path_curve/魔王魂 旧ゲーム音楽 戦闘曲37.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Path_curve/魔王魂  ファンタジー11.mp3" type="AudioStream" id=4]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -73,4 +73,5 @@ environment = SubResource( 1 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
+volume_db = -14.0
 autoplay = true

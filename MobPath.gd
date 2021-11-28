@@ -8,5 +8,5 @@ onready var path := $PathFollow2D
 
 
 
-func _on_Area2D_body_entered(body: Node) -> void:
-	queue_free()
+#func _on_Area2D_body_entered(body: Node) -> void:
+#	queue_free()

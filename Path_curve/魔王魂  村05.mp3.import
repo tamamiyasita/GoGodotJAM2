@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/魔王魂  村05.mp3-a2946704ef0af7b703b47c97fcf7e0b4.mp3str"
+
+[deps]
+
+source_file="res://Path_curve/魔王魂  村05.mp3"
+dest_files=[ "res://.import/魔王魂  村05.mp3-a2946704ef0af7b703b47c97fcf7e0b4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

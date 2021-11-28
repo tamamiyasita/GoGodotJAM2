@@ -1,24 +1,20 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI.gd" type="Script" id=2]
-[ext_resource path="res://image/bar.png" type="Texture" id=3]
+[ext_resource path="res://image/barGreen_horizontalMid.png" type="Texture" id=3]
 [ext_resource path="res://image/text-box.png" type="Texture" id=4]
+[ext_resource path="res://image/barBack_horizontalMid.png" type="Texture" id=5]
+[ext_resource path="res://image/barRed_horizontalMid.png" type="Texture" id=6]
+[ext_resource path="res://image/barYellow_horizontalMid.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=3]
-size = 20
+size = 23
 outline_size = 2
-extra_spacing_top = 6
+outline_color = Color( 0.972549, 1, 0.996078, 1 )
+extra_spacing_top = 4
 extra_spacing_space = 1
 font_data = ExtResource( 1 )
-
-[sub_resource type="StreamTexture" id=4]
-flags = 4
-load_path = "res://.import/bar.png-6075b58fc41bf43c64c9c9799285feb5.stex"
-
-[sub_resource type="StreamTexture" id=5]
-flags = 4
-load_path = "res://.import/bar.png-6075b58fc41bf43c64c9c9799285feb5.stex"
 
 [node name="UI" type="Control" groups=["ui"]]
 margin_right = 384.0
@@ -31,6 +27,7 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -24.0
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -38,9 +35,12 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_top = 0.068
+anchor_top = 0.057
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 4.6
+margin_right = -8.0
+margin_bottom = -8.0
 size_flags_horizontal = 15
 size_flags_vertical = 15
 __meta__ = {
@@ -48,82 +48,115 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 384.0
+margin_right = 376.0
 margin_bottom = 30.0
 
 [node name="HPLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
 margin_right = 170.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 170, 30 )
-custom_colors/default_color = Color( 0.654902, 0.207843, 0.145098, 1 )
+custom_colors/default_color = Color( 0.145098, 0.713726, 0.0470588, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = " Base HP"
 text = " Base HP"
 scroll_active = false
 
-[node name="HPProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 margin_left = 174.0
-margin_right = 324.0
+margin_right = 189.0
 margin_bottom = 30.0
-rect_min_size = Vector2( 150, 0 )
+rect_min_size = Vector2( 15, 0 )
+
+[node name="HPProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer"]
+margin_left = 193.0
+margin_right = 373.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 180, 30 )
 value = 30.0
+texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 34.0
-margin_right = 384.0
-margin_bottom = 64.0
+margin_right = 376.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 30, 20 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 58.0
+margin_right = 376.0
+margin_bottom = 88.0
 
 [node name="ENTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2"]
 margin_right = 170.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 170, 30 )
-custom_colors/default_color = Color( 0.203922, 0.627451, 0, 1 )
+custom_colors/default_color = Color( 0.678431, 0.65098, 0.0862745, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = " Ball Energy 0"
 text = " Ball Energy 0"
 scroll_active = false
 
-[node name="ENProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer2"]
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 174.0
-margin_right = 324.0
+margin_right = 189.0
 margin_bottom = 30.0
-rect_min_size = Vector2( 150, 0 )
-texture_progress = SubResource( 4 )
+rect_min_size = Vector2( 15, 0 )
+
+[node name="ENProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 193.0
+margin_right = 373.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 180, 30 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 7 )
 nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 92.0
+margin_right = 376.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 30, 20 )
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 68.0
-margin_right = 384.0
-margin_bottom = 98.0
+margin_top = 116.0
+margin_right = 376.0
+margin_bottom = 146.0
 
 [node name="ENTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3"]
 margin_right = 170.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 170, 30 )
-custom_colors/default_color = Color( 0.203922, 0.627451, 0, 1 )
+custom_colors/default_color = Color( 0.85098, 0.623529, 0.25098, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = " Ball Energy 50"
-text = " Ball Energy 50"
+bbcode_text = " Enemies"
+text = " Enemies"
 scroll_active = false
 
-[node name="ENProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer3"]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer3"]
 margin_left = 174.0
-margin_right = 324.0
+margin_right = 189.0
 margin_bottom = 30.0
-rect_min_size = Vector2( 150, 0 )
+rect_min_size = Vector2( 15, 0 )
+
+[node name="ENProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 193.0
+margin_right = 373.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 180, 0 )
 value = 20.0
-texture_progress = SubResource( 5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false

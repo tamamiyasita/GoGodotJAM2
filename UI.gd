@@ -42,6 +42,7 @@ func update_enemies() -> void:
 	enemies_count -= 1
 	ENEM_label.bbcode_text = " Enemies " + str(enemies_count)
 	ENEM_progress.value = enemies_count
+	yield(get_tree(), "idle_frame")
 	print("enemies_count =" , enemies_count)
 	if 1 > enemies_count:
 		print("wave_clear")

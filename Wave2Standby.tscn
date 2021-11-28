@@ -1,13 +1,14 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Wave2Standby.gd" type="Script" id=1]
-[ext_resource path="res://ElecTower.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Slime3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Chest.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Slime2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Path_curve/kenvector_future_thin.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://image/grey_box.png" type="Texture" id=6]
 [ext_resource path="res://image/green_button05.png" type="Texture" id=7]
 [ext_resource path="res://image/green_button04.png" type="Texture" id=8]
+[ext_resource path="res://Path_curve/魔王魂  村05.mp3" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 61
@@ -120,6 +121,22 @@ tracks/0/keys = {
 "values": [ Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 1 ) ]
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "ready"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1.1, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 0 ) ]
+}
+
 [node name="Wave2Standby" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -143,9 +160,9 @@ margin_right = 1039.0
 margin_bottom = 192.0
 size_flags_stretch_ratio = 0.0
 custom_fonts/normal_font = SubResource( 1 )
-bbcode_text = "Stage 1 Clear!"
+bbcode_text = "Stage 2 Clear!"
 tab_size = 6
-text = "Stage 1 Clear!"
+text = "Stage 2 Clear!"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -208,11 +225,13 @@ patch_margin_right = 7
 patch_margin_bottom = 7
 
 [node name="MobPathFollow2D" parent="VBoxContainer/NinePatchRect" instance=ExtResource( 3 )]
-position = Vector2( 160, 128 )
-scale = Vector2( 4, 4 )
 
-[node name="AnimationPlayer" parent="VBoxContainer/NinePatchRect/MobPathFollow2D/Area2D" index="3"]
-autoplay = ""
+[node name="Area2D" parent="VBoxContainer/NinePatchRect/MobPathFollow2D" index="0"]
+position = Vector2( 146, 137 )
+scale = Vector2( 5, 5 )
+
+[node name="AnimationPlayer" parent="VBoxContainer/NinePatchRect/MobPathFollow2D/Area2D" index="1"]
+autoplay = "RESET"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
 margin_top = 356.0
@@ -223,10 +242,10 @@ size_flags_horizontal = 15
 size_flags_vertical = 15
 size_flags_stretch_ratio = 0.0
 custom_fonts/normal_font = SubResource( 4 )
-bbcode_text = "   [Green slime]
+bbcode_text = "   [Red slime]
 "
 tab_size = 6
-text = "   [Green slime]
+text = "   [Red slime]
 "
 scroll_active = false
 __meta__ = {
@@ -242,9 +261,9 @@ size_flags_horizontal = 15
 size_flags_vertical = 15
 size_flags_stretch_ratio = 0.0
 custom_fonts/normal_font = SubResource( 6 )
-bbcode_text = "    fast runner"
+bbcode_text = "    High HP"
 tab_size = 6
-text = "    fast runner"
+text = "    High HP"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -289,9 +308,18 @@ patch_margin_top = 7
 patch_margin_right = 7
 patch_margin_bottom = 7
 
-[node name="ElecTower" parent="VBoxContainer2/NinePatchRect" instance=ExtResource( 2 )]
-position = Vector2( 148, 136 )
+[node name="Chest" parent="VBoxContainer2/NinePatchRect" instance=ExtResource( 2 )]
+position = Vector2( 167, 116 )
 scale = Vector2( 3, 3 )
+
+[node name="AnimationPlayer" parent="VBoxContainer2/NinePatchRect/Chest" index="0"]
+autoplay = "RESET"
+
+[node name="Particles2D3" parent="VBoxContainer2/NinePatchRect/Chest/Area2D" index="4"]
+visible = false
+
+[node name="Particles2D2" parent="VBoxContainer2/NinePatchRect/Chest" index="3"]
+visible = false
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer2"]
 margin_top = 356.0
@@ -301,10 +329,10 @@ rect_min_size = Vector2( 0, 35 )
 size_flags_stretch_ratio = 0.0
 custom_fonts/normal_font = SubResource( 7 )
 bbcode_enabled = true
-bbcode_text = "[Lightning Tower]
+bbcode_text = "[Treasure Chest]
 "
 tab_size = 6
-text = "[Lightning Tower]
+text = "[Treasure Chest]
 "
 scroll_active = false
 __meta__ = {
@@ -319,10 +347,10 @@ rect_min_size = Vector2( 0, 60 )
 size_flags_stretch_ratio = 0.0
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
-bbcode_text = "I'll shoot a beam of electricity at the orb.
+bbcode_text = "Contains recovery items, etc.
 "
 tab_size = 6
-text = "I'll shoot a beam of electricity at the orb.
+text = "Contains recovery items, etc.
 "
 scroll_active = false
 __meta__ = {
@@ -375,10 +403,17 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ready"
 anims/RESET = SubResource( 12 )
 anims/next = SubResource( 13 )
+anims/ready = SubResource( 14 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -14.0
+autoplay = true
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 
 [editable path="VBoxContainer/NinePatchRect/MobPathFollow2D"]
-[editable path="VBoxContainer2/NinePatchRect/ElecTower"]
+[editable path="VBoxContainer2/NinePatchRect/Chest"]

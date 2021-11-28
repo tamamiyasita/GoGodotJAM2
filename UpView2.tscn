@@ -1,17 +1,14 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
-[ext_resource path="res://Gift.gd" type="Script" id=1]
 [ext_resource path="res://UpView.gd" type="Script" id=2]
 [ext_resource path="res://SpownPoint.gd" type="Script" id=3]
 [ext_resource path="res://ReturnArea2D.gd" type="Script" id=4]
 [ext_resource path="res://Tower.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Wood.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ElecTower.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Hammer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Cannon.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Base.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Chest.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Slime1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://Path_curve/curve2d_1.tres" type="Curve2D" id=15]
@@ -25,61 +22,6 @@
 [ext_resource path="res://image/map.png" type="Texture" id=23]
 [ext_resource path="res://Slime3.tscn" type="PackedScene" id=24]
 
-[sub_resource type="Animation" id=10]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("fadeOnOut:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CenterContainer/RichTextLabel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "start"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("fadeOnOut:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CenterContainer/RichTextLabel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 1.3, 2, 2.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1.5, 1.5, 1.5, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 39.9999
 height = 2508.0
@@ -87,19 +29,21 @@ height = 2508.0
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 1788, 20 )
 
+[sub_resource type="CapsuleShape2D" id=18]
+
 [sub_resource type="Curve2D" id=15]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, 0, 0, 0, 0, 896, -1104, 0, 0, 0, 0, 1048, -1024, -78.4003, -38.1407, 78.4003, 38.1407, 1520, -1176, 0, 0, 0, 0, 1976, -952, -69.9246, -12.7136, 69.9246, 12.7136, 2208, -664, -50, -86, 50, 86, 2600, -576, 0, 0, 0, 0, 2672, -120 )
+"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, 0, 0, 0, 0, 896, -1104, 0, 0, 0, 0, 1048, -1024, -78.4003, -38.1407, 78.4003, 38.1407, 1520, -1176, 0, 0, 0, 0, 1976, -952, -69.9246, -12.7136, 69.9246, 12.7136, 2208, -664, -50, -86, 50, 86, 2600, -576, 0, 0, 0, 0, 2888, 112 )
 }
 
 [sub_resource type="Curve2D" id=16]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, -780.352, 13.4543, 780.352, -13.4543, 288, -2048, 0, 0, 0, 0, 872, -2064, 0, 0, 0, 0, 1168, -2184, -78.4003, -38.1407, 78.4003, 38.1407, 1840, -2344, 0, 0, 0, 0, 1840, -2016, 0, 0, 0, 0, 1976, -1816, -69.9246, -12.7136, 69.9246, 12.7136, 1976, -1448, -50, -86, 50, 86, 2440, -1560, 0, 0, 0, 0, 2568, -1104 )
+"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, -780.352, 13.4543, 780.352, -13.4543, 288, -2048, 0, 0, 0, 0, 872, -2064, 0, 0, 0, 0, 1168, -2184, -78.4003, -38.1407, 78.4003, 38.1407, 1840, -2344, 0, 0, 0, 0, 1840, -2016, 0, 0, 0, 0, 1976, -1816, -69.9246, -12.7136, 69.9246, 12.7136, 1976, -1448, -50, -86, 50, 86, 2440, -1560, 0, 0, 0, 0, 2752, -984 )
 }
 
 [sub_resource type="Curve2D" id=17]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, -240.636, 48.3772, 240.636, -48.3772, 456, -1024, -155.565, 82.5448, 155.565, -82.5448, 784, -1448, 0, 0, 0, 0, 976, -1448, -78.4003, -38.1407, 78.4003, 38.1407, 1240, -1320, 0, 0, 0, 0, 1520, -1624, -67.9589, -113.265, 67.9589, 113.265, 2344, -1872, -69.9246, -12.7136, 69.9246, 12.7136, 2208, -1440, -50, -86, 50, 86, 2504, -1240, 0, 0, 0, 0, 2568, -1104 )
+"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, -240.636, 48.3772, 240.636, -48.3772, 456, -1024, -155.565, 82.5448, 155.565, -82.5448, 784, -1448, 0, 0, 0, 0, 976, -1448, -78.4003, -38.1407, 78.4003, 38.1407, 1240, -1320, 0, 0, 0, 0, 1520, -1624, -67.9589, -113.265, 67.9589, 113.265, 2344, -1872, -69.9246, -12.7136, 69.9246, 12.7136, 2208, -1440, -50, -86, 50, 86, 2504, -1240, 0, 0, 0, 0, 2768, -1048 )
 }
 
 [sub_resource type="DynamicFont" id=12]
@@ -134,13 +78,151 @@ points = PoolVector2Array( 40, 8, 64, 24, 72, 32, 72, 48, 56, 64, 48, 64, 32, 64
 } ]
 0/z_index = 0
 
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("fadeOnOut:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/RichTextLabel:bbcode_text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ " Wave 2 Start!" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("fadeOnOut:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "game_over"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/RichTextLabel:bbcode_text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Game Over!" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fadeOnOut:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fadeOnOut:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/RichTextLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("fadeOnOut:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.3, 2, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1.5, 1.5, 1.5, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fadeOnOut:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="UpView2" type="Node2D" groups=["up"]]
 script = ExtResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-pause_mode = 2
-anims/RESET = SubResource( 10 )
-anims/start = SubResource( 11 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 visible = false
@@ -203,19 +285,46 @@ script = ExtResource( 4 )
 position = Vector2( 588, 644 )
 shape = SubResource( 7 )
 
-[node name="MOB_POP" type="Node" parent="."]
+[node name="Obstacle" type="Node2D" parent="."]
 
-[node name="Iseki" type="Sprite" parent="MOB_POP"]
+[node name="Iseki" type="Sprite" parent="Obstacle"]
 position = Vector2( -272, 136 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 20 )
 
-[node name="Doukutu" type="Sprite" parent="MOB_POP"]
+[node name="Doukutu" type="Sprite" parent="Obstacle"]
 position = Vector2( -400, -504 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 16 )
 
-[node name="Doukutu2" type="Sprite" parent="MOB_POP"]
+[node name="Doukutu2" type="Sprite" parent="Obstacle"]
 position = Vector2( -248, 552 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Obstacle"]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Obstacle/StaticBody2D"]
+position = Vector2( -80, -136 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Obstacle/StaticBody2D"]
+position = Vector2( 2048, 368 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacle/StaticBody2D"]
+position = Vector2( 864, -40 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacle/StaticBody2D"]
+position = Vector2( -288, 152 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Obstacle/StaticBody2D"]
+position = Vector2( -376, -496 )
+shape = SubResource( 18 )
+
+[node name="MOB_POP" type="Node" parent="."]
 
 [node name="SpownPoint" type="Node" parent="MOB_POP"]
 script = ExtResource( 3 )
@@ -331,32 +440,8 @@ position = Vector2( 1672, -88 )
 [node name="Cannon2" parent="Towers" instance=ExtResource( 10 )]
 position = Vector2( 1096, 280 )
 
-[node name="ElecTower" parent="Towers" instance=ExtResource( 7 )]
-position = Vector2( 1552, -1072 )
-
-[node name="ElecTower2" parent="Towers" instance=ExtResource( 7 )]
-position = Vector2( 1632, -1240 )
-
-[node name="ElecTower3" parent="Towers" instance=ExtResource( 7 )]
-position = Vector2( 1552, -1152 )
-
 [node name="ElecTower4" parent="Towers" instance=ExtResource( 7 )]
 position = Vector2( 2632, 8 )
-
-[node name="Obstacle" type="Node2D" parent="."]
-
-[node name="Gift" type="Node2D" parent="."]
-script = ExtResource( 1 )
-Chest = ExtResource( 12 )
-
-[node name="ChestPosition2D" type="Position2D" parent="Gift"]
-position = Vector2( -392, -632 )
-
-[node name="Wood" parent="Gift" instance=ExtResource( 6 )]
-position = Vector2( 1920, -424 )
-
-[node name="Timer" type="Timer" parent="Gift"]
-wait_time = 2.0
 
 [node name="Base" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2648, 552 )
@@ -396,9 +481,9 @@ size_flags_horizontal = 15
 size_flags_vertical = 15
 size_flags_stretch_ratio = 0.0
 custom_fonts/normal_font = SubResource( 12 )
-bbcode_text = "wave 2 Start!"
+bbcode_text = " Wave 2 Start!"
 tab_size = 6
-text = "wave 2 Start!"
+text = " Wave 2 Start!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -419,12 +504,18 @@ tile_data = PoolIntArray( -1900514, 0, 0, 131055, 0, 0, 196591, 0, 0, 393200, 0,
 position = Vector2( 264, -624 )
 texture = ExtResource( 21 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+autoplay = "RESET"
+anims/RESET = SubResource( 19 )
+anims/game_over = SubResource( 20 )
+anims/start = SubResource( 21 )
+
 [connection signal="body_entered" from="Wall/ReturnArea2D" to="Wall/ReturnArea2D" method="_on_ReturnArea2D_body_entered"]
 [connection signal="timeout" from="MOB_POP/SpownPoint/Timer" to="MOB_POP/SpownPoint" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MOB_POP/SpownPoint2/Timer" to="MOB_POP/SpownPoint2" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MOB_POP/SpownPoint3/Timer" to="MOB_POP/SpownPoint3" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MOB_POP/SpownPoint4/Timer" to="MOB_POP/SpownPoint4" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Gift/Timer" to="Gift" method="_on_Timer_timeout"]
 
 [editable path="Manipulate/Bar"]
 [editable path="Manipulate/Bar2"]

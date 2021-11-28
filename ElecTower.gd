@@ -49,7 +49,7 @@ func fire(value)->void:
 	var fire = Fire.instance()
 	$Muzzle/shotPos.add_child(fire)
 	fire.timer_set(value)
-	$Timer.start(1)
+	$Timer.start(1.4)
 #	energy -= 3
 #	if energy < 0:
 #		energy = 0
@@ -68,6 +68,6 @@ func _on_Area2D_body_entered(body: Node) -> void:
 func _on_Timer_timeout() -> void:
 	if energy > 0:
 		energy -= 1
-		$Timer.start(1)
+		$Timer.start(1.4)
 	else:
 		set_process(false)

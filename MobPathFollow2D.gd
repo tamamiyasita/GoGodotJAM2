@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 
 
 func dead() -> void:
+	get_tree().call_group("ui", "update_enemies")
 	$Area2D/CollisionShape2D.disabled = true
 	$Area2D/Icon.hide()
 	$Area2D/Shadow.hide()
@@ -29,7 +30,7 @@ func dead() -> void:
 	e.global_position = mob.global_position
 	add_child(e)
 	yield(get_tree().create_timer(0.35), "timeout")
-	get_tree().call_group("ui", "update_enemies")
+#	yield(get_tree(), "idle_frame")
 	queue_free()
 
 
@@ -38,6 +39,7 @@ func dead() -> void:
 func _damege_flash() -> void:
 	mob.monitoring = false
 	col.disabled = true
+	yield(get_tree(), "idle_frame")
 	print(hp,  " hp")
 	if 2 <= hp:
 		anime.play('take_damage')
