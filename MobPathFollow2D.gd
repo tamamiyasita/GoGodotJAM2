@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 func dead() -> void:
 	$Area2D/CollisionShape2D.disabled = true
 	$Area2D/Icon.hide()
+	$Area2D/Shadow.hide()
 	get_tree().call_group("ui", "update_enemies")
 	var e = explosion.instance()
 	e.global_position = mob.global_position
@@ -49,4 +50,5 @@ func _damege_flash() -> void:
 
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
-	_damege_flash()
+	if area.is_in_group("damage"):
+		_damege_flash()

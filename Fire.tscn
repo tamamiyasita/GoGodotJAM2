@@ -82,7 +82,7 @@ color_ramp = SubResource( 12 )
 [sub_resource type="CircleShape2D" id=8]
 radius = 144.0
 
-[node name="Fire" type="Area2D"]
+[node name="Fire" type="Area2D" groups=["damage"]]
 scale = Vector2( 2, 2 )
 collision_layer = 32
 collision_mask = 16

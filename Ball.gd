@@ -75,5 +75,6 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 
 
 func home() -> void:
-	queue_free()
+#	queue_free()
+	$AnimationPlayer.play('rtn')
 

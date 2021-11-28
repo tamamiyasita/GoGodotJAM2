@@ -366,7 +366,6 @@ explosion = ExtResource( 1 )
 material = SubResource( 18 )
 collision_layer = 16
 collision_mask = 33
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
