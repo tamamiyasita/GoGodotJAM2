@@ -159,7 +159,7 @@ autoplay = "burst"
 anims/RESET = SubResource( 12 )
 anims/burst = SubResource( 13 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["damage"]]
 collision_layer = 32
 collision_mask = 16
 

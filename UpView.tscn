@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Slime1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://image/doukutu.png" type="Texture" id=23]
 [ext_resource path="res://image/iseki.png" type="Texture" id=24]
 [ext_resource path="res://Gift.gd" type="Script" id=25]
+[ext_resource path="res://Hisamatu.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=27]
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -210,8 +212,8 @@ texture = ExtResource( 23 )
 
 [node name="SpownPoint" type="Node" parent="MOB_POP"]
 script = ExtResource( 4 )
-mob_num = 6
-pop_time = 5.0
+mob_num = 1111
+pop_time = 1.0
 Mob = ExtResource( 1 )
 curve = ExtResource( 6 )
 
@@ -224,8 +226,8 @@ process_mode = 0
 
 [node name="SpownPoint2" type="Node" parent="MOB_POP"]
 script = ExtResource( 4 )
-mob_num = 6
-pop_time = 3.0
+mob_num = 111
+pop_time = 2.992
 Mob = ExtResource( 20 )
 curve = ExtResource( 6 )
 
@@ -233,8 +235,17 @@ curve = ExtResource( 6 )
 position = Vector2( 0, 776 )
 curve = SubResource( 15 )
 
+[node name="hisamatu" parent="MOB_POP/SpownPoint2/Path2D" instance=ExtResource( 26 )]
+position = Vector2( 26.3967, -1078.32 )
+
+[node name="MobPathFollow2D" parent="MOB_POP/SpownPoint2/Path2D" instance=ExtResource( 1 )]
+position = Vector2( 26.3967, -1078.32 )
+
 [node name="Timer" type="Timer" parent="MOB_POP/SpownPoint2"]
 process_mode = 0
+
+[node name="Ball" parent="MOB_POP/SpownPoint2" instance=ExtResource( 27 )]
+position = Vector2( 24, -544 )
 
 [node name="Manipulate" type="Node2D" parent="."]
 

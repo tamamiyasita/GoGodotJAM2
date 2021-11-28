@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Generator.gd" type="Script" id=1]
 [ext_resource path="res://image/bar.png" type="Texture" id=2]
@@ -10,10 +10,44 @@
 [ext_resource path="res://Path_curve/魔王魂  炎06.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 65, 73 )
+extents = Vector2( 76, 85 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 84, 96 )
+extents = Vector2( 60, 96 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 100.237, 5 )
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "default"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0, 0.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -170,13 +204,14 @@ script = ExtResource( 1 )
 
 [node name="PlayerMove2" type="Sprite" parent="."]
 visible = false
-position = Vector2( -24, 136 )
+position = Vector2( -48, 136 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
+flip_h = true
 
 [node name="Stkki" type="Sprite" parent="PlayerMove2"]
 modulate = Color( 2, 2, 2, 1 )
-position = Vector2( -32, -32 )
+position = Vector2( 36, -38 )
 rotation = 1.5708
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
@@ -186,12 +221,21 @@ collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 55, 63 )
+position = Vector2( 44, 75 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 52, 64 )
+position = Vector2( 76, 64 )
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 14.3405, 180.797 )
+shape = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape2D2"]
+autoplay = "default"
+anims/RESET = SubResource( 8 )
+anims/default = SubResource( 9 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
 margin_left = 128.0

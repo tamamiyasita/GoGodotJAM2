@@ -10,7 +10,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func shot() -> void:
 	var b = Ball.instance()
 	b.position = position
-	b.position.y -= 130
+	var t = rand_range(1.0, 2.5)
+	b.position.y -= 130 + t
 	get_parent().add_child(b)
 	yield(get_tree().create_timer(0.2), "timeout") 
 	
