@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/daiza.png-ee8e9f6b9b0a1c674d4f6a488a26766f.stex"
+path="res://.import/kouen asi.png-c2f7edc16ab7a2518243cb33376e6ffc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/daiza.png"
-dest_files=[ "res://.import/daiza.png-ee8e9f6b9b0a1c674d4f6a488a26766f.stex" ]
+source_file="res://image/kouen asi.png"
+dest_files=[ "res://.import/kouen asi.png-c2f7edc16ab7a2518243cb33376e6ffc.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -25,5 +25,7 @@ func open() -> void:
 			print("2")
 		3:
 			print("3")
+	yield(anime, "animation_finished" )
+	
 
 	
