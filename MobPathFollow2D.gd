@@ -8,6 +8,8 @@ export var hp = 1
 onready var col = $Area2D/CollisionShape2D as CollisionShape2D
 onready var anime := $AnimationPlayer
 
+var deth = false
+
 func _ready() -> void:
 	move_speed *= 0.0001
 #	randomize()
@@ -23,11 +25,11 @@ func dead() -> void:
 	$Area2D/CollisionShape2D.disabled = true
 	$Area2D/Icon.hide()
 	$Area2D/Shadow.hide()
-	get_tree().call_group("ui", "update_enemies")
 	var e = explosion.instance()
 	e.global_position = mob.global_position
 	add_child(e)
 	yield(get_tree().create_timer(0.35), "timeout")
+	get_tree().call_group("ui", "update_enemies")
 	queue_free()
 
 
@@ -45,7 +47,9 @@ func _damege_flash() -> void:
 		mob.monitoring = true
 
 	else:
-		dead()
+		if deth == false:
+			dead()
+			deth = true
 	
 
 

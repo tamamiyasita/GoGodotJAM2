@@ -7,5 +7,5 @@ func level_change() -> void:
 	match current_level:
 		2:
 			get_tree().change_scene("res://Wave1Standby.tscn")
-		_:
-			pass
+		3:
+			get_tree().change_scene("res://Wave2Standby.tscn")

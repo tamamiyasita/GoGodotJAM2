@@ -361,6 +361,7 @@ offset = 60.4446
 rotate = false
 script = ExtResource( 3 )
 explosion = ExtResource( 1 )
+move_speed = 2.5
 
 [node name="Area2D" type="Area2D" parent="." groups=["mob"]]
 material = SubResource( 18 )

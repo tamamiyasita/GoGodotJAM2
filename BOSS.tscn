@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://S3_Explosion.tscn" type="PackedScene" id=1]
-[ext_resource path="res://MobPathFollow2D.gd" type="Script" id=2]
-[ext_resource path="res://image/spot.png" type="Texture" id=3]
-[ext_resource path="res://image/suraimu3.png" type="Texture" id=4]
+[ext_resource path="res://MobPathFollow2D.gd" type="Script" id=1]
+[ext_resource path="res://image/waruiko.png" type="Texture" id=2]
+[ext_resource path="res://S1_Explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://image/spot.png" type="Texture" id=4]
 
 [sub_resource type="Shader" id=17]
 code = "shader_type canvas_item;
@@ -77,7 +77,8 @@ shader_param/tint_color = Color( 1, 1, 1, 1 )
 shader_param/tint_effect_factor = 0.0
 
 [sub_resource type="CapsuleShape2D" id=11]
-height = 24.0
+radius = 55.9998
+height = 52.0004
 
 [sub_resource type="Shader" id=15]
 code = "// original wind shader from https://github.com/Maujoe/godot-simple-wind-shader-2d/tree/master/assets/maujoe.simple_wind_shader_2d
@@ -184,9 +185,9 @@ shader = SubResource( 15 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.093
 shader_param/maxStrength = 0.01
-shader_param/strengthScale = 100.0
-shader_param/interval = 4.5
-shader_param/detail = 7.0
+shader_param/strengthScale = 90.0
+shader_param/interval = 3.5
+shader_param/detail = 5.0
 shader_param/distortion = 0.0
 shader_param/heightOffset = 0.0
 shader_param/offset = 1.0
@@ -264,7 +265,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 0.5, 2, 0.5 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.7, 0.52 ), Vector2( 0.5, 0.5 ) ]
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.6, 0.52 ), Vector2( 0.5, 0.5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Icon:position")
@@ -359,10 +360,11 @@ tracks/1/keys = {
 [node name="MobPathFollow2D" type="PathFollow2D" groups=["mob"]]
 offset = 60.4446
 rotate = false
-script = ExtResource( 2 )
-explosion = ExtResource( 1 )
-move_speed = 4.5
-damage = 2
+script = ExtResource( 1 )
+explosion = ExtResource( 3 )
+move_speed = 1.7
+damage = 100
+hp = 13
 
 [node name="Area2D" type="Area2D" parent="." groups=["mob"]]
 material = SubResource( 18 )
@@ -370,7 +372,6 @@ collision_layer = 16
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2( 0, 3 )
 rotation = 1.5708
 shape = SubResource( 11 )
@@ -380,14 +381,14 @@ modulate = Color( 0, 0, 0, 0.364706 )
 show_behind_parent = true
 position = Vector2( 2, 8 )
 scale = Vector2( 0.590718, 0.134776 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 offset = Vector2( 0, 20 )
 
 [node name="Icon" type="Sprite" parent="Area2D"]
-modulate = Color( 1.2, 1.2, 1.2, 0.87 )
+modulate = Color( 1.10196, 1.10196, 1.2, 0.866667 )
 material = SubResource( 16 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
 autoplay = "move"
