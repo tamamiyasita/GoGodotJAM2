@@ -21,5 +21,5 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 	HP -= area.get_parent().damage
 	if 1 > HP:
 		print("game_over") 
-	area.queue_free()
 	get_tree().call_group("ui", "update_hp", HP)
+	area.get_parent().dead()

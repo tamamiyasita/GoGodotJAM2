@@ -1,0 +1,384 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Wave3Standby.gd" type="Script" id=1]
+[ext_resource path="res://ElecTower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Slime3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Path_curve/kenvector_future_thin.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://image/grey_box.png" type="Texture" id=6]
+[ext_resource path="res://image/green_button05.png" type="Texture" id=7]
+[ext_resource path="res://image/green_button04.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 61
+outline_size = 1
+outline_color = Color( 0.882353, 0.87451, 0.168627, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 1
+outline_color = Color( 0.168627, 0.882353, 0.470588, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+outline_size = 1
+outline_color = Color( 0.168627, 0.882353, 0.470588, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 1
+outline_color = Color( 0.168627, 0.882353, 0.294118, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 22
+outline_size = 1
+outline_color = Color( 0.882353, 0.333333, 0.168627, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+outline_size = 1
+outline_color = Color( 0.168627, 0.882353, 0.470588, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+outline_size = 1
+outline_color = Color( 0.219608, 0.882353, 0.168627, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 22
+outline_size = 1
+outline_color = Color( 0.882353, 0.278431, 0.168627, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
+outline_size = 1
+outline_color = Color( 0.0509804, 0.00784314, 0.611765, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "b"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1.5, 1.5, 3, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+
+[sub_resource type="Animation" id=13]
+resource_name = "next"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1.9, 1.901 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 1 ) ]
+}
+
+[node name="Wave3Standby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1600.0
+margin_bottom = 900.0
+color = Color( 0.141176, 0.164706, 0.290196, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 576.0
+margin_top = 96.0
+margin_right = 1039.0
+margin_bottom = 192.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_text = "Stage 1 Clear!"
+tab_size = 6
+text = "Stage 1 Clear!"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 832.0
+margin_top = 320.0
+margin_right = 1120.0
+margin_bottom = 384.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_text = "New Tower"
+tab_size = 6
+text = "New Tower"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 448.0
+margin_top = 224.0
+margin_right = 736.0
+margin_bottom = 679.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 288.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 15
+size_flags_vertical = 15
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_text = "New Enemy
+"
+tab_size = 6
+text = "New Enemy
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 288.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 0, 288 )
+texture = ExtResource( 6 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MobPathFollow2D" parent="VBoxContainer/NinePatchRect" instance=ExtResource( 3 )]
+position = Vector2( 160, 128 )
+scale = Vector2( 4, 4 )
+
+[node name="AnimationPlayer" parent="VBoxContainer/NinePatchRect/MobPathFollow2D/Area2D" index="3"]
+autoplay = ""
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 356.0
+margin_right = 288.0
+margin_bottom = 391.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 15
+size_flags_vertical = 15
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_text = "   [Green slime]
+"
+tab_size = 6
+text = "   [Green slime]
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 395.0
+margin_right = 288.0
+margin_bottom = 455.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 15
+size_flags_vertical = 15
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_text = "    fast runner"
+tab_size = 6
+text = "    fast runner"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 832.0
+margin_top = 224.0
+margin_right = 1120.0
+margin_bottom = 679.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer2"]
+margin_right = 288.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "New Tower
+
+"
+tab_size = 6
+text = "New Tower
+
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer2"]
+margin_top = 64.0
+margin_right = 288.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 0, 288 )
+texture = ExtResource( 6 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="ElecTower" parent="VBoxContainer2/NinePatchRect" instance=ExtResource( 2 )]
+position = Vector2( 148, 136 )
+scale = Vector2( 3, 3 )
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer2"]
+margin_top = 356.0
+margin_right = 288.0
+margin_bottom = 391.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[Lightning Tower]
+"
+tab_size = 6
+text = "[Lightning Tower]
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer2"]
+margin_top = 395.0
+margin_right = 288.0
+margin_bottom = 455.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "I'll shoot a beam of electricity at the orb.
+"
+tab_size = 6
+text = "I'll shoot a beam of electricity at the orb.
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -196.0
+margin_right = 160.0
+margin_bottom = -132.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton"]
+anchor_left = 0.059
+anchor_top = 0.266
+anchor_right = 0.969
+anchor_bottom = 0.75
+margin_left = 0.119999
+margin_top = -0.0240002
+margin_right = -0.0800171
+margin_bottom = -3.8147e-06
+custom_fonts/font = SubResource( 9 )
+text = "Go to the next stage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton"]
+autoplay = "b"
+anims/RESET = SubResource( 10 )
+anims/b = SubResource( 11 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_right = 1600.0
+margin_bottom = 900.0
+mouse_filter = 2
+color = Color( 0.141176, 0.164706, 0.290196, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 12 )
+anims/next = SubResource( 13 )
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+
+[editable path="VBoxContainer/NinePatchRect/MobPathFollow2D"]
+[editable path="VBoxContainer2/NinePatchRect/ElecTower"]

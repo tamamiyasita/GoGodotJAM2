@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://UnderView.tscn" type="PackedScene" id=2]
-[ext_resource path="res://UpView2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UpView4.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Path_curve/魔王魂 旧ゲーム音楽 戦闘曲37.mp3" type="AudioStream" id=4]
 
 [sub_resource type="Environment" id=1]
@@ -10,7 +10,7 @@ background_mode = 4
 fog_enabled = true
 glow_enabled = true
 
-[node name="Level2" type="Node2D" groups=["level"]]
+[node name="Level4" type="Node2D" groups=["level"]]
 position = Vector2( 497, 424 )
 script = ExtResource( 1 )
 
@@ -45,7 +45,7 @@ size_override_stretch = true
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="UpView2" parent="VBoxContainer/ViewportContainer1/Viewport1" instance=ExtResource( 3 )]
+[node name="UpView4" parent="VBoxContainer/ViewportContainer1/Viewport1" instance=ExtResource( 3 )]
 
 [node name="ViewportContainer2" type="ViewportContainer" parent="VBoxContainer"]
 margin_top = 684.0

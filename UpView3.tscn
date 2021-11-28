@@ -1,28 +1,30 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=37 format=2]
 
-[ext_resource path="res://Slime1.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Bar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Hammer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://SpownPoint.gd" type="Script" id=4]
+[ext_resource path="res://Gift.gd" type="Script" id=1]
+[ext_resource path="res://UpView.gd" type="Script" id=2]
+[ext_resource path="res://SpownPoint.gd" type="Script" id=3]
+[ext_resource path="res://ReturnArea2D.gd" type="Script" id=4]
 [ext_resource path="res://Tower.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Path_curve/curve2d_1.tres" type="Curve2D" id=6]
-[ext_resource path="res://ReturnArea2D.gd" type="Script" id=7]
-[ext_resource path="res://Cannon.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Chest.tscn" type="PackedScene" id=9]
-[ext_resource path="res://image/kouen atama.png" type="Texture" id=10]
-[ext_resource path="res://Wood.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Base.tscn" type="PackedScene" id=12]
-[ext_resource path="res://image/map.png" type="Texture" id=13]
-[ext_resource path="res://ElecTower.tscn" type="PackedScene" id=14]
-[ext_resource path="res://image/stkki_3.png" type="Texture" id=15]
-[ext_resource path="res://UpView.gd" type="Script" id=16]
-[ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://image/wood.png" type="Texture" id=19]
-[ext_resource path="res://image/stkki_4.png" type="Texture" id=21]
-[ext_resource path="res://image/stkki_2.png" type="Texture" id=22]
-[ext_resource path="res://image/doukutu.png" type="Texture" id=23]
-[ext_resource path="res://image/iseki.png" type="Texture" id=24]
-[ext_resource path="res://Gift.gd" type="Script" id=25]
+[ext_resource path="res://Wood.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ElecTower.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Bar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Hammer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Cannon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Base.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Slime3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Chest.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Slime1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Path_curve/curve2d_1.tres" type="Curve2D" id=16]
+[ext_resource path="res://image/doukutu.png" type="Texture" id=17]
+[ext_resource path="res://image/wood.png" type="Texture" id=18]
+[ext_resource path="res://image/stkki_2.png" type="Texture" id=19]
+[ext_resource path="res://image/stkki_3.png" type="Texture" id=20]
+[ext_resource path="res://image/iseki.png" type="Texture" id=21]
+[ext_resource path="res://image/kouen atama.png" type="Texture" id=22]
+[ext_resource path="res://image/stkki_4.png" type="Texture" id=23]
+[ext_resource path="res://image/map.png" type="Texture" id=24]
+[ext_resource path="res://Slime2.tscn" type="PackedScene" id=25]
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -91,18 +93,33 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, 0, 0, 0, 0, 896, -1104, 0, 0, 0, 0, 1048, -1024, -78.4003, -38.1407, 78.4003, 38.1407, 1520, -1176, 0, 0, 0, 0, 1976, -952, -69.9246, -12.7136, 69.9246, 12.7136, 2208, -664, -50, -86, 50, 86, 2600, -576, 0, 0, 0, 0, 2672, -120 )
 }
 
+[sub_resource type="Curve2D" id=16]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, -780.352, 13.4543, 780.352, -13.4543, 288, -2048, 0, 0, 0, 0, 872, -2064, 0, 0, 0, 0, 1168, -2184, -78.4003, -38.1407, 78.4003, 38.1407, 1840, -2344, 0, 0, 0, 0, 1840, -2016, 0, 0, 0, 0, 1976, -1816, -69.9246, -12.7136, 69.9246, 12.7136, 1976, -1448, -50, -86, 50, 86, 2440, -1560, 0, 0, 0, 0, 2568, -1104 )
+}
+
+[sub_resource type="Curve2D" id=17]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, -240.636, 48.3772, 240.636, -48.3772, 456, -1024, -155.565, 82.5448, 155.565, -82.5448, 784, -1448, 0, 0, 0, 0, 976, -1448, -78.4003, -38.1407, 78.4003, 38.1407, 1240, -1320, 0, 0, 0, 0, 1520, -1624, -67.9589, -113.265, 67.9589, 113.265, 2344, -1872, -69.9246, -12.7136, 69.9246, 12.7136, 2208, -1440, -50, -86, 50, 86, 2504, -1240, 0, 0, 0, 0, 2568, -1104 )
+}
+
+[sub_resource type="Curve2D" id=18]
+_data = {
+"points": PoolVector2Array( -48.0542, -16.0181, 48.0542, 16.0181, -392, -1272, -240.636, 48.3772, 240.636, -48.3772, 368, -1040, -155.565, 82.5448, 155.565, -82.5448, 904, -1608, 0, 0, 0, 0, 976, -1656, -78.4003, -38.1407, 78.4003, 38.1407, 1312, -1792, 0, 0, 0, 0, 1856, -1608, -67.9589, -113.265, 67.9589, 113.265, 2128, -1184, 0, 0, 0, 0, 2656, -840 )
+}
+
 [sub_resource type="DynamicFont" id=12]
 size = 200
 outline_size = 30
 outline_color = Color( 0.168627, 0.882353, 0.470588, 1 )
-font_data = ExtResource( 17 )
+font_data = ExtResource( 15 )
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
 points = PoolVector2Array( 40, 8, 64, 24, 72, 32, 72, 48, 56, 64, 48, 64, 32, 64, 8, 56, 0, 48, 0, 40, 8, 32, 16, 16, 32, 8, 32, 8 )
 
 [sub_resource type="TileSet" id=14]
 0/name = "wood.png 0"
-0/texture = ExtResource( 19 )
+0/texture = ExtResource( 18 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 8, 0, 80, 96 )
@@ -123,8 +140,8 @@ points = PoolVector2Array( 40, 8, 64, 24, 72, 32, 72, 48, 56, 64, 48, 64, 32, 64
 } ]
 0/z_index = 0
 
-[node name="UpView" type="Node2D" groups=["up"]]
-script = ExtResource( 16 )
+[node name="UpView3" type="Node2D" groups=["up"]]
+script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 2
@@ -147,7 +164,7 @@ __meta__ = {
 [node name="Map" type="Sprite" parent="."]
 position = Vector2( -488, -768 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 13 )
+texture = ExtResource( 24 )
 centered = false
 
 [node name="Wall" type="StaticBody2D" parent="."]
@@ -186,7 +203,7 @@ shape = SubResource( 8 )
 [node name="ReturnArea2D" type="Area2D" parent="Wall"]
 position = Vector2( 424, 416 )
 collision_layer = 0
-script = ExtResource( 7 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/ReturnArea2D"]
 position = Vector2( 588, 644 )
@@ -196,49 +213,92 @@ shape = SubResource( 7 )
 
 [node name="Iseki" type="Sprite" parent="MOB_POP"]
 position = Vector2( -272, 136 )
-texture = ExtResource( 24 )
+texture = ExtResource( 21 )
 
 [node name="Doukutu" type="Sprite" parent="MOB_POP"]
 position = Vector2( -400, -504 )
-texture = ExtResource( 23 )
+texture = ExtResource( 17 )
+
+[node name="Doukutu2" type="Sprite" parent="MOB_POP"]
+position = Vector2( -248, 552 )
+texture = ExtResource( 17 )
 
 [node name="SpownPoint" type="Node" parent="MOB_POP"]
-script = ExtResource( 4 )
-mob_num = 12
-pop_time = 4.0
-Mob = ExtResource( 1 )
-curve = ExtResource( 6 )
+script = ExtResource( 3 )
+mob_num = 15
+pop_time = 3.0
+Mob = ExtResource( 14 )
+curve = ExtResource( 16 )
 
 [node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint"]
 position = Vector2( 72, 704 )
-curve = ExtResource( 6 )
+curve = ExtResource( 16 )
 
 [node name="Timer" type="Timer" parent="MOB_POP/SpownPoint"]
 process_mode = 0
 
 [node name="SpownPoint2" type="Node" parent="MOB_POP"]
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 mob_num = 8
-pop_time = 6.0
-Mob = ExtResource( 1 )
-curve = ExtResource( 6 )
+pop_time = 4.0
+Mob = ExtResource( 14 )
+curve = ExtResource( 16 )
 
 [node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint2"]
 position = Vector2( 0, 776 )
 curve = SubResource( 15 )
 
-[node name="MobPathFollow2D" parent="MOB_POP/SpownPoint2/Path2D" instance=ExtResource( 1 )]
-position = Vector2( -332.148, -1264.19 )
-
 [node name="Timer" type="Timer" parent="MOB_POP/SpownPoint2"]
+process_mode = 0
+
+[node name="SpownPoint3" type="Node" parent="MOB_POP"]
+script = ExtResource( 3 )
+mob_num = 5
+pop_time = 7.0
+Mob = ExtResource( 12 )
+curve = ExtResource( 16 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint3"]
+position = Vector2( 136, 1824 )
+curve = SubResource( 16 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint3"]
+process_mode = 0
+
+[node name="SpownPoint4" type="Node" parent="MOB_POP"]
+script = ExtResource( 3 )
+mob_num = 6
+pop_time = 6.0
+Mob = ExtResource( 12 )
+curve = ExtResource( 16 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint4"]
+position = Vector2( 152, 1824 )
+curve = SubResource( 17 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint4"]
+process_mode = 0
+
+[node name="SpownPoint5" type="Node" parent="MOB_POP"]
+script = ExtResource( 3 )
+mob_num = 6
+pop_time = 6.0
+Mob = ExtResource( 25 )
+curve = ExtResource( 16 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint5"]
+position = Vector2( 96, 1408 )
+curve = SubResource( 18 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint5"]
 process_mode = 0
 
 [node name="Manipulate" type="Node2D" parent="."]
 
-[node name="Hammer" parent="Manipulate" instance=ExtResource( 3 )]
+[node name="Hammer" parent="Manipulate" instance=ExtResource( 9 )]
 position = Vector2( 2758, 600 )
 
-[node name="Bar" parent="Manipulate" groups=["bar"] instance=ExtResource( 2 )]
+[node name="Bar" parent="Manipulate" groups=["bar"] instance=ExtResource( 8 )]
 position = Vector2( -72, -1592 )
 scale = Vector2( 3, 3 )
 
@@ -251,9 +311,9 @@ position = Vector2( 568, 840 )
 rotation = -0.174533
 
 [node name="Stkki2" parent="Manipulate/Bar/R_pos/R_Bar" index="0"]
-texture = ExtResource( 22 )
+texture = ExtResource( 19 )
 
-[node name="Bar2" parent="Manipulate" groups=["bar2"] instance=ExtResource( 2 )]
+[node name="Bar2" parent="Manipulate" groups=["bar2"] instance=ExtResource( 8 )]
 position = Vector2( -792, -1744 )
 scale = Vector2( 3, 3 )
 
@@ -262,54 +322,54 @@ position = Vector2( 877.333, 872 )
 rotation = -0.415388
 
 [node name="Stkki" parent="Manipulate/Bar2/L_pos/L_Bar" index="0"]
-texture = ExtResource( 21 )
+texture = ExtResource( 23 )
 
 [node name="R_pos" parent="Manipulate/Bar2" index="1"]
 position = Vector2( 330.667, 869.333 )
 rotation = 0.415388
 
 [node name="Stkki2" parent="Manipulate/Bar2/R_pos/R_Bar" index="0"]
-texture = ExtResource( 15 )
+texture = ExtResource( 20 )
 
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="Tower" parent="Towers" instance=ExtResource( 5 )]
 position = Vector2( 1408, 72 )
 
-[node name="Cannon" parent="Towers" instance=ExtResource( 8 )]
+[node name="Cannon" parent="Towers" instance=ExtResource( 10 )]
 position = Vector2( 1672, -88 )
 
-[node name="Cannon2" parent="Towers" instance=ExtResource( 8 )]
+[node name="Cannon2" parent="Towers" instance=ExtResource( 10 )]
 position = Vector2( 1096, 280 )
 
-[node name="ElecTower" parent="Towers" instance=ExtResource( 14 )]
+[node name="ElecTower" parent="Towers" instance=ExtResource( 7 )]
 position = Vector2( 1552, -1072 )
 
-[node name="ElecTower2" parent="Towers" instance=ExtResource( 14 )]
-position = Vector2( 592, -856 )
+[node name="ElecTower2" parent="Towers" instance=ExtResource( 7 )]
+position = Vector2( 1632, -1240 )
 
-[node name="ElecTower3" parent="Towers" instance=ExtResource( 14 )]
+[node name="ElecTower3" parent="Towers" instance=ExtResource( 7 )]
 position = Vector2( 1552, -1152 )
 
-[node name="ElecTower4" parent="Towers" instance=ExtResource( 14 )]
-position = Vector2( 1304, -1256 )
+[node name="ElecTower4" parent="Towers" instance=ExtResource( 7 )]
+position = Vector2( 2632, 8 )
 
 [node name="Obstacle" type="Node2D" parent="."]
 
 [node name="Gift" type="Node2D" parent="."]
-script = ExtResource( 25 )
-Chest = ExtResource( 9 )
+script = ExtResource( 1 )
+Chest = ExtResource( 13 )
 
 [node name="ChestPosition2D" type="Position2D" parent="Gift"]
 position = Vector2( -392, -632 )
 
-[node name="Wood" parent="Gift" instance=ExtResource( 11 )]
+[node name="Wood" parent="Gift" instance=ExtResource( 6 )]
 position = Vector2( 1920, -424 )
 
 [node name="Timer" type="Timer" parent="Gift"]
 wait_time = 2.0
 
-[node name="Base" parent="." instance=ExtResource( 12 )]
+[node name="Base" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2648, 552 )
 
 [node name="Camera2D" type="Camera2D" parent="Base"]
@@ -347,9 +407,9 @@ size_flags_horizontal = 15
 size_flags_vertical = 15
 size_flags_stretch_ratio = 0.0
 custom_fonts/normal_font = SubResource( 12 )
-bbcode_text = "wave 1 Start!"
+bbcode_text = "wave 3 Start!"
 tab_size = 6
-text = "wave 1 Start!"
+text = "wave 3 Start!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -368,11 +428,14 @@ tile_data = PoolIntArray( -1900514, 0, 0, 131055, 0, 0, 196591, 0, 0, 393200, 0,
 
 [node name="KouenAtama" type="Sprite" parent="."]
 position = Vector2( 264, -624 )
-texture = ExtResource( 10 )
+texture = ExtResource( 22 )
 
 [connection signal="body_entered" from="Wall/ReturnArea2D" to="Wall/ReturnArea2D" method="_on_ReturnArea2D_body_entered"]
 [connection signal="timeout" from="MOB_POP/SpownPoint/Timer" to="MOB_POP/SpownPoint" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MOB_POP/SpownPoint2/Timer" to="MOB_POP/SpownPoint2" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint3/Timer" to="MOB_POP/SpownPoint3" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint4/Timer" to="MOB_POP/SpownPoint4" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint5/Timer" to="MOB_POP/SpownPoint5" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Gift/Timer" to="Gift" method="_on_Timer_timeout"]
 
 [editable path="Manipulate/Bar"]

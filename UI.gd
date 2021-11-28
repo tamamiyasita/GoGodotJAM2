@@ -14,7 +14,7 @@ var enemies_count = 0
 
 func _ready() -> void:
 	ENEM_progress.max_value = enemies_count
-	pass
+	print(enemies_count, " enemies_count")
 
 func update_en(value) -> void:
 	EN_label.bbcode_text =  " Ball Energy " + str(value)
@@ -38,9 +38,11 @@ func enemies_number(value) -> void:
 	ENEM_progress.value = enemies_count
 
 func update_enemies() -> void:
+	
 	enemies_count -= 1
 	ENEM_label.bbcode_text = " Enemies " + str(enemies_count)
 	ENEM_progress.value = enemies_count
+	print("enemies_count =" , enemies_count)
 	if 1 > enemies_count:
 		print("wave_clear")
 		get_tree().call_group("level", "level_change")

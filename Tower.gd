@@ -7,7 +7,7 @@ export(PackedScene) var Fire
 
 var energy := 0
 var energy_consumption := 3
-var start_fire := 4
+var start_fire := 3
 
 func _ready() -> void:
 	$AnimationPlayer.play('r')
@@ -39,7 +39,7 @@ func ball_energy_charge(body):
 			$AnimationPlayer.play('f')
 			yield($AnimationPlayer, "animation_finished" )
 			particle.scale = Vector2(1.45, 1.45)
-			canon.shoot(energy+3)
+			canon.shoot(6)
 			start_fire = 1
 
 			

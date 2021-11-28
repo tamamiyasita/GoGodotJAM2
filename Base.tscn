@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Base.gd" type="Script" id=1]
-[ext_resource path="res://image/pan.png" type="Texture" id=2]
+[ext_resource path="res://image/ie.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 48.0
+radius = 177.629
 
 [node name="Base" type="Node2D" groups=["base"]]
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
 [node name="パン" type="Sprite" parent="."]

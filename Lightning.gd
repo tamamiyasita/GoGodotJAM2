@@ -3,7 +3,7 @@ extends RayCast2D
 onready var line := $Line2D
 onready var end := $End
 
-var max_distance := 1000
+var max_distance := 800
 
 func _ready() -> void:
 	cast_to = Vector2(max_distance, 0)
