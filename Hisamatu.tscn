@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://ElecHs.gd" type="Script" id=1]
 [ext_resource path="res://image/kouen atama.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Beam.tscn" type="PackedScene" id=8]
 [ext_resource path="res://image/ball.png" type="Texture" id=9]
 [ext_resource path="res://image/g_ball.png" type="Texture" id=10]
+[ext_resource path="res://sound/Dark_Loop.wav" type="AudioStream" id=11]
 
 [sub_resource type="Shader" id=17]
 code = "shader_type canvas_item;
@@ -267,6 +268,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationPlayer/AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=20]
 resource_name = "move"
@@ -327,6 +340,18 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationPlayer/AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -627,6 +652,10 @@ texture = ExtResource( 10 )
 anims/RESET = SubResource( 19 )
 anims/move = SubResource( 20 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D/AnimationPlayer"]
+stream = ExtResource( 11 )
+volume_db = -14.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "RESET"
 anims/RESET = SubResource( 7 )
@@ -652,7 +681,7 @@ autoplay = "dd"
 anims/RESET = SubResource( 24 )
 anims/dd = SubResource( 25 )
 
-[node name="Area2D" type="Area2D" parent="ElecHs"]
+[node name="Area2D" type="Area2D" parent="ElecHs" groups=["tower"]]
 collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="ElecHs/Area2D"]

@@ -58,10 +58,15 @@ func enegy_modulate() -> void:
 
 func energy_charge(obj) -> void:
 	if obj.is_in_group("mob"):
+		$mob.play()
 		BaseInfo.ball_energy -= 1
 		if BaseInfo.ball_energy < 0:
 			BaseInfo.ball_energy = 0
+	if obj.is_in_group("tower"):
+		$charge.play()
+			
 	enegy_modulate()
+
 
 #
 	
@@ -71,7 +76,6 @@ func energy_charge(obj) -> void:
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
 	energy_charge(area)
-	print("BaseInfo.ball_energy", BaseInfo.ball_energy)
 
 
 func home() -> void:

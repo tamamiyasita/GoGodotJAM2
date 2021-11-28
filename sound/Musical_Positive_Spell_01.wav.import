@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Musical_Positive_Spell_01.wav-0b666628eb8b13ff40a890e2d1296629.sample"
+
+[deps]
+
+source_file="res://sound/Musical_Positive_Spell_01.wav"
+dest_files=[ "res://.import/Musical_Positive_Spell_01.wav-0b666628eb8b13ff40a890e2d1296629.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

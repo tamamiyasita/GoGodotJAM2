@@ -13,7 +13,7 @@ func _on_Area2D_body_entered(body: Node) -> void:
 func open() -> void:
 	anime.play('open')
 	yield(anime, "animation_finished" )
-	var item = randi() % 3+1
+	var item = randi() % 2+1
 	match item:
 		1:
 			anime.play('cake_pop')

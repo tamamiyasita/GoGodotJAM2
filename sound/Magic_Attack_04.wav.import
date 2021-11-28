@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Magic_Attack_04.wav-ee4f7cd265821dad6bd266a9bd14264a.sample"
+
+[deps]
+
+source_file="res://sound/Magic_Attack_04.wav"
+dest_files=[ "res://.import/Magic_Attack_04.wav-ee4f7cd265821dad6bd266a9bd14264a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

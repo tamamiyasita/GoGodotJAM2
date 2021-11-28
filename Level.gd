@@ -9,3 +9,6 @@ func level_change() -> void:
 			get_tree().change_scene("res://Wave1Standby.tscn")
 		3:
 			get_tree().change_scene("res://Wave2Standby.tscn")
+		4:
+			get_tree().change_scene("res://Wave3Standby.tscn")
+

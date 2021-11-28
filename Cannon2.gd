@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 
 
 func shoot(value):
+	$bom.play()
 #	energy -= 1
 #	if energy < 0:
 #		energy = 0

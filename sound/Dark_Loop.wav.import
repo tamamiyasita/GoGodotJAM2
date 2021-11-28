@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dark_Loop.wav-51e151cc2cd50c039eaf1bca3326f35a.sample"
+
+[deps]
+
+source_file="res://sound/Dark_Loop.wav"
+dest_files=[ "res://.import/Dark_Loop.wav-51e151cc2cd50c039eaf1bca3326f35a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

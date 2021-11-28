@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Lightning.gd" type="Script" id=1]
 [ext_resource path="res://image/spark_07.png" type="Texture" id=2]
 [ext_resource path="res://image/spark_01.png" type="Texture" id=3]
 [ext_resource path="res://Electric.gd" type="Script" id=4]
+[ext_resource path="res://sound/Electrocute_01.wav" type="AudioStream" id=5]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -67,5 +68,11 @@ position = Vector2( 6, 0 )
 shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -13.0
+pitch_scale = 1.53
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

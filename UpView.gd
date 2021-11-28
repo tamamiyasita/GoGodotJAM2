@@ -8,3 +8,12 @@ func _ready() -> void:
 	anime.play('start')
 	yield(anime, "animation_finished" )
 	get_tree().paused = false
+
+
+func game_over() -> void:
+	get_tree().paused = true
+	anime.play('game_over')
+	yield(anime, "animation_finished" )
+	yield(get_tree().create_timer(4), "timeout")
+	get_tree().paused = false
+	get_tree().reload_current_scene()
