@@ -1,8 +1,11 @@
 extends Node2D
 
+export(PackedScene) var Fire
 onready var rigid_body := $RigidBody2D
 onready var muzzle := $Muzzle
-export(PackedScene) var Fire
+onready var anime := $AnimationPlayer
+
+
 var ball
 
 var energy := 0
@@ -12,11 +15,13 @@ func _ready() -> void:
 	set_process(false)
 	
 func _process(delta: float) -> void:
-	if energy > 0:
+	if energy > 0 and is_instance_valid(ball):
 		muzzle.look_at(ball.global_position)
 
 	else:
+		anime.play('RESET')
 		set_process(false)
+		
 
 
 
@@ -29,6 +34,7 @@ func ball_energy_charge(body) -> void:
 		energy += BaseInfo.ball_value
 		BaseInfo.ball_energy -= energy_consumption
 		fire(energy)
+		anime.play('on')
 		set_process(true)
 	if energy > 0:
 		pass

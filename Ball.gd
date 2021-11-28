@@ -14,8 +14,8 @@ func _ready() -> void:
 	
 
 func update_max_ball_en(value) -> void:
-	BaseInfo.ball_energy += value
-	get_tree().call_group("ui", "update_max_en", BaseInfo.ball_energy)
+	BaseInfo.max_ball_energy += value
+	get_tree().call_group("ui", "update_max_en", BaseInfo.max_ball_energy)
 	yield(get_tree().create_timer(0.1), "timeout")
 	get_tree().call_group("ui", "update_en", BaseInfo.ball_energy)
 	enegy_modulate()

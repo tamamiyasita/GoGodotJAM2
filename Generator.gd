@@ -24,6 +24,7 @@ func _on_Generator_body_entered(body: Node) -> void:
 		ball.show()
 #		player.anime.play("charge")
 		player.sprite.hide()
+		player.get_tree().paused = true
 		anime.play('power_on')
 		set_process(true)
 		$AudioStreamPlayer.play()
@@ -32,6 +33,7 @@ func _process(delta: float) -> void:
 	energy_bar.value += 1.9
 	ball.sprite.modulate.a += .016
 	if energy_bar.value == energy_bar.max_value:
+		BaseInfo.ball_energy = BaseInfo.max_ball_energy
 		get_tree().call_group("hammer", "shot")
 		energy_bar.value = 0
 		anime.play('power_off')
@@ -40,6 +42,7 @@ func _process(delta: float) -> void:
 		ball.sprite.modulate.a = 0
 		ball.hide()
 		player.sprite.show()
+		player.get_tree().paused = false
 
 		
 

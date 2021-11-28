@@ -1,18 +1,50 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ElecTower.gd" type="Script" id=1]
 [ext_resource path="res://image/spot.png" type="Texture" id=2]
 [ext_resource path="res://Electric.tscn" type="PackedScene" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://image/pan.png" type="Texture" id=5]
+[ext_resource path="res://image/object.png" type="Texture" id=4]
+[ext_resource path="res://image/dsdfsfs.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 24 )
+extents = Vector2( 32, 52 )
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 24.0
 
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.564706, 0.564706, 0.564706, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "on"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 2, 2, 2, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="ElecTower" type="Node2D" groups=["tower"]]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
 script = ExtResource( 1 )
 Fire = ExtResource( 3 )
 
@@ -20,21 +52,20 @@ Fire = ExtResource( 3 )
 collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
-position = Vector2( -1.43051e-06, -1.43051e-06 )
-scale = Vector2( 0.75, 0.75 )
+position = Vector2( 2, 0 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
+position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
 [node name="Muzzle" type="Sprite" parent="."]
-position = Vector2( 0, 2.72848e-12 )
+position = Vector2( 0, -56 )
 texture = ExtResource( 5 )
-offset = Vector2( 31.6562, -2.44022 )
 
 [node name="shotPos" type="Position2D" parent="Muzzle"]
-position = Vector2( 56, -1.09139e-11 )
+position = Vector2( 0, 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -44,9 +75,14 @@ shape = SubResource( 4 )
 disabled = true
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/on = SubResource( 6 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
