@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Cannon.gd" type="Script" id=1]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://image/dsdfsfs.png" type="Texture" id=3]
 [ext_resource path="res://image/spot.png" type="Texture" id=4]
+[ext_resource path="res://image/object.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -36,8 +37,79 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 2, 2, 2, 1 ) ]
 }
 
+[sub_resource type="Shader" id=24]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float brightness : hint_range(-1, 1) = 0;
+uniform float contrast : hint_range(0, 3) = 1.0;
+uniform float saturation : hint_range(0, 3) = 1.0;
+
+uniform float redVal : hint_range(0, 1) = 1.0;
+uniform float greenVal : hint_range(0, 1) = 1.0;
+uniform float blueVal : hint_range(0, 1) = 1.0;
+
+uniform vec4 tint_color : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float tint_effect_factor : hint_range(0, 1) = 0.0;
+//---------------------------------------------
+//CONTRAST
+//---------------------------------------------
+mat4 contrastMatrix( float _contrast ){
+	float t = ( 1.0 - _contrast ) / 2.0;
+    return mat4( 
+		vec4(_contrast, 0, 0, 0),
+		vec4(0, _contrast, 0, 0),
+		vec4(0, 0, _contrast, 0),
+		vec4(t, t, t, 1));
+}
+//---------------------------------------------
+//BRIGHTNESS
+//---------------------------------------------
+mat4 brightnessMatrix( float _brightness ){
+    return mat4( vec4(1, 0, 0, 0),
+                 vec4(0, 1, 0, 0),
+                 vec4(0, 0, 1, 0),
+                 vec4(_brightness, _brightness, _brightness, 1));
+}
+//---------------------------------------------
+//SATURATION
+//---------------------------------------------
+mat4 saturationMatrix( float _saturation ){
+    vec3 luminance = vec3( 0.3086, 0.6094, 0.0820 );
+    float oneMinusSat = 1.0 - _saturation;
+	
+    vec3 red = vec3( luminance.x * oneMinusSat );
+    red+= vec3(_saturation, 0, 0)*redVal;
+    vec3 green = vec3( luminance.y * oneMinusSat );
+    green += vec3( 0,_saturation, 0 )*greenVal;
+    vec3 blue = vec3( luminance.z * oneMinusSat );
+    blue += vec3( 0, 0,_saturation )*blueVal;
+	
+    return mat4(vec4(red, 0),vec4(green,0),vec4(blue,0),vec4(0, 0, 0, 1));
+}
+
+//---------------------------------------------
+//fragment
+//---------------------------------------------
+void fragment() {
+	vec4 c = texture(TEXTURE, UV);
+	vec4 c2 = c * tint_color;
+	COLOR = brightnessMatrix( brightness ) * contrastMatrix( contrast ) *saturationMatrix( saturation ) * mix(c, c2, tint_effect_factor);
+}"
+
+[sub_resource type="ShaderMaterial" id=25]
+shader = SubResource( 24 )
+shader_param/brightness = -0.11
+shader_param/contrast = 1.525
+shader_param/saturation = 1.0
+shader_param/redVal = 0.596
+shader_param/greenVal = 0.973
+shader_param/blueVal = 0.508
+shader_param/tint_color = Color( 1, 1, 1, 1 )
+shader_param/tint_effect_factor = 0.0
+
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 24 )
+extents = Vector2( 24, 40 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -56,7 +128,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "move"
-length = 3.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Muzzle:rotation_degrees")
@@ -65,13 +136,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -50.0, 50.0 ]
+"values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=23]
 radius = 24.0
 
 [node name="Cannon" type="Node2D" groups=["tower"]]
@@ -88,22 +159,20 @@ anims/lighit = SubResource( 6 )
 collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
+material = SubResource( 25 )
 position = Vector2( -1.43051e-06, -1.43051e-06 )
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
 shape = SubResource( 1 )
 
 [node name="Muzzle" type="Sprite" parent="."]
-position = Vector2( 0, 2.72848e-12 )
-scale = Vector2( 1, 0.25 )
 texture = ExtResource( 3 )
-offset = Vector2( 31.6562, -2.44022 )
+offset = Vector2( 10, 0 )
 
 [node name="shotPos" type="Position2D" parent="Muzzle"]
-position = Vector2( 56, -1.09139e-11 )
+position = Vector2( 8, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
@@ -113,7 +182,7 @@ anims/move = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 visible = false
-shape = SubResource( 4 )
+shape = SubResource( 23 )
 disabled = true
 
 [node name="Light2D" type="Light2D" parent="."]

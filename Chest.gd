@@ -26,6 +26,6 @@ func open() -> void:
 		3:
 			print("3")
 	yield(anime, "animation_finished" )
-	
+	queue_free()
 
 	

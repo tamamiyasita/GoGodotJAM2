@@ -279,47 +279,17 @@ texture = ExtResource( 15 )
 [node name="Tower" parent="Towers" instance=ExtResource( 5 )]
 position = Vector2( 1408, 72 )
 
-[node name="Tower4" parent="Towers" instance=ExtResource( 5 )]
-position = Vector2( 688, -208 )
-
-[node name="Tower2" parent="Towers" instance=ExtResource( 5 )]
-position = Vector2( 584, -824 )
-
-[node name="Tower3" parent="Towers" instance=ExtResource( 5 )]
-position = Vector2( 1592, -136 )
-
 [node name="Cannon" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( 1280, -32 )
-rotation = -1.38928
+position = Vector2( 1752, -672 )
 
 [node name="Cannon2" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( -200, -880 )
-
-[node name="Cannon3" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( 960, -584 )
-rotation = -1.91812
-
-[node name="Cannon5" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( 1808, -616 )
-rotation = -3.24108
-
-[node name="Cannon6" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( 1864, -48 )
-rotation = -2.05076
-
-[node name="Cannon4" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( -152, -520 )
-rotation = -0.794125
-
-[node name="Cannon7" parent="Towers" instance=ExtResource( 8 )]
-position = Vector2( 232, 96 )
-rotation = -1.60396
+position = Vector2( 1352, -400 )
 
 [node name="ElecTower" parent="Towers" instance=ExtResource( 14 )]
 position = Vector2( 1552, -1072 )
 
 [node name="ElecTower2" parent="Towers" instance=ExtResource( 14 )]
-position = Vector2( 1440, -1192 )
+position = Vector2( 592, -856 )
 
 [node name="ElecTower3" parent="Towers" instance=ExtResource( 14 )]
 position = Vector2( 1552, -1152 )
@@ -346,7 +316,7 @@ script = ExtResource( 25 )
 Chest = ExtResource( 9 )
 
 [node name="ChestPosition2D" type="Position2D" parent="Gift"]
-position = Vector2( -368, -664 )
+position = Vector2( -392, -632 )
 
 [node name="Wood" parent="Gift" instance=ExtResource( 11 )]
 position = Vector2( 1920, -424 )
