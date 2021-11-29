@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Wave3Standby.gd" type="Script" id=1]
 [ext_resource path="res://image/kouen atama.png" type="Texture" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Path_curve/kenvector_future_thin.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://image/grey_box.png" type="Texture" id=6]
-[ext_resource path="res://image/green_button05.png" type="Texture" id=7]
-[ext_resource path="res://image/green_button04.png" type="Texture" id=8]
+[ext_resource path="res://image/buttonLong_beige_pressed.png" type="Texture" id=7]
+[ext_resource path="res://image/buttonLong_beige.png" type="Texture" id=8]
+[ext_resource path="res://Path_curve/魔王魂  村05.mp3" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 61
@@ -348,14 +349,10 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -160.0
-margin_top = -196.0
-margin_right = 160.0
-margin_bottom = -132.0
+margin_left = 640.0
+margin_top = 704.0
+margin_right = 960.0
+margin_bottom = 768.0
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 7 )
 expand = true
@@ -397,6 +394,11 @@ autoplay = "ready"
 anims/RESET = SubResource( 12 )
 anims/next = SubResource( 13 )
 anims/ready = SubResource( 14 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -14.0
+autoplay = true
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 

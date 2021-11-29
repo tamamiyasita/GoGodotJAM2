@@ -16,6 +16,7 @@ func _ready() -> void:
 	ENEM_progress.max_value = enemies_count
 	print(enemies_count, " enemies_count")
 
+
 func update_en(value) -> void:
 	EN_label.bbcode_text =  " Ball Energy " + str(value)
 	EN_progress.value = value
@@ -38,7 +39,6 @@ func enemies_number(value) -> void:
 	ENEM_progress.value = enemies_count
 
 func update_enemies() -> void:
-	
 	enemies_count -= 1
 	ENEM_label.bbcode_text = " Enemies " + str(enemies_count)
 	ENEM_progress.value = enemies_count

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/魔王魂  街26.mp3-d17881be6f4874021f833c3f266464eb.mp3str"
+
+[deps]
+
+source_file="res://Path_curve/魔王魂  街26.mp3"
+dest_files=[ "res://.import/魔王魂  街26.mp3-d17881be6f4874021f833c3f266464eb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

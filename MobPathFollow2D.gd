@@ -37,7 +37,6 @@ func dead() -> void:
 
 
 func _damege_flash() -> void:
-	mob.monitoring = false
 	col.disabled = true
 	yield(get_tree(), "idle_frame")
 	print(hp,  " hp")
@@ -46,7 +45,6 @@ func _damege_flash() -> void:
 		yield(anime, "animation_finished" )
 		hp -= 1
 		col.disabled = false
-		mob.monitoring = true
 
 	else:
 		if deth == false:

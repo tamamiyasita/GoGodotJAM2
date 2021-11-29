@@ -7,8 +7,10 @@
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
-fog_enabled = true
 glow_enabled = true
+glow_intensity = 0.02
+glow_blend_mode = 0
+glow_bicubic_upscale = true
 
 [node name="Level4" type="Node2D" groups=["level"]]
 position = Vector2( 497, 424 )

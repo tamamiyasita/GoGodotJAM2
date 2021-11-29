@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Slime1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://SpownPoint.gd" type="Script" id=4]
 [ext_resource path="res://Tower.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Path_curve/curve2d_1.tres" type="Curve2D" id=6]
-[ext_resource path="res://ReturnArea2D.gd" type="Script" id=7]
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Cannon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://image/kouen atama.png" type="Texture" id=10]
 [ext_resource path="res://Base.tscn" type="PackedScene" id=12]
@@ -18,8 +18,6 @@
 [ext_resource path="res://image/wood.png" type="Texture" id=19]
 [ext_resource path="res://image/stkki_4.png" type="Texture" id=21]
 [ext_resource path="res://image/stkki_2.png" type="Texture" id=22]
-[ext_resource path="res://image/doukutu.png" type="Texture" id=23]
-[ext_resource path="res://image/iseki.png" type="Texture" id=24]
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -164,15 +162,6 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CapsuleShape2D" id=8]
-radius = 39.9999
-height = 2508.0
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 1788, 20 )
-
-[sub_resource type="CapsuleShape2D" id=17]
-
 [sub_resource type="Curve2D" id=15]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, 0, 0, 0, 0, 896, -1104, 0, 0, 0, 0, 1048, -1024, -78.4003, -38.1407, 78.4003, 38.1407, 1520, -1176, 0, 0, 0, 0, 1976, -952, -69.9246, -12.7136, 69.9246, 12.7136, 2208, -664, -50, -86, 50, 86, 2600, -576, 0, 0, 0, 0, 2672, -120 )
@@ -239,81 +228,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 13 )
 centered = false
 
-[node name="Wall" type="StaticBody2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 200, 768 )
-polygon = PoolVector2Array( -728, -1624, 872, -1736, 2744, -1568, 2744, -1232, 2528, -1384, 2416, -1456, 2336, -1448, 2128, -1488, 872, -1544, 528, -1544, 328, -1512, 0, -1504, -664, -1472, -744, -1200 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( -587.65, -200 )
-scale = Vector2( 1.25893, 1 )
-build_mode = 1
-polygon = PoolVector2Array( 0, -1448, 8, 1248, 56, 1248, 873.481, 1120, 797.225, 1064, 657.423, 1016, 206.247, 792, 56, 168, 56, -1448 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 3536, 744 )
-build_mode = 1
-polygon = PoolVector2Array( -326.08, 475.16, -750.08, 659.16, -846.08, 683.16, -902.08, 691.16, -846.08, 691.16, -734.08, 667.16, -326.08, 499.16, -14.0801, 187.16, 65.9199, 771.16, 49.9199, 67.1599 )
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 2700.52, 258.266 )
-build_mode = 1
-polygon = PoolVector2Array( 3.48193, 541.734, 8, -576, -8, -608, -32, -648, -64.731, -698.46, -97.6, -736.8, -133.239, -771.712, -169.6, -800.8, -166.08, -828.84, -185.6, -856.8, -121.6, -816.8, -73.6, -776.8, -33.6, -736.8, -1.59998, -696.8, 14.4, -664.8, 24, -628, 24, -568, 19.4819, 541.734 )
-
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2( 2786.92, 169.466 )
-build_mode = 1
-polygon = PoolVector2Array( 15.9999, 801, -1472.46, 846.048, -1154.92, 694.534, -938.92, 638.534, -90.9199, 302.534, -26.9199, 606.534, 15.5359, 710.048, 15.9999, -551, 11.4, -577.8, 6.40002, -599.8, 2.26932, -612.192, -1.59998, -623.8, -8.00012, -640, -15.0001, -657, -26.0001, -677, -38.6, -696.8, -51.6, -711.8, -61.6, -722.8, -75.6, -736.8, -89.6, -750.8, -106, -766, -132, -787, -164, -807, -195.768, -822.273, -238.88, -836.04, -302.88, -852.04, 102.4, -839.8, 94.4, 800.2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2( 744, -1584 )
-rotation = 1.5708
-shape = SubResource( 8 )
-
-[node name="ReturnArea2D" type="Area2D" parent="Wall"]
-position = Vector2( 424, 416 )
-collision_layer = 0
-script = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/ReturnArea2D"]
-position = Vector2( 588, 644 )
-shape = SubResource( 7 )
-
-[node name="Obstacle" type="Node2D" parent="Wall"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall/Obstacle"]
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall/Obstacle/StaticBody2D"]
-position = Vector2( -80, -136 )
-shape = SubResource( 17 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall/Obstacle/StaticBody2D"]
-position = Vector2( 2048, 368 )
-shape = SubResource( 17 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/Obstacle/StaticBody2D"]
-position = Vector2( 864, -40 )
-shape = SubResource( 17 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Wall/Obstacle/StaticBody2D"]
-position = Vector2( -288, 152 )
-shape = SubResource( 17 )
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Wall/Obstacle/StaticBody2D"]
-position = Vector2( -376, -496 )
-shape = SubResource( 17 )
-
-[node name="Iseki" type="Sprite" parent="Wall/Obstacle"]
-position = Vector2( -272, 136 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 24 )
-
-[node name="Doukutu" type="Sprite" parent="Wall/Obstacle"]
-position = Vector2( -400, -504 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 23 )
+[node name="Wall" parent="." instance=ExtResource( 7 )]
 
 [node name="MOB_POP" type="Node" parent="."]
 
@@ -341,9 +256,6 @@ curve = ExtResource( 6 )
 [node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint2"]
 position = Vector2( 0, 776 )
 curve = SubResource( 15 )
-
-[node name="MobPathFollow2D" parent="MOB_POP/SpownPoint2/Path2D" instance=ExtResource( 1 )]
-position = Vector2( -332.148, -1264.19 )
 
 [node name="Timer" type="Timer" parent="MOB_POP/SpownPoint2"]
 process_mode = 0
@@ -470,7 +382,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="body_entered" from="Wall/ReturnArea2D" to="Wall/ReturnArea2D" method="_on_ReturnArea2D_body_entered"]
 [connection signal="timeout" from="MOB_POP/SpownPoint1/Timer" to="MOB_POP/SpownPoint1" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MOB_POP/SpownPoint2/Timer" to="MOB_POP/SpownPoint2" method="_on_Timer_timeout"]
 

@@ -22,12 +22,12 @@ func _ready() -> void:
 
 
 func _on_Timer_timeout() -> void:
-	mob_num -= 1
 	
-	if 0 > mob_num:
+	if 0 >= mob_num:
 		timer.stop()
 		print("mob_stop")
 	else:
+		mob_num -= 1
 		var m = Mob.instance()
 		path.add_child(m)
 		m.h_offset += randi() % 40
