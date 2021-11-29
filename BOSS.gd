@@ -7,6 +7,7 @@ export var damage := 1
 export var hp = 1
 onready var col = $Area2D/CollisionShape2D as CollisionShape2D
 onready var anime := $AnimationPlayer
+var down = preload("res://image/waruiko - batan.png")
 
 var deth = false
 
@@ -51,7 +52,12 @@ func _damege_flash() -> void:
 
 	else:
 		if deth == false:
-			get_tree().change_scene("res://Clear.tscn")
+			$Area2D/Icon.texture = down
+			set_process(false)
+			$Area2D/CollisionShape2D.disabled = true
+			get_tree().call_group("ui", "update_enemies")
+
+#			get_tree().change_scene("res://Clear.tscn")
 #			dead()
 			deth = true
 	

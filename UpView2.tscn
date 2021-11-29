@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UpView.gd" type="Script" id=2]
@@ -42,32 +42,6 @@ size = 200
 outline_size = 30
 outline_color = Color( 0.168627, 0.882353, 0.470588, 1 )
 font_data = ExtResource( 14 )
-
-[sub_resource type="ConvexPolygonShape2D" id=13]
-points = PoolVector2Array( 40, 8, 64, 24, 72, 32, 72, 48, 56, 64, 48, 64, 32, 64, 8, 56, 0, 48, 0, 40, 8, 32, 16, 16, 32, 8, 32, 8 )
-
-[sub_resource type="TileSet" id=14]
-0/name = "wood.png 0"
-0/texture = ExtResource( 17 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 8, 0, 80, 96 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 13 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 13 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
 
 [sub_resource type="Animation" id=19]
 length = 0.001
@@ -234,6 +208,11 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 23 )
 centered = false
 
+[node name="Wood" type="Sprite" parent="Map"]
+position = Vector2( 1500, 672 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 17 )
+
 [node name="Obstacle" type="Node2D" parent="."]
 
 [node name="Iseki" type="Sprite" parent="Obstacle"]
@@ -353,10 +332,10 @@ texture = ExtResource( 19 )
 position = Vector2( 1408, 72 )
 
 [node name="Cannon" parent="Towers" instance=ExtResource( 10 )]
-position = Vector2( 1672, -88 )
+position = Vector2( 1656, -152 )
 
 [node name="Cannon2" parent="Towers" instance=ExtResource( 10 )]
-position = Vector2( 1096, 280 )
+position = Vector2( 432, 368 )
 
 [node name="ElecTower4" parent="Towers" instance=ExtResource( 7 )]
 position = Vector2( 2632, 8 )
@@ -410,13 +389,6 @@ __meta__ = {
 pause_mode = 2
 position = Vector2( 1176, 128 )
 zoom = Vector2( 2.7, 2.7 )
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 14 )
-cell_size = Vector2( 32, 32 )
-collision_layer = 0
-format = 1
-tile_data = PoolIntArray( -1900514, 0, 0, 131055, 0, 0, 196591, 0, 0, 393200, 0, 0, 524272, 0, 0, 720881, 0, 0, 851952, 0, 0, 851954, 0, 0, 983027, 0, 0, 1048560, 0, 0, 1048561, 0, 0, 1114096, 0, 0, 1114099, 0, 0, 1179632, 0, 0, 1114190, 0, 0, 1179724, 0, 0, 1310706, 0, 0, 1245261, 0, 0, 1245262, 0, 0, 1310793, 0, 0, 1310794, 0, 0, 1310800, 0, 0, 1441778, 0, 0, 1441780, 0, 0, 1441781, 0, 0, 1376329, 0, 0, 1441868, 0, 0, 1441871, 0, 0, 1572849, 0, 0, 1572855, 0, 0, 1572856, 0, 0, 1507405, 0, 0, 1638390, 0, 0, 1572937, 0, 0, 1572938, 0, 0, 1703924, 0, 0, 1638474, 0, 0, 1638478, 0, 0, 1769464, 0, 0, 1769465, 0, 0, 1769466, 0, 0, 1834996, 0, 0, 1835001, 0, 0, 1769548, 0, 0, 1769551, 0, 0, 1900533, 0, 0, 1900536, 0, 0, 1835081, 0, 0, 1835082, 0, 0, 1966066, 0, 0, 1966069, 0, 0, 1966070, 0, 0, 1900621, 0, 0, 1900626, 0, 0, 1900627, 0, 0, 1966160, 0, 0 )
 
 [node name="KouenAtama" type="Sprite" parent="."]
 position = Vector2( 264, -624 )
