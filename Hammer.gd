@@ -3,9 +3,9 @@ export(PackedScene) var Ball
 
 onready var anime := $AnimationPlayer
 
-func _unhandled_input(event: InputEvent) -> void:
-		if Input.is_action_pressed('shot'):
-			shot()
+#func _unhandled_input(event: InputEvent) -> void:
+#		if Input.is_action_pressed('shot'):
+#			shot()
 		
 func shot() -> void:
 	var b = Ball.instance()

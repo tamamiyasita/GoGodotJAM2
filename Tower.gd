@@ -7,7 +7,7 @@ export(PackedScene) var Fire
 
 var energy := 0
 var energy_consumption := 3
-var start_fire := 3
+var start_fire := 2
 
 func _ready() -> void:
 	$AnimationPlayer.play('r')

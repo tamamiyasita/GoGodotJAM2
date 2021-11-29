@@ -81,7 +81,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.6, 1.9, 1.901 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 1 ) ]
+"values": [ Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 1 ) ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -140,7 +140,7 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="."]
-modulate = Color( 1, 1, 1, 0.54902 )
+modulate = Color( 1.22963, 1.22963, 1.91852, 0.756137 )
 margin_left = 640.0
 margin_top = 704.0
 margin_right = 960.0
@@ -172,16 +172,6 @@ autoplay = "b"
 anims/RESET = SubResource( 10 )
 anims/b = SubResource( 11 )
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-visible = false
-margin_right = 1600.0
-margin_bottom = 900.0
-mouse_filter = 2
-color = Color( 0.141176, 0.164706, 0.290196, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "ready"
 anims/RESET = SubResource( 12 )
@@ -199,6 +189,15 @@ margin_top = 743.0
 margin_right = 133.0
 margin_bottom = 1043.0
 texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_right = 1600.0
+margin_bottom = 900.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
