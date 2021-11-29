@@ -266,7 +266,7 @@ centered = false
 
 [node name="SpownPoint" type="Node" parent="MOB_POP"]
 script = ExtResource( 3 )
-mob_num = 18
+mob_num = 21
 pop_time = 4.0
 Mob = ExtResource( 15 )
 curve = ExtResource( 17 )
@@ -280,7 +280,7 @@ process_mode = 0
 
 [node name="SpownPoint2" type="Node" parent="MOB_POP"]
 script = ExtResource( 3 )
-mob_num = 17
+mob_num = 19
 pop_time = 5.0
 Mob = ExtResource( 15 )
 curve = ExtResource( 17 )
@@ -308,7 +308,7 @@ process_mode = 0
 
 [node name="SpownPoint4" type="Node" parent="MOB_POP"]
 script = ExtResource( 3 )
-mob_num = 15
+mob_num = 13
 pop_time = 11.0
 Mob = ExtResource( 13 )
 curve = ExtResource( 17 )
@@ -322,8 +322,8 @@ process_mode = 0
 
 [node name="SpownPoint5" type="Node" parent="MOB_POP"]
 script = ExtResource( 3 )
-mob_num = 13
-pop_time = 14.0
+mob_num = 9
+pop_time = 13.0
 Mob = ExtResource( 11 )
 curve = ExtResource( 17 )
 
@@ -336,7 +336,7 @@ process_mode = 0
 
 [node name="SpownPoint6" type="Node" parent="MOB_POP"]
 script = ExtResource( 3 )
-mob_num = 18
+mob_num = 10
 pop_time = 11.0
 Mob = ExtResource( 11 )
 curve = ExtResource( 17 )
@@ -350,8 +350,8 @@ process_mode = 0
 
 [node name="SpownPoint7" type="Node" parent="MOB_POP"]
 script = ExtResource( 3 )
-mob_num = 15
-pop_time = 12.0
+mob_num = 10
+pop_time = 10.0
 Mob = ExtResource( 11 )
 curve = ExtResource( 17 )
 
@@ -365,7 +365,7 @@ process_mode = 0
 [node name="SpownPoint8" type="Node" parent="MOB_POP"]
 script = ExtResource( 3 )
 mob_num = 1
-pop_time = 50.0
+pop_time = 60.0
 Mob = ExtResource( 26 )
 curve = ExtResource( 17 )
 
