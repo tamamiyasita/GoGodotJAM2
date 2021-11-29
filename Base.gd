@@ -31,12 +31,13 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 		print("game_over") 
 		get_tree().call_group("up", "game_over")	
 			
-	area.get_parent().hp -= 5
-	yield(get_tree(), "idle_frame")
-	area.get_parent()._damege_flash()
-	$AudioStreamPlayer.play()
-	HP -= area.get_parent().damage
-	if 1 > HP:
-		print("game_over") 
-		get_tree().call_group("up", "game_over")
-	get_tree().call_group("ui", "update_hp", HP)
+	else:
+		area.get_parent().hp -= 5
+		yield(get_tree(), "idle_frame")
+		area.get_parent()._damege_flash()
+		$AudioStreamPlayer.play()
+		HP -= area.get_parent().damage
+		if 1 > HP:
+			print("game_over") 
+			get_tree().call_group("up", "game_over")
+		get_tree().call_group("ui", "update_hp", HP)

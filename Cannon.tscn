@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 0.45098, 0.462745, 0.466667, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("../AudioStreamPlayer:playing")
@@ -100,7 +100,6 @@ tracks/0/keys = {
 radius = 24.0
 
 [node name="Cannon" type="Node2D" groups=["tower"]]
-modulate = Color( 0.45098, 0.462745, 0.466667, 1 )
 script = ExtResource( 1 )
 Bullet = ExtResource( 2 )
 

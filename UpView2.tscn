@@ -332,12 +332,15 @@ texture = ExtResource( 19 )
 position = Vector2( 1408, 72 )
 
 [node name="Cannon" parent="Towers" instance=ExtResource( 10 )]
+modulate = Color( 1, 1, 1, 1 )
 position = Vector2( 1656, -152 )
 
 [node name="Cannon2" parent="Towers" instance=ExtResource( 10 )]
+modulate = Color( 1, 1, 1, 1 )
 position = Vector2( 432, 368 )
 
 [node name="ElecTower4" parent="Towers" instance=ExtResource( 7 )]
+modulate = Color( 1, 1, 1, 1 )
 position = Vector2( 2632, 8 )
 
 [node name="Base" parent="." instance=ExtResource( 11 )]
