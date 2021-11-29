@@ -10,7 +10,7 @@ radius = 6.0
 height = 60.0
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 32.0
+radius = 40.0
 
 [sub_resource type="Gradient" id=19]
 colors = PoolColorArray( 0.477049, 0.992883, 0.555495, 1, 0.300088, 0.633508, 0.24004, 1 )

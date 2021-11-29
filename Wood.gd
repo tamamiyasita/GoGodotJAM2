@@ -15,7 +15,6 @@ func apple_hp() -> void:
 	if apple == false:
 		$Appls.show()
 		apple = true
-		$chargeParticles2D2.emitting = false
 	else:
 		apple = false
 		$Appls.hide()
@@ -24,7 +23,7 @@ func apple_hp() -> void:
 	
 
 
-
-func _unhandled_input(event: InputEvent) -> void:
-		if Input.is_action_pressed("ui_accept"):
-			apple_hp()
+#
+#func _unhandled_input(event: InputEvent) -> void:
+#		if Input.is_action_pressed("ui_accept"):
+#			apple_hp()
