@@ -55,6 +55,8 @@ func _damege_flash() -> void:
 			$Area2D/Icon.texture = down
 			set_process(false)
 			$Area2D/CollisionShape2D.disabled = true
+			get_tree().call_group("ui", "update_enemies")
+
 #			get_tree().change_scene("res://Clear.tscn")
 #			dead()
 			deth = true

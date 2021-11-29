@@ -21,6 +21,9 @@ func update_base_hp(value) -> void:
 	yield(get_tree().create_timer(0.1), "timeout")
 	get_tree().call_group("ui", "update_hp", HP)
 	
+	
+	
+
 
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
