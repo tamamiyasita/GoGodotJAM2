@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://image/waruiko - batan.png" type="Texture" id=1]
 [ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Clear.gd" type="Script" id=7]
 [ext_resource path="res://image/buttonLong_beige.png" type="Texture" id=8]
 [ext_resource path="res://image/buttonLong_beige_pressed.png" type="Texture" id=9]
+[ext_resource path="res://image/ed.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -68,21 +69,15 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = 0.036
-anchor_top = 0.057
-anchor_right = 0.958
-anchor_bottom = 0.939
-margin_left = -57.6
-margin_top = -51.3
-margin_right = 67.2
-margin_bottom = 54.9
-color = Color( 0.360784, 0.615686, 0.592157, 1 )
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect3" type="TextureRect" parent="ColorRect"]
+[node name="TextureRect3" type="TextureRect" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 603.0
@@ -97,7 +92,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
 anchor_left = 0.088
 anchor_top = 0.126
 anchor_right = 0.921
@@ -111,7 +106,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect2" type="TextureRect" parent="ColorRect"]
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
 anchor_left = 0.155
 anchor_top = 0.127
 anchor_right = 0.895
@@ -127,15 +122,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="TextureRect"]
 anchor_left = 0.061
 anchor_top = 0.094
 anchor_right = 0.937
 anchor_bottom = 0.556
 margin_left = -25.6
 margin_top = -54.6
-margin_right = 72.7999
-margin_bottom = 29.5999
+margin_right = 72.8
+margin_bottom = 29.6
 rect_min_size = Vector2( 1500, 500 )
 size_flags_horizontal = 15
 size_flags_vertical = 15

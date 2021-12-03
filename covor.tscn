@@ -178,6 +178,7 @@ volume_db = -14.0
 autoplay = true
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 margin_left = 289.0
 margin_top = 613.0
 margin_right = 589.0
