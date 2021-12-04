@@ -1,0 +1,506 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Old_scene/UpView.gd" type="Script" id=1]
+[ext_resource path="res://Old_scene/Gift.gd" type="Script" id=2]
+[ext_resource path="res://Old_scene/Hammer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Old_scene/Cannon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Old_scene/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Old_scene/Tower.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Old_scene/Wood.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Old_scene/ElecTower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Old_scene/Bar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scene/Level/mob/Slime2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scene/Level/mob/BOSS.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scene/Level/mob/Slime3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scene/Level/mob/Slime1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Old_scene/Base.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Old_scene/Chest.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Old_scene/Hisamatu.tscn" type="PackedScene" id=16]
+[ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://Old_scene/SpownPoint.gd" type="Script" id=18]
+[ext_resource path="res://music/curve2d_1.tres" type="Curve2D" id=19]
+[ext_resource path="res://image/stkki_3.png" type="Texture" id=20]
+[ext_resource path="res://image/stkki_2.png" type="Texture" id=21]
+[ext_resource path="res://image/map.png" type="Texture" id=22]
+[ext_resource path="res://image/stkki_4.png" type="Texture" id=23]
+
+[sub_resource type="Curve2D" id=15]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, 0, 0, 0, 0, 896, -1104, 0, 0, 0, 0, 1048, -1024, -78.4003, -38.1407, 78.4003, 38.1407, 1520, -1176, 0, 0, 0, 0, 1976, -952, -69.9246, -12.7136, 69.9246, 12.7136, 2208, -664, -50, -86, 50, 86, 2600, -576, 0, 0, 0, 0, 2672, -120 )
+}
+
+[sub_resource type="Curve2D" id=16]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, -780.352, 13.4543, 780.352, -13.4543, 288, -2048, 0, 0, 0, 0, 872, -2064, 0, 0, 0, 0, 1168, -2184, -78.4003, -38.1407, 78.4003, 38.1407, 1840, -2344, 0, 0, 0, 0, 1840, -2016, 0, 0, 0, 0, 1976, -1816, -69.9246, -12.7136, 69.9246, 12.7136, 1976, -1448, -50, -86, 50, 86, 2440, -1560, 0, 0, 0, 0, 2568, -1104 )
+}
+
+[sub_resource type="Curve2D" id=17]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -392, -1272, -240.636, 48.3772, 240.636, -48.3772, 456, -1024, -155.565, 82.5448, 155.565, -82.5448, 784, -1448, 0, 0, 0, 0, 976, -1448, -78.4003, -38.1407, 78.4003, 38.1407, 1240, -1320, 0, 0, 0, 0, 1520, -1624, -67.9589, -113.265, 67.9589, 113.265, 2344, -1872, -69.9246, -12.7136, 69.9246, 12.7136, 2208, -1440, -50, -86, 50, 86, 2504, -1240, 0, 0, 0, 0, 2568, -1104 )
+}
+
+[sub_resource type="Curve2D" id=18]
+_data = {
+"points": PoolVector2Array( -48.0542, -16.0181, 48.0542, 16.0181, -392, -1272, -240.636, 48.3772, 240.636, -48.3772, 368, -1040, -155.565, 82.5448, 155.565, -82.5448, 904, -1608, 0, 0, 0, 0, 976, -1656, -78.4003, -38.1407, 78.4003, 38.1407, 1312, -1792, 0, 0, 0, 0, 1856, -1608, -67.9589, -113.265, 67.9589, 113.265, 2128, -1184, 0, 0, 0, 0, 2656, -840 )
+}
+
+[sub_resource type="Curve2D" id=19]
+_data = {
+"points": PoolVector2Array( -48.0542, -16.0181, 48.0542, 16.0181, -392, -1272, 0, 0, 0, 0, 296, -906, -67.9589, -113.265, 67.9589, 113.265, 536, -618, 0, 0, 0, 0, 1104, -98 )
+}
+
+[sub_resource type="Curve2D" id=20]
+_data = {
+"points": PoolVector2Array( -48.0542, -16.0181, 48.0542, 16.0181, -392, -1272, -184.139, -107.943, 184.139, 107.943, 440, -1400, -67.9589, -113.265, 67.9589, 113.265, 976, -1064, 0, 0, 0, 0, 1240, -936, 0, 0, 0, 0, 1856, -1184, -247.635, -219.061, 247.635, 219.061, 2528, -896 )
+}
+
+[sub_resource type="Curve2D" id=21]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -616, -1656, 0, 0, 0, 0, 632, -1248, 0, 0, 0, 0, 984, -1056, 0, 0, 0, 0, 1200, -960, 0, 0, 0, 0, 1776, -800, 0, 0, 0, 0, 2120, -904, 0, 0, 0, 0, 2344, -976, 0, 0, 0, 0, 2544, -888 )
+}
+
+[sub_resource type="Curve2D" id=22]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 208, -568, 0, 0, 0, 0, 512, -392, 0, 0, 0, 0, 1552, -464, 0, 0, 0, 0, 1824, -224, 0, 0, 0, 0, 2416, 320, 0, 0, 0, 0, 2112, 536, 0, 0, 0, 0, 1456, 600, 0, 0, 0, 0, 432, 392, 0, 0, 0, 0, -56, -128, 0, 0, 0, 0, -8, -408, 0, 0, 0, 0, 72, -520, 0, 0, 0, 0, 208, -568 )
+}
+
+[sub_resource type="DynamicFont" id=12]
+size = 200
+outline_size = 30
+outline_color = Color( 0.168627, 0.882353, 0.470588, 1 )
+font_data = ExtResource( 17 )
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("fadeOnOut:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/RichTextLabel:bbcode_text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ " Wave 4 Start!" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("fadeOnOut:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "game_over"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/RichTextLabel:bbcode_text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Game Over!" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fadeOnOut:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fadeOnOut:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/RichTextLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("fadeOnOut:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.3, 2, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1.5, 1.5, 1.5, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fadeOnOut:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="UpView4" type="Node2D" groups=["up"]]
+script = ExtResource( 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1752.0
+margin_right = 1600.0
+margin_bottom = -852.0
+rect_min_size = Vector2( 1600, 5000 )
+color = Color( 0.858824, 0.85098, 0.686275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map" type="Sprite" parent="."]
+position = Vector2( -488, -768 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 22 )
+centered = false
+
+[node name="MOB_POP" type="Node" parent="."]
+
+[node name="SpownPoint" type="Node" parent="MOB_POP"]
+script = ExtResource( 18 )
+mob_num = 28
+pop_time = 3.5
+Mob = ExtResource( 13 )
+curve = ExtResource( 19 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint"]
+position = Vector2( 72, 704 )
+curve = ExtResource( 19 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint"]
+process_mode = 0
+
+[node name="SpownPoint2" type="Node" parent="MOB_POP"]
+script = ExtResource( 18 )
+mob_num = 28
+pop_time = 3.5
+Mob = ExtResource( 13 )
+curve = ExtResource( 19 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint2"]
+position = Vector2( 0, 776 )
+curve = SubResource( 15 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint2"]
+process_mode = 0
+
+[node name="SpownPoint3" type="Node" parent="MOB_POP"]
+script = ExtResource( 18 )
+mob_num = 10
+pop_time = 8.0
+Mob = ExtResource( 12 )
+curve = ExtResource( 19 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint3"]
+position = Vector2( 136, 1824 )
+curve = SubResource( 16 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint3"]
+process_mode = 0
+
+[node name="SpownPoint4" type="Node" parent="MOB_POP"]
+script = ExtResource( 18 )
+mob_num = 13
+pop_time = 8.0
+Mob = ExtResource( 12 )
+curve = ExtResource( 19 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint4"]
+position = Vector2( 152, 1824 )
+curve = SubResource( 17 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint4"]
+process_mode = 0
+
+[node name="SpownPoint5" type="Node" parent="MOB_POP"]
+script = ExtResource( 18 )
+mob_num = 5
+pop_time = 15.0
+Mob = ExtResource( 10 )
+curve = ExtResource( 19 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint5"]
+position = Vector2( 96, 1408 )
+curve = SubResource( 18 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint5"]
+process_mode = 0
+
+[node name="SpownPoint6" type="Node" parent="MOB_POP"]
+script = ExtResource( 18 )
+mob_num = 5
+pop_time = 15.0
+Mob = ExtResource( 10 )
+curve = ExtResource( 19 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint6"]
+position = Vector2( 1560, 626 )
+curve = SubResource( 19 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint6"]
+process_mode = 0
+
+[node name="SpownPoint7" type="Node" parent="MOB_POP"]
+script = ExtResource( 18 )
+mob_num = 7
+pop_time = 13.0
+Mob = ExtResource( 10 )
+curve = ExtResource( 19 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint7"]
+position = Vector2( 120, 1416 )
+curve = SubResource( 20 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint7"]
+process_mode = 0
+
+[node name="SpownPoint8" type="Node" parent="MOB_POP"]
+script = ExtResource( 18 )
+mob_num = 1
+pop_time = 60.0
+Mob = ExtResource( 11 )
+curve = ExtResource( 19 )
+
+[node name="Path2D" type="Path2D" parent="MOB_POP/SpownPoint8"]
+position = Vector2( 120, 1416 )
+curve = SubResource( 21 )
+
+[node name="Timer" type="Timer" parent="MOB_POP/SpownPoint8"]
+process_mode = 0
+
+[node name="Path2D" type="Path2D" parent="MOB_POP"]
+curve = SubResource( 22 )
+
+[node name="hisamatu" parent="MOB_POP/Path2D" instance=ExtResource( 16 )]
+position = Vector2( 260.315, -537.712 )
+
+[node name="Manipulate" type="Node2D" parent="."]
+
+[node name="Hammer" parent="Manipulate" instance=ExtResource( 3 )]
+position = Vector2( 2758, 600 )
+
+[node name="Bar" parent="Manipulate" groups=["bar"] instance=ExtResource( 9 )]
+position = Vector2( -72, -1592 )
+scale = Vector2( 3, 3 )
+
+[node name="L_pos" parent="Manipulate/Bar" index="0"]
+position = Vector2( 159.667, 842 )
+rotation = 0.174533
+
+[node name="R_pos" parent="Manipulate/Bar" index="1"]
+position = Vector2( 568, 840 )
+rotation = -0.174533
+
+[node name="Stkki2" parent="Manipulate/Bar/R_pos/R_Bar" index="0"]
+texture = ExtResource( 21 )
+
+[node name="Bar2" parent="Manipulate" groups=["bar2"] instance=ExtResource( 9 )]
+position = Vector2( -792, -1744 )
+scale = Vector2( 3, 3 )
+
+[node name="L_pos" parent="Manipulate/Bar2" index="0"]
+position = Vector2( 877.333, 872 )
+rotation = -0.415388
+
+[node name="Stkki" parent="Manipulate/Bar2/L_pos/L_Bar" index="0"]
+texture = ExtResource( 23 )
+
+[node name="R_pos" parent="Manipulate/Bar2" index="1"]
+position = Vector2( 330.667, 869.333 )
+rotation = 0.415388
+
+[node name="Stkki2" parent="Manipulate/Bar2/R_pos/R_Bar" index="0"]
+texture = ExtResource( 20 )
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="Tower" parent="Towers" instance=ExtResource( 6 )]
+position = Vector2( 1408, 72 )
+
+[node name="Cannon" parent="Towers" instance=ExtResource( 4 )]
+position = Vector2( 1664, -152 )
+
+[node name="Cannon2" parent="Towers" instance=ExtResource( 4 )]
+position = Vector2( 424, 368 )
+
+[node name="ElecTower" parent="Towers" instance=ExtResource( 8 )]
+position = Vector2( 1552, -1072 )
+
+[node name="ElecTower2" parent="Towers" instance=ExtResource( 8 )]
+position = Vector2( 1632, -1240 )
+
+[node name="ElecTower3" parent="Towers" instance=ExtResource( 8 )]
+position = Vector2( 1552, -1152 )
+
+[node name="ElecTower4" parent="Towers" instance=ExtResource( 8 )]
+position = Vector2( 2632, 8 )
+
+[node name="Gift" type="Node2D" parent="."]
+script = ExtResource( 2 )
+Chest = ExtResource( 15 )
+
+[node name="ChestPosition2D" type="Position2D" parent="Gift"]
+position = Vector2( -392, -632 )
+
+[node name="Wood" parent="Gift" instance=ExtResource( 7 )]
+position = Vector2( 2496, 552 )
+
+[node name="Timer" type="Timer" parent="Gift"]
+wait_time = 2.0
+
+[node name="Base" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2648, 552 )
+
+[node name="Camera2D" type="Camera2D" parent="Base"]
+position = Vector2( -16, 1048 )
+anchor_mode = 0
+current = true
+limit_bottom = 900
+
+[node name="fadeOnOut" type="ColorRect" parent="."]
+visible = false
+margin_left = -2864.0
+margin_top = -3984.0
+margin_right = 6168.0
+margin_bottom = 2032.0
+color = Color( 0, 0.0235294, 0.14902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 392.0
+margin_top = 120.0
+margin_right = 1892.0
+margin_bottom = 620.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer"]
+margin_right = 1500.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 1500, 500 )
+size_flags_horizontal = 15
+size_flags_vertical = 15
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_text = " Wave 4 Start!"
+tab_size = 6
+text = " Wave 4 Start!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+pause_mode = 2
+position = Vector2( 1176, 128 )
+zoom = Vector2( 2.7, 2.7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+autoplay = "RESET"
+anims/RESET = SubResource( 24 )
+anims/game_over = SubResource( 25 )
+anims/start = SubResource( 26 )
+
+[node name="Wall" parent="." instance=ExtResource( 5 )]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.631373, 0.647059, 0.843137, 1 )
+
+[connection signal="timeout" from="MOB_POP/SpownPoint/Timer" to="MOB_POP/SpownPoint" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint2/Timer" to="MOB_POP/SpownPoint2" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint3/Timer" to="MOB_POP/SpownPoint3" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint4/Timer" to="MOB_POP/SpownPoint4" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint5/Timer" to="MOB_POP/SpownPoint5" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint6/Timer" to="MOB_POP/SpownPoint6" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint7/Timer" to="MOB_POP/SpownPoint7" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MOB_POP/SpownPoint8/Timer" to="MOB_POP/SpownPoint8" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Gift/Timer" to="Gift" method="_on_Timer_timeout"]
+
+[editable path="Manipulate/Bar"]
+[editable path="Manipulate/Bar2"]

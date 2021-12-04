@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Old_scene/Lightning.gd" type="Script" id=1]
+[ext_resource path="res://Old_scene/Electric.gd" type="Script" id=2]
+[ext_resource path="res://image/windfeg.png" type="Texture" id=3]
+[ext_resource path="res://image/spot.png" type="Texture" id=4]
+[ext_resource path="res://sound/Magic_Attack_04.wav" type="AudioStream" id=5]
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec2 uv = vec2(UV.x - sin(TIME * 80.0) * 0.1, UV.y - sin(TIME * 80.0) * 0.02);
+	COLOR = texture(TEXTURE, uv);
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+void vertex() {
+	VERTEX.y += sin(TIME * 70.0) * 200.0 * (UV.x -1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 12.6667
+height = 22.6667
+
+[node name="Electric" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="Lightning" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 100, 0 )
+collision_mask = 19
+collide_with_areas = true
+script = ExtResource( 1 )
+max_distance = 800
+
+[node name="Line2D" type="Line2D" parent="Lightning"]
+modulate = Color( 1, 2, 1.0625, 1 )
+self_modulate = Color( 0.427451, 1, 0.529412, 1 )
+material = SubResource( 7 )
+scale = Vector2( 1, 0.05 )
+points = PoolVector2Array( 0, 0, 100, 0 )
+width = 150.0
+default_color = Color( 0.698039, 0.74902, 1, 1 )
+texture = ExtResource( 3 )
+texture_mode = 1
+
+[node name="End" type="Node2D" parent="Lightning"]
+modulate = Color( 3, 3, 1, 1 )
+position = Vector2( 96, 0 )
+scale = Vector2( 1.5, 1 )
+
+[node name="spreite" type="Sprite" parent="Lightning/End"]
+self_modulate = Color( 0.0666667, 1, 0.0823529, 1 )
+material = SubResource( 4 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="Lightning/End" groups=["damage"]]
+collision_layer = 32
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lightning/End/Area2D"]
+shape = SubResource( 8 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -14.0
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

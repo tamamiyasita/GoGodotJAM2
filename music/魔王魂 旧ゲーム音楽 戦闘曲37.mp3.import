@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/魔王魂 旧ゲーム音楽 戦闘曲37.mp3-b4fbc351d30b384c83a1dccaac263400.mp3str"
+
+[deps]
+
+source_file="res://music/魔王魂 旧ゲーム音楽 戦闘曲37.mp3"
+dest_files=[ "res://.import/魔王魂 旧ゲーム音楽 戦闘曲37.mp3-b4fbc351d30b384c83a1dccaac263400.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

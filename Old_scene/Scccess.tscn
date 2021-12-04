@@ -1,0 +1,505 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://sound/Magical_Buff_02.wav" type="AudioStream" id=1]
+[ext_resource path="res://image/boul.png" type="Texture" id=2]
+[ext_resource path="res://image/ball2.png" type="Texture" id=3]
+[ext_resource path="res://sound/Magic_Attack_04.wav" type="AudioStream" id=4]
+[ext_resource path="res://image/s_ball.png" type="Texture" id=5]
+[ext_resource path="res://image/player_move1.png" type="Texture" id=6]
+[ext_resource path="res://image/b_ball.png" type="Texture" id=7]
+[ext_resource path="" type="PackedScene" id=8]
+[ext_resource path="res://image/Gugi-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Old_scene/Scccess.gd" type="Script" id=10]
+[ext_resource path="res://sound/Musical_Positive_Spell_01.wav" type="AudioStream" id=11]
+
+[sub_resource type="PhysicsMaterial" id=5]
+friction = 0.0
+bounce = 0.56
+
+[sub_resource type="GDScript" id=22]
+script/source = "class_name ball
+extends RigidBody2D
+
+onready var sprite := $Sprite
+onready var camera := $Camera2D
+onready var buff = 0
+
+const CLAMP_VELOCITY = 1700.0
+
+
+func _ready() -> void:
+	get_tree().call_group(\"ui\", \"update_en\", BaseInfo.ball_energy)
+	get_tree().call_group(\"ui\", \"update_max_en\", BaseInfo.ball_energy)
+	
+
+func update_max_ball_en(value) -> void:
+	BaseInfo.max_ball_energy += value
+	get_tree().call_group(\"ui\", \"update_max_en\", BaseInfo.max_ball_energy)
+	yield(get_tree().create_timer(0.1), \"timeout\")
+	get_tree().call_group(\"ui\", \"update_en\", BaseInfo.ball_energy)
+	enegy_modulate()
+	
+func _process(delta):
+	var speed = get_linear_velocity().length()
+
+func _integrate_forces(state):
+	var velocity = state.get_linear_velocity()
+	if velocity.length() > CLAMP_VELOCITY:
+		state.set_linear_velocity(velocity.clamped(CLAMP_VELOCITY))
+
+func _unhandled_input(event: InputEvent) -> void:
+		if Input.is_action_pressed('spn'):
+#			applied_force = Vector2(-400,0)
+			applied_torque = 400000.0
+		if Input.is_action_just_released('spn'):
+			applied_force = Vector2(0,0)
+		if Input.is_action_pressed('spn2'):
+			applied_force = Vector2(400,0)
+		if Input.is_action_just_released('spn2'):
+			applied_force = Vector2(0,0)
+
+
+func enegy_modulate() -> void:
+	if BaseInfo.ball_energy >= 20:
+		BaseInfo.ball_value = 5
+		sprite.modulate.a = 1.0
+	elif BaseInfo.ball_energy >= 10:
+		BaseInfo.ball_value = 3
+		sprite.modulate.a = 0.18
+	elif BaseInfo.ball_energy >= 1:
+		sprite.modulate.a = 0.06
+		BaseInfo.ball_value = 1 
+	elif BaseInfo.ball_energy < 1:
+		sprite.modulate.a = 0.0
+		BaseInfo.ball_value = 0
+
+
+
+func energy_charge(obj) -> void:
+	if obj.is_in_group(\"mob\"):
+		$mob.play()
+		BaseInfo.ball_energy -= 1
+		if BaseInfo.ball_energy < 0:
+			BaseInfo.ball_energy = 0
+	if obj.is_in_group(\"tower\"):
+		$charge.play()
+			
+	enegy_modulate()
+
+
+#
+	
+	yield(get_tree().create_timer(0.1), \"timeout\")
+	get_tree().call_group(\"ui\", \"update_en\", BaseInfo.ball_energy)
+	
+
+func _on_Area2D_area_entered(area: Area2D) -> void:
+	energy_charge(area)
+
+
+func home() -> void:
+#	queue_free()
+	$AnimationPlayer.play('rtn')
+
+"
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 33.5
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.569659 )
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_align_y = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+color_ramp = SubResource( 15 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0.0602273 ), 0.0, 0.0, 0, 0, Vector2( 0.523121, 1 ), -1.24004, -1.24004, 0, 0, Vector2( 1, 0.196591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=21]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 1
+emission_sphere_radius = 60.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = -80.0
+radial_accel_random = 0.3
+scale = 0.2
+scale_curve = SubResource( 21 )
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 43.0
+
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BodySprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "rtn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BodySprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.688525, 0.973864 ), 0.0, 0.0, 0, 0, Vector2( 0.991803, 0.0102272 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=20]
+offsets = PoolRealArray( 0, 0.180758, 0.35277, 1 )
+colors = PoolColorArray( 1, 0.980469, 0.980469, 1, 2, 2, 2, 0.49, 1.39623, 1.39623, 1.39623, 1, 1, 1, 1, 0.51 )
+
+[sub_resource type="PackedScene" id=23]
+_bundled = {
+"conn_count": 1,
+"conns": PoolIntArray( 7, 0, 67, 66, 2, 0 ),
+"editable_instances": [  ],
+"names": PoolStringArray( "Ball", "position", "collision_mask", "mode", "mass", "physics_material_override", "gravity_scale", "continuous_cd", "contacts_reported", "contact_monitor", "script", "ball", "damage", "RigidBody2D", "CollisionShape2D", "visible", "shape", "BodySprite", "modulate", "scale", "texture", "Sprite", "TrailParticles2D", "amount", "lifetime", "visibility_rect", "local_coords", "draw_order", "process_material", "Particles2D", "chargeParticles2D2", "Camera2D", "process_mode", "limit_left", "limit_top", "limit_right", "limit_bottom", "limit_smoothed", "smoothing_enabled", "Area2D", "collision_layer", "AnimationPlayer", "anims/RESET", "anims/rtn", "CPUParticles2D", "emitting", "one_shot", "speed_scale", "explosiveness", "emission_shape", "emission_sphere_radius", "spread", "gravity", "orbit_velocity", "orbit_velocity_random", "radial_accel", "scale_amount", "scale_amount_random", "scale_amount_curve", "color_ramp", "charge", "stream", "volume_db", "AudioStreamPlayer", "mob", "pitch_scale", "_on_Area2D_area_entered", "area_entered" ),
+"node_count": 13,
+"node_paths": [  ],
+"nodes": PoolIntArray( -1, -1, 13, 0, -1, 10, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 6, 9, 7, 10, 8, 2, 11, 12, 0, 0, 14, 14, -1, 2, 15, 9, 16, 10, 0, 0, 0, 21, 17, -1, 3, 18, 11, 19, 12, 20, 13, 0, 0, 0, 21, 21, -1, 3, 18, 14, 19, 12, 20, 13, 0, 3, 0, 29, 22, -1, 7, 23, 15, 24, 16, 25, 17, 26, 9, 27, 6, 28, 18, 20, 13, 0, 3, 0, 29, 30, -1, 4, 23, 19, 26, 9, 28, 20, 20, 13, 0, 0, 0, 31, 31, -1, 7, 32, 21, 33, 22, 34, 23, 35, 24, 36, 25, 37, 7, 38, 7, 0, 0, 0, 39, 39, -1, 2, 40, 26, 2, 27, 2, 11, 12, 7, 0, 14, 14, -1, 1, 16, 28, 0, 0, 0, 41, 41, -1, 2, 42, 29, 43, 30, 0, 0, 0, 44, 44, -1, 19, 18, 31, 45, 9, 23, 19, 24, 32, 46, 7, 47, 33, 48, 34, 20, 35, 49, 6, 50, 36, 51, 37, 52, 38, 53, 39, 54, 34, 55, 36, 56, 40, 57, 34, 58, 41, 59, 42, 0, 0, 0, 63, 60, -1, 2, 61, 43, 62, 44, 0, 0, 0, 63, 64, -1, 3, 61, 45, 62, 44, 65, 46, 0 ),
+"variants": [ Vector2( 1477, 416 ), 12, 2, 0.420408, SubResource( 5 ), 4.0, 1, true, SubResource( 22 ), false, SubResource( 1 ), Color( 1, 0.231373, 0.231373, 1 ), Vector2( 1.5, 1.5 ), ExtResource( 2 ), Color( 5, 5, 5, 1 ), 6, 0.25, Rect2( -10, -10, 20, 20 ), SubResource( 6 ), 16, SubResource( 9 ), 0, -512, -768, 2860, 1032, 33, 24, SubResource( 12 ), SubResource( 17 ), SubResource( 18 ), Color( 3, 3, 3, 1 ), 0.4, 2.0, 1.0, ExtResource( 3 ), 60.0, 56.37, Vector2( 0, 0 ), 0.7, 3.0, SubResource( 19 ), SubResource( 20 ), ExtResource( 1 ), -14.0, ExtResource( 4 ), 1.33 ],
+"version": 2
+}
+
+[sub_resource type="DynamicFont" id=24]
+size = 200
+outline_size = 2
+outline_color = Color( 0.882353, 0.87451, 0.168627, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=25]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect2:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect/TextureRect:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=26]
+loop = true
+
+[sub_resource type="Animation" id=13]
+resource_name = "next"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8, 1.9, 1.901, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1.3, 1.3, 1.3, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "ready"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 1 ), Color( 0.141176, 0.164706, 0.290196, 0 ), Color( 0.141176, 0.164706, 0.290196, 0 ) ]
+}
+
+[sub_resource type="Curve" id=27]
+_data = [ Vector2( 0, 0.0602273 ), 0.0, 0.0, 0, 0, Vector2( 0.523121, 1 ), -1.24004, -1.24004, 0, 0, Vector2( 1, 0.196591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=16]
+curve = SubResource( 27 )
+
+[sub_resource type="ParticlesMaterial" id=28]
+emission_shape = 1
+emission_sphere_radius = 60.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 70.0
+scale = 0.2
+scale_curve = SubResource( 16 )
+hue_variation = 0.47
+hue_variation_random = 1.0
+
+[node name="SP" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 107.0
+margin_top = -223.0
+margin_right = 1707.0
+margin_bottom = 677.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ball" parent="." instance=ExtResource( 8 )]
+position = Vector2( 866, 447 )
+mode = 1
+
+[node name="Sprite" parent="Ball" index="2"]
+scale = Vector2( 2, 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 788.0
+margin_top = 297.0
+margin_right = 1101.0
+margin_bottom = 602.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+visible = false
+show_behind_parent = true
+margin_left = 29.0
+margin_top = 98.0
+margin_right = 154.0
+margin_bottom = 240.0
+rect_pivot_offset = Vector2( 61.1406, 72.4441 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color( 1.27068, 1.27068, 1, 0.92066 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -639.5
+margin_top = -62.5
+margin_right = 1860.5
+margin_bottom = 167.5
+size_flags_stretch_ratio = 0.0
+custom_fonts/normal_font = SubResource( 24 )
+bbcode_enabled = true
+bbcode_text = "[wave][rainbow freq=0.4 sat=0.5 val=1]Successful Defense [/rainbow]"
+tab_size = 6
+text = "Successful Defense "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -1641.0
+margin_top = -2180.0
+margin_right = 3359.0
+margin_bottom = 2820.0
+mouse_filter = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+color = Color( 0.141176, 0.164706, 0.290196, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/RESET = SubResource( 25 )
+anims/default = SubResource( 26 )
+anims/next = SubResource( 13 )
+anims/ready = SubResource( 14 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -14.0
+autoplay = true
+
+[node name="chargeParticles2D2" type="Particles2D" parent="."]
+position = Vector2( 388, 228 )
+amount = 40
+lifetime = 3.0
+speed_scale = 2.0
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 28 )
+texture = ExtResource( 5 )
+
+[node name="chargeParticles2D3" type="Particles2D" parent="."]
+position = Vector2( 1221, 258 )
+amount = 40
+lifetime = 3.0
+speed_scale = 2.0
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 28 )
+texture = ExtResource( 5 )
+
+[node name="chargeParticles2D4" type="Particles2D" parent="."]
+position = Vector2( 909, 127 )
+amount = 40
+lifetime = 3.0
+speed_scale = 2.0
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 28 )
+texture = ExtResource( 5 )
+
+[node name="chargeParticles2D5" type="Particles2D" parent="."]
+position = Vector2( 1817, 244 )
+amount = 40
+lifetime = 3.0
+speed_scale = 2.0
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 28 )
+texture = ExtResource( 5 )
+
+[node name="chargeParticles2D6" type="Particles2D" parent="."]
+position = Vector2( 1624, -172 )
+amount = 40
+lifetime = 3.0
+speed_scale = 2.0
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 28 )
+texture = ExtResource( 5 )
+
+[node name="chargeParticles2D7" type="Particles2D" parent="."]
+position = Vector2( -95, -33 )
+amount = 40
+lifetime = 3.0
+speed_scale = 2.0
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 28 )
+texture = ExtResource( 5 )
+
+[editable path="Ball"]

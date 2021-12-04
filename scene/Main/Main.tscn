@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://image/map.png" type="Texture" id=1]
+[ext_resource path="res://scene/Level/Home/Home.tscn" type="PackedScene" id=2]
+[ext_resource path="res://image/b_ball.png" type="Texture" id=3]
+[ext_resource path="res://scene/Level/mob/Slime_b.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 19.2354
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 1194.67, 384, 1278, 338, 1354, 297, 1042, 514, 791, 2, 1578, 2, 1502, 4, 0, 0, 1600, 0, 687, 3, 1261, 286, 789.333, 170.667, 1253, 297, 1173.33, 320, 1050, 343, 942, 290, 858, 241, 797, 280, 746.667, 170.667, 1600, 896, 1515, 115, 807, 752, 832, 661.333, 786, 895, 0, 896, 765, 448, 832, 533.333, 756, 612, 794, 677, 697, 895, 732, 752, 713, 676, 789.333, 618.667, 901, 595, 1093, 433 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6 ), PoolIntArray( 7, 8, 5, 4 ), PoolIntArray( 7, 4, 9 ), PoolIntArray( 4, 6, 10, 11 ), PoolIntArray( 11, 10, 12, 13, 14, 15, 16 ), PoolIntArray( 1, 0, 13, 12 ), PoolIntArray( 11, 16, 17, 18 ), PoolIntArray( 5, 8, 19, 20 ), PoolIntArray( 2, 20, 19 ), PoolIntArray( 21, 22, 3, 2, 19, 23 ), PoolIntArray( 24, 7, 9, 18 ), PoolIntArray( 24, 18, 17, 25 ), PoolIntArray( 24, 25, 26, 27 ), PoolIntArray( 21, 28, 22 ), PoolIntArray( 23, 19, 24, 29 ), PoolIntArray( 30, 29, 24, 31 ), PoolIntArray( 27, 31, 24 ), PoolIntArray( 32, 27, 26, 33 ), PoolIntArray( 22, 32, 33 ), PoolIntArray( 3, 34, 0 ), PoolIntArray( 22, 33, 3 ) ]
+outlines = [ PoolVector2Array( 0, 0, 0, 896, 1600, 896, 1600, 0 ), PoolVector2Array( 789.333, 618.667, 756, 612, 713, 676, 732, 752, 697, 895, 786, 895, 807, 752, 794, 677, 832, 661.333 ), PoolVector2Array( 797, 280, 858, 241, 942, 290, 1050, 343, 1173.33, 320, 1194.67, 384, 1093, 433, 1042, 514, 901, 595, 832, 533.333, 765, 448 ), PoolVector2Array( 1253, 297, 1278, 338, 1354, 297, 1515, 115, 1578, 2, 1502, 4, 1261, 286 ), PoolVector2Array( 789.333, 170.667, 746.667, 170.667, 687, 3, 791, 2 ) ]
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[node name="Main" type="Node"]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="map" type="Sprite" parent="Level"]
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GoalPoint" type="Area2D" parent="Level/map"]
+position = Vector2( 147, 19 )
+
+[node name="Sprite" type="Sprite" parent="Level/map/GoalPoint"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/map/GoalPoint"]
+shape = SubResource( 2 )
+
+[node name="Home" parent="Level/map" instance=ExtResource( 2 )]
+
+[node name="Navigation2D" type="Navigation2D" parent="Level"]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Level/Navigation2D"]
+position = Vector2( -21.3333, 12.6667 )
+navpoly = SubResource( 4 )
+
+[node name="Wall" type="StaticBody2D" parent="Level"]
+collision_layer = 2
+collision_mask = 21
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Wall"]
+polygon = PoolVector2Array( 1248, 416, 1184, 672, 1312, 832, 1632, 608 )
+
+[node name="Slime_b" parent="." instance=ExtResource( 4 )]
+curve = SubResource( 5 )
+_navi_path = NodePath("../Level/Navigation2D")
+_home_path = NodePath("../Level/map/Home/PathFollow2D/KinematicBody2D")
+
+[node name="Timer" parent="Slime_b/PathFollow2D/Area2D" index="4"]
+autostart = true
+
+[editable path="Level/map/Home"]
+[editable path="Slime_b"]

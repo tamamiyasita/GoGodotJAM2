@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Old_scene/Fire.gd" type="Script" id=1]
+[ext_resource path="res://image/par.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "fire"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0, 0.216718, 0.455108, 0.628483, 0.978328, 1 )
+colors = PoolColorArray( 2, 1, 1, 1, 0.977548, 0.176655, 0.11879, 1, 0.97902, 0.379964, 0.176577, 1, 0.52, 0.2, 0.06, 0.88, 0.29834, 0.273208, 0.262213, 0.672833, 1, 1, 1, 0.66 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0.0375722, 0.407955 ), 0.0, 0.0, 0, 0, Vector2( 0.453757, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.962428, 0.426136 ), -3.77454, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+emission_shape = 1
+emission_sphere_radius = 54.16
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity_random = 0.73
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -52.46
+radial_accel = 100.0
+radial_accel_random = 0.47
+scale = 9.0
+scale_curve = SubResource( 14 )
+color_ramp = SubResource( 12 )
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 144.0
+
+[node name="Fire" type="Area2D" groups=["damage"]]
+scale = Vector2( 2, 2 )
+collision_layer = 32
+collision_mask = 16
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.286275 )
+scale = Vector2( 10.7805, 11.04 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fire"
+anims/RESET = SubResource( 9 )
+anims/fire = SubResource( 10 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 26
+lifetime = 2.0
+speed_scale = 3.02
+local_coords = false
+draw_order = 1
+process_material = SubResource( 15 )
+texture = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+scale = Vector2( 10, 10 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 8 )
+
+[connection signal="area_entered" from="." to="." method="_on_Fire_area_entered"]

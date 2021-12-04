@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/魔王魂  ヒーリング15.mp3-4c899829c668b7aff430af4205007b63.mp3str"
+
+[deps]
+
+source_file="res://music/魔王魂  ヒーリング15.mp3"
+dest_files=[ "res://.import/魔王魂  ヒーリング15.mp3-4c899829c668b7aff430af4205007b63.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

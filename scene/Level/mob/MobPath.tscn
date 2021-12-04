@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scene/Level/mob/MobPathFollow2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scene/Level/mob/MobPath.gd" type="Script" id=2]
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 72, 64, -68.2582, 39.685, 68.2582, -39.685, 208, 536, -85.7197, -69.8456, 85.7197, 69.8456, 456, 168, -160.327, 184.139, 160.327, -184.139, 584, 432, -49.2094, -74.6078, 49.2094, 74.6078, 1144, 128, -273.033, -11.1118, 273.033, 11.1118, 952, 560, 0, 0, 0, 0, 1312, 632 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MobPathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "enemy_move"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("MobPathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.999998 ]
+}
+
+[node name="MobPath" type="Path2D"]
+curve = SubResource( 3 )
+script = ExtResource( 2 )
+
+[node name="MobPathFollow2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72.1926, 65.4279 )
+rotation = 1.43592
+offset = 1.81334
+
+[node name="Area2D" parent="MobPathFollow2D" index="0"]
+collision_mask = 32
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MobPathFollow2D"]
+root_node = NodePath("../..")
+autoplay = "enemy_move"
+anims/RESET = SubResource( 4 )
+anims/enemy_move = SubResource( 5 )
+
+[editable path="MobPathFollow2D"]
