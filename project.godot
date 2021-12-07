@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scene/Level/Home/Home.gd"
 }, {
-"base": "Reference",
+"base": "RigidBody2D",
 "class": "ball",
 "language": "GDScript",
 "path": "res://Old_scene/Ball.gd"
