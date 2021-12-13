@@ -9,17 +9,23 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "CodeSnapshotInstance",
+"language": "GDScript",
+"path": "res://addons/code-snapshot/Instance/instance.gd"
+}, {
 "base": "Path2D",
 "class": "HOME",
 "language": "GDScript",
 "path": "res://scene/Level/Home/Home.gd"
 }, {
-"base": "RigidBody2D",
+"base": "Reference",
 "class": "ball",
 "language": "GDScript",
 "path": "res://Old_scene/Ball.gd"
 } ]
 _global_script_class_icons={
+"CodeSnapshotInstance": "",
 "HOME": "",
 "ball": ""
 }
@@ -45,29 +51,15 @@ window/size/height=900
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/code-snapshot/plugin.cfg" )
+
 [input]
 
 shot={
 "deadzone": 0.5,
 "events": [  ]
-}
-right_move={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
-left_move={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
-jump={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
 }
 
 [layer_names]

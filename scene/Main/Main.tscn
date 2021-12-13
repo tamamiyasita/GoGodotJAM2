@@ -50,9 +50,6 @@ navpoly = SubResource( 4 )
 collision_layer = 2
 collision_mask = 21
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Wall"]
-polygon = PoolVector2Array( 1248, 416, 1184, 672, 1312, 832, 1632, 608 )
-
 [node name="Slime_b" parent="." instance=ExtResource( 4 )]
 curve = SubResource( 5 )
 _navi_path = NodePath("../Level/Navigation2D")

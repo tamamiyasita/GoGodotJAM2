@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://image/ie.png" type="Texture" id=1]
 [ext_resource path="res://scene/Level/Home/Home.gd" type="Script" id=2]
-[ext_resource path="res://image/stkki.png" type="Texture" id=3]
-[ext_resource path="res://image/spot.png" type="Texture" id=4]
+[ext_resource path="res://scene/Level/Bars/Bar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Curve2D" id=3]
 _data = {
@@ -43,7 +42,7 @@ limit_left = 0
 [node name="Boundary" type="StaticBody2D" parent="PathFollow2D/KinematicBody2D"]
 position = Vector2( -0.640137, 1.26111 )
 rotation = 2.82583
-scale = Vector2( 1, 1 )
+collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PathFollow2D/KinematicBody2D/Boundary"]
 polygon = PoolVector2Array( 0, -414, -768, -318, -800, -318, -800, -350, -96, -414, -800, -382, -512, -414, -800, -414, -800, -446, 0, -446 )
@@ -56,44 +55,18 @@ polygon = PoolVector2Array( -800, -318, -768, -318, -800, 2, -768.015, 325.838, 
 
 [node name="Bars" type="Node2D" parent="PathFollow2D/KinematicBody2D"]
 
-[node name="L_Bar" type="KinematicBody2D" parent="PathFollow2D/KinematicBody2D/Bars"]
-position = Vector2( 274.923, -494.84 )
-rotation = -3.30684
-collision_layer = 4
+[node name="BarPosition1" type="Position2D" parent="PathFollow2D/KinematicBody2D/Bars"]
+position = Vector2( 497.786, -533.984 )
+rotation = -6.28319
 
-[node name="Stkki" type="Sprite" parent="PathFollow2D/KinematicBody2D/Bars/L_Bar"]
-texture = ExtResource( 3 )
-offset = Vector2( 64, -16 )
+[node name="L_Bar" parent="PathFollow2D/KinematicBody2D/Bars/BarPosition1" instance=ExtResource( 3 )]
+position = Vector2( 6.10352e-05, 0.000152588 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PathFollow2D/KinematicBody2D/Bars/L_Bar"]
-position = Vector2( -280, -160 )
-scale = Vector2( 1.0049, 2.22716 )
-build_mode = 1
-polygon = PoolVector2Array( 478.655, 70.0444, 295.219, 74.6213, 279.63, 78.1264, 262.713, 75.4324, 254.752, 71.8404, 254.752, 68.2484, 262.713, 64.6563, 277.64, 61.5133, 295.226, 64.7915, 478.655, 65.5543 )
+[node name="BarPosition2" type="Position2D" parent="PathFollow2D/KinematicBody2D/Bars"]
+position = Vector2( 183.67, -465.029 )
 
-[node name="Light2D" type="Light2D" parent="PathFollow2D/KinematicBody2D/Bars/L_Bar"]
-position = Vector2( 0, -6 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
-energy = 0.0
+[node name="BarPosition3" type="Position2D" parent="PathFollow2D/KinematicBody2D/Bars"]
+position = Vector2( -394.271, -276.219 )
 
-[node name="L_Bar2" type="KinematicBody2D" parent="PathFollow2D/KinematicBody2D/Bars"]
-position = Vector2( 580.796, -560.05 )
-rotation = -3.30684
-collision_layer = 4
-
-[node name="Stkki" type="Sprite" parent="PathFollow2D/KinematicBody2D/Bars/L_Bar2"]
-texture = ExtResource( 3 )
-offset = Vector2( 64, -16 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PathFollow2D/KinematicBody2D/Bars/L_Bar2"]
-position = Vector2( -280, -160 )
-scale = Vector2( 1.0049, 2.22716 )
-build_mode = 1
-polygon = PoolVector2Array( 478.655, 70.0444, 295.219, 74.6213, 279.63, 78.1264, 262.713, 75.4324, 254.752, 71.8404, 254.752, 68.2484, 262.713, 64.6563, 277.64, 61.5133, 295.226, 64.7915, 478.655, 65.5543 )
-
-[node name="Light2D" type="Light2D" parent="PathFollow2D/KinematicBody2D/Bars/L_Bar2"]
-position = Vector2( 0, -6 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
-energy = 0.0
+[node name="BarPosition4" type="Position2D" parent="PathFollow2D/KinematicBody2D/Bars"]
+position = Vector2( -718.93, -136.49 )
