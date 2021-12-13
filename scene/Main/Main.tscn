@@ -23,6 +23,7 @@ _data = {
 [node name="Level" type="Node2D" parent="."]
 
 [node name="map" type="Sprite" parent="Level"]
+visible = false
 texture = ExtResource( 1 )
 centered = false
 __meta__ = {
@@ -54,6 +55,9 @@ collision_mask = 21
 curve = SubResource( 5 )
 _navi_path = NodePath("../Level/Navigation2D")
 _home_path = NodePath("../Level/map/Home/PathFollow2D/KinematicBody2D")
+
+[node name="CollisionShape2D" parent="Slime_b/PathFollow2D/Area2D" index="0"]
+visible = true
 
 [node name="Timer" parent="Slime_b/PathFollow2D/Area2D" index="4"]
 autostart = true

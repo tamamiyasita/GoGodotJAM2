@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scene/Level/Home/L_Bar.gd" type="Script" id=1]
+[ext_resource path="res://scene/Level/Bars/Bar.gd" type="Script" id=1]
 [ext_resource path="res://image/stkki.png" type="Texture" id=2]
 [ext_resource path="res://image/spot.png" type="Texture" id=3]
 
