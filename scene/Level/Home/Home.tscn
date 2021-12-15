@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://image/ie.png" type="Texture" id=1]
 [ext_resource path="res://scene/Level/Home/Home.gd" type="Script" id=2]
 [ext_resource path="res://scene/Level/Bars/Bar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scene/Level/Bars/Bars.gd" type="Script" id=4]
+[ext_resource path="res://scene/Level/Bars/BarPosition1.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=3]
 _data = {
@@ -41,7 +42,6 @@ current = true
 limit_left = 0
 
 [node name="Boundary" type="StaticBody2D" parent="PathFollow2D/KinematicBody2D"]
-visible = false
 position = Vector2( -0.640137, 1.26111 )
 rotation = 2.82583
 collision_layer = 2
@@ -58,15 +58,15 @@ polygon = PoolVector2Array( -800, -318, -768, -318, -800, 2, -768.015, 325.838, 
 [node name="Bars" type="Node2D" parent="PathFollow2D/KinematicBody2D" groups=["bars"]]
 script = ExtResource( 4 )
 
-[node name="BarPosition1" type="Position2D" parent="PathFollow2D/KinematicBody2D/Bars"]
-position = Vector2( 497.786, -533.984 )
-rotation = -6.28319
-
-[node name="L_Bar" parent="PathFollow2D/KinematicBody2D/Bars/BarPosition1" instance=ExtResource( 3 )]
-position = Vector2( 6.10352e-05, 0.000152588 )
+[node name="BarPosition1" parent="PathFollow2D/KinematicBody2D/Bars" instance=ExtResource( 5 )]
 
 [node name="BarPosition2" type="Position2D" parent="PathFollow2D/KinematicBody2D/Bars"]
 position = Vector2( 183.67, -465.029 )
+
+[node name="L_Bar" parent="PathFollow2D/KinematicBody2D/Bars/BarPosition2" instance=ExtResource( 3 )]
+position = Vector2( 0, 0.000732422 )
+rotation = 2.82583
+scale = Vector2( 1, 1 )
 
 [node name="BarPosition3" type="Position2D" parent="PathFollow2D/KinematicBody2D/Bars"]
 position = Vector2( -394.271, -276.219 )

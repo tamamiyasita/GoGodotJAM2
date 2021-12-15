@@ -23,7 +23,6 @@ _data = {
 [node name="Level" type="Node2D" parent="."]
 
 [node name="map" type="Sprite" parent="Level"]
-visible = false
 texture = ExtResource( 1 )
 centered = false
 __meta__ = {
