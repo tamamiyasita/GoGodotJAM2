@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Holy_Impact.wav-f321a294cde5521c062e6b66db0e63d6.sample"
+
+[deps]
+
+source_file="res://music/sound/Holy_Impact.wav"
+dest_files=[ "res://.import/Holy_Impact.wav-f321a294cde5521c062e6b66db0e63d6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

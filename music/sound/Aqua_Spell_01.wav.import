@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Aqua_Spell_01.wav-3461088fa7c68ee7156066115d3f2cb9.sample"
+
+[deps]
+
+source_file="res://music/sound/Aqua_Spell_01.wav"
+dest_files=[ "res://.import/Aqua_Spell_01.wav-3461088fa7c68ee7156066115d3f2cb9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Magical_Buff_02.wav-4d3fbe4042b8998b837bb3bdc77dd1cb.sample"
+
+[deps]
+
+source_file="res://music/sound/Magical_Buff_02.wav"
+dest_files=[ "res://.import/Magical_Buff_02.wav-4d3fbe4042b8998b837bb3bdc77dd1cb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

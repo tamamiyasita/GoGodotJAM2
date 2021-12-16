@@ -15,15 +15,15 @@ func _ready() -> void:
 func save_data() -> void:
 	var file = File.new()
 	file.open(SaveData.SAVE_FILE, File.WRITE)
-#	file.store_var(bar_positions)
-	file.store_var(c, true)
+	file.store_var(bar_positions)
+#	file.store_var(c, true)
 	file.close()
 
 func load_data() -> void:
 	var file = File.new()
 	if file.file_exists(SaveData.SAVE_FILE):
 		file.open(SaveData.SAVE_FILE, File.READ)
-		c = file.get_var(true)
+#		c = file.get_var(true)
 		file.close()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -31,5 +31,5 @@ func _unhandled_input(event: InputEvent) -> void:
 			save_data()
 		elif Input.is_action_just_pressed('load'):
 			load_data()
-			print(c.hp)
-			c.say_s()
+#			print(c.hp)
+#			c.say_s()

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Positive_Effect_Spell.wav-a32a3b5f2e8cb86f552bb1b8b9c77786.sample"
+
+[deps]
+
+source_file="res://music/sound/Positive_Effect_Spell.wav"
+dest_files=[ "res://.import/Positive_Effect_Spell.wav-a32a3b5f2e8cb86f552bb1b8b9c77786.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://image/suraimu1.png" type="Texture" id=1]
 [ext_resource path="res://scene/Level/mob/MobPathFollow2D.gd" type="Script" id=2]
-[ext_resource path="res://Old_scene/Explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scene/Level/mob/Explosion.tscn" type="PackedScene" id=3]
 [ext_resource path="res://image/spot.png" type="Texture" id=4]
 
 [sub_resource type="Shader" id=17]

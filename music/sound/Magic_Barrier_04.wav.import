@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Magic_Barrier_04.wav-464de8104ce5236f8b5f536766fbcad4.sample"
+
+[deps]
+
+source_file="res://music/sound/Magic_Barrier_04.wav"
+dest_files=[ "res://.import/Magic_Barrier_04.wav-464de8104ce5236f8b5f536766fbcad4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

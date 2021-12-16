@@ -9,44 +9,32 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Control",
-"class": "CodeSnapshotInstance",
-"language": "GDScript",
-"path": "res://addons/code-snapshot/Instance/instance.gd"
-}, {
-"base": "Path2D",
+"base": "Reference",
 "class": "HOME",
 "language": "GDScript",
-"path": "res://scene/Level/Home/Home.gd"
+"path": "res://scene/Home/Home.gd"
 }, {
 "base": "Node",
 "class": "HeroBaseState",
 "language": "GDScript",
-"path": "res://scene/Hero/HeroBaseStates.gd"
+"path": "res://scene/Home/Hero/HeroBaseStates.gd"
 }, {
 "base": "Node",
 "class": "SaveObject",
 "language": "GDScript",
 "path": "res://SaveObject.gd"
-}, {
-"base": "RigidBody2D",
-"class": "ball",
-"language": "GDScript",
-"path": "res://Old_scene/Ball.gd"
 } ]
 _global_script_class_icons={
-"CodeSnapshotInstance": "",
 "HOME": "",
 "HeroBaseState": "",
-"SaveObject": "",
-"ball": ""
+"SaveObject": ""
 }
 
 [application]
 
 config/name="GoGodotJAM"
 run/main_scene="res://scene/Main/Main.tscn"
-config/icon="res://Old_scene/icon.png"
+config/icon="res://icon.png"
 
 [audio]
 
@@ -54,7 +42,6 @@ default_bus_layout="res://Old_scene/default_bus_layout.tres"
 
 [autoload]
 
-BaseInfo="*res://Old_scene/BaseInfo.gd"
 SaveData="*res://SaveData.gd"
 
 [display]
@@ -98,7 +85,3 @@ load={
 [physics]
 
 common/enable_pause_aware_picking=true
-
-[rendering]
-
-environment/default_environment="res://Old_scene/default_env.tres"

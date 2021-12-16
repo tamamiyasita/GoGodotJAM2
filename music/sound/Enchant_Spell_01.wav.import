@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Enchant_Spell_01.wav-c632409c3e0d7ceb4ad575cb60f90162.sample"
+
+[deps]
+
+source_file="res://music/sound/Enchant_Spell_01.wav"
+dest_files=[ "res://.import/Enchant_Spell_01.wav-c632409c3e0d7ceb4ad575cb60f90162.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
