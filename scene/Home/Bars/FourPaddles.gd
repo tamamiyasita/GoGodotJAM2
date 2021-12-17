@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
-	var s = get_tree().call_group("_bars", "get_bar_position")
+	get_tree().call_group("bars", "get_bar_position")
 #	print(get_bar_position())
 
 func get_bar_position():

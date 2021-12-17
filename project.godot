@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "SaveObject",
 "language": "GDScript",
-"path": "res://SaveObject.gd"
+"path": "res://scene/Main/SaveObject.gd"
 } ]
 _global_script_class_icons={
 "HOME": "",
@@ -42,7 +42,7 @@ default_bus_layout="res://Old_scene/default_bus_layout.tres"
 
 [autoload]
 
-SaveData="*res://SaveData.gd"
+SaveData="*res://scene/Main/SaveSys.gd"
 
 [display]
 
