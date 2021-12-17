@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scene/Home/Hero/DefaultPaddle.gd" type="Script" id=1]
+
+[node name="DefaultPaddle" type="RigidBody2D"]
+position = Vector2( 162.409, -452.822 )
+collision_layer = 4
+mode = 3
+script = ExtResource( 1 )

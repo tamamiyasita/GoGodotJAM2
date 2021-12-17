@@ -1,14 +1,14 @@
 class_name HeroBaseState
 extends Node
 
-const snap_time := 0.55
+export var snap_time := 0.55
 
-const snap_angle := 50
+export var snap_angle := 50
 
-const attack_power := 1.0
+export var attack_power := 1.0
 
-const attack_range := 1.0
+export var attack_range := 1.0
 
-const duration := 1.0
+export var duration := 1.0
 
-const attribute = "Blank"
+export var attribute = "Blank"
