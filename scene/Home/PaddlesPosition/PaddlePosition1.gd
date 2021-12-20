@@ -2,17 +2,7 @@ extends Position2D
 
 export(PackedScene) var Hero
 
-
-func _ready() -> void:
-	#paddleの種類をインスタンスとして持つ
-	var hero = Hero.instance()
-	hero.position = Vector2.ZERO
-	add_child(hero)
-
-
-export var keycode = "ui_left"
-
-
+export var keycode = "paddle_1"
 
 export var snap_time := 0.50
 
@@ -21,6 +11,22 @@ export var snap_angle := 50
 var intermediate_time := 0.0
 
 const damage = 100
+
+
+
+func _ready() -> void:
+	#paddleの種類をインスタンスとして持つ
+	var hero = Hero.instance()
+	var h = hero.get_node("PaddleR")
+	h.queue_free()
+	add_child(hero)
+#	if keycode == "paddle_3" or keycode == "paddle_4":
+#		add_child(hero.get_child(0))
+#		hero.paddle_r.position = Vector2.ZERO
+#	else:
+#		add_child(hero.paddle_l)
+#		add_child(hero.get_node("PaddleR"))
+#		hero.paddle_l.position = Vector2.ZERO
 
 func _physics_process(delta):
 #	if Input.is_action_just_pressed(keycode):

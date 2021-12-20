@@ -20,14 +20,12 @@ script = ExtResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2( -1, 1 )
-rotation = -2.82583
 rotate = false
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="PathFollow2D"]
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D/KinematicBody2D"]
 position = Vector2( -1.28003, 2.52222 )
-rotation = 2.82583
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 
@@ -42,7 +40,6 @@ limit_left = 0
 
 [node name="Boundary" type="StaticBody2D" parent="PathFollow2D/KinematicBody2D"]
 position = Vector2( -0.640137, 1.26111 )
-rotation = 2.82583
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PathFollow2D/KinematicBody2D/Boundary"]
@@ -54,16 +51,14 @@ polygon = PoolVector2Array( 0, -414, 0, -446, 800, -446, 800, -414, 512, -414, 8
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="PathFollow2D/KinematicBody2D/Boundary"]
 polygon = PoolVector2Array( -800, -318, -768, -318, -800, 2, -768.015, 325.838, 0, 418, 768, 322, 799, 2, 768, -318, 800, -318, 864, 2, 864, 354, 832, 354, 832, 2, 800, -158, 800, 354, 256, 418, 800, 386, 800, 450, -800, 450, -800, 386, -256, 418, -800, 354, -800, -152.61, -832, 2, -832, 354, -864, 354, -864, 2 )
 
-[node name="FourPaddles" type="Node2D" parent="PathFollow2D/KinematicBody2D" groups=["bars"]]
+[node name="FourPaddles" type="Node2D" parent="PathFollow2D" groups=["bars"]]
+scale = Vector2( 1, 1 )
 script = ExtResource( 4 )
 
-[node name="BarPosition1" parent="PathFollow2D/KinematicBody2D/FourPaddles" instance=ExtResource( 5 )]
+[node name="PaddlePosition1" parent="PathFollow2D/FourPaddles" instance=ExtResource( 5 )]
+position = Vector2( -687, 353 )
 
-[node name="BarPosition2" type="Position2D" parent="PathFollow2D/KinematicBody2D/FourPaddles"]
-position = Vector2( 183.67, -465.029 )
-
-[node name="BarPosition3" type="Position2D" parent="PathFollow2D/KinematicBody2D/FourPaddles"]
-position = Vector2( -394.271, -276.219 )
-
-[node name="BarPosition4" type="Position2D" parent="PathFollow2D/KinematicBody2D/FourPaddles"]
-position = Vector2( -718.93, -136.49 )
+[node name="PaddlePosition3" parent="PathFollow2D/FourPaddles" instance=ExtResource( 5 )]
+position = Vector2( 337, 385 )
+keycode = "paddle_3"
+snap_angle = 50
