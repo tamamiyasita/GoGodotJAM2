@@ -4,11 +4,13 @@ export(PackedScene) var Hero
 
 export var keycode = "paddle_1"
 
-export var snap_time := 0.50
+export var snap_time := 0.70
 
-export var snap_angle := 50
+export var snap_angle := 30
 
 var intermediate_time := 0.0
+
+var paddle_states
 
 const damage = 100
 
@@ -17,8 +19,17 @@ const damage = 100
 func _ready() -> void:
 	#paddleの種類をインスタンスとして持つ
 	var hero = Hero.instance()
-	var h = hero.get_node("PaddleR")
-	h.queue_free()
+	paddle_states = hero.get_node("States")
+	if keycode == "paddle_1" or keycode == "paddle_2":
+		snap_angle = -paddle_states.snap_angle
+		snap_time = paddle_states.snap_time
+		var l = hero.get_node("PaddleL")
+		l.queue_free()
+	elif keycode == "paddle_3" or keycode == "paddle_4":
+		snap_angle = paddle_states.snap_angle
+		snap_time = paddle_states.snap_time
+		var r = hero.get_node("PaddleR")
+		r.queue_free()
 	add_child(hero)
 #	if keycode == "paddle_3" or keycode == "paddle_4":
 #		add_child(hero.get_child(0))

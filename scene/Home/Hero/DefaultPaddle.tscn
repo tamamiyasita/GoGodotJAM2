@@ -16,9 +16,6 @@ mode = 3
 position = Vector2( 121, 0 )
 shape = SubResource( 1 )
 
-[node name="States" type="Node" parent="PaddleR"]
-script = ExtResource( 1 )
-
 [node name="PaddleL" type="RigidBody2D" parent="."]
 mode = 3
 
@@ -26,5 +23,5 @@ mode = 3
 position = Vector2( -128, 0 )
 shape = SubResource( 1 )
 
-[node name="States" type="Node" parent="PaddleL"]
+[node name="States" type="Node" parent="."]
 script = ExtResource( 1 )
