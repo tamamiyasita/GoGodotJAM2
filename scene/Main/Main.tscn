@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://image/map.png" type="Texture" id=1]
 [ext_resource path="res://scene/Home/Home.tscn" type="PackedScene" id=2]
 [ext_resource path="res://image/b_ball.png" type="Texture" id=3]
 [ext_resource path="res://scene/Level/mob/Slime_b.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scene/Home/Hero/DefaultPaddle.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 19.2354
@@ -40,6 +41,12 @@ shape = SubResource( 2 )
 
 [node name="Home" parent="Level/map" instance=ExtResource( 2 )]
 
+[node name="PaddlePosition2" parent="Level/map/Home/PathFollow2D/FourPaddles" index="1"]
+Hero = ExtResource( 5 )
+
+[node name="PaddlePosition4" parent="Level/map/Home/PathFollow2D/FourPaddles" index="3"]
+Hero = ExtResource( 5 )
+
 [node name="Navigation2D" type="Navigation2D" parent="Level"]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Level/Navigation2D"]
@@ -62,4 +69,5 @@ visible = true
 autostart = true
 
 [editable path="Level/map/Home"]
+[editable path="Level/map/Home/PathFollow2D/FourPaddles/PaddlePosition4"]
 [editable path="Slime_b"]

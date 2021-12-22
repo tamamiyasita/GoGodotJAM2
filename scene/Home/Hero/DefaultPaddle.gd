@@ -7,12 +7,18 @@ onready var states := $States
 onready var delay_timer := $ChargeTimer
 onready var anime := $AnimationPlayer
 
+export var paddle_degrees := 10
+
 export var delay := 3
 var attack_ready := true
 
+export var snap_time := 0.55
 
+export var snap_angle := 50
 
 func _ready() -> void:
+	paddle_r.rotation_degrees = paddle_degrees
+	paddle_l.rotation_degrees = -paddle_degrees
 	anime.play('attack_ready')
 	
 	
