@@ -2,7 +2,7 @@ extends Position2D
 
 export(PackedScene) var Hero
 
-var keycode = "paddle_1"
+export var keycode = "paddle_1"
 
 var snap_time := 0.70
 

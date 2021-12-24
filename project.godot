@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Path2D",
+"base": "Reference",
 "class": "HOME",
 "language": "GDScript",
 "path": "res://scene/Home/Home.gd"
@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "SaveObject",
 "language": "GDScript",
 "path": "res://scene/Main/SaveObject.gd"
+}, {
+"base": "RigidBody2D",
+"class": "ball",
+"language": "GDScript",
+"path": "res://scene/Home/Ball/Ball.gd"
 } ]
 _global_script_class_icons={
 "HOME": "",
 "HeroBaseState": "",
-"SaveObject": ""
+"SaveObject": "",
+"ball": ""
 }
 
 [application]

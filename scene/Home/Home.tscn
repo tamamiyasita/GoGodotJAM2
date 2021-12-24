@@ -2,10 +2,9 @@
 
 [ext_resource path="res://image/ie.png" type="Texture" id=1]
 [ext_resource path="res://scene/Home/Home.gd" type="Script" id=2]
-[ext_resource path="res://scene/Home/Hero/Maria.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scene/Home/Ball/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scene/Home/PaddlesPosition/FourPaddles.gd" type="Script" id=4]
 [ext_resource path="res://scene/Home/PaddlesPosition/PaddlePosition.tscn" type="PackedScene" id=5]
-
 
 [sub_resource type="Curve2D" id=3]
 _data = {
@@ -61,16 +60,15 @@ position = Vector2( -687, 353 )
 
 [node name="PaddlePosition2" parent="PathFollow2D/FourPaddles" instance=ExtResource( 5 )]
 position = Vector2( -351, 385 )
-Hero = ExtResource( 3 )
 keycode = "paddle_2"
 
 [node name="PaddlePosition3" parent="PathFollow2D/FourPaddles" instance=ExtResource( 5 )]
 position = Vector2( 337, 385 )
 keycode = "paddle_3"
-snap_angle = 30
 
 [node name="PaddlePosition4" parent="PathFollow2D/FourPaddles" instance=ExtResource( 5 )]
 position = Vector2( 609, 353 )
-Hero = ExtResource( 3 )
 keycode = "paddle_4"
-snap_angle = 30
+
+[node name="Ball" parent="." instance=ExtResource( 3 )]
+position = Vector2( -384, 70 )
