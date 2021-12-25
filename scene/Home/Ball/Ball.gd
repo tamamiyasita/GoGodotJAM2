@@ -1,54 +1,49 @@
 class_name ball
 extends RigidBody2D
 
+const CLAMP_VELOCITY = 1700.0#ball最大速度
+
+export var in_energy := false
+
 onready var sprite := $Sprite
 onready var camera := $Camera2D
-onready var buff = 0
+onready var timer := $DurationTimer
+onready var attack_range := $CollisionShape2D
 
-const CLAMP_VELOCITY = 1700.0
-
-export var on_energy := false
-
-const default_value := 1.0
-
-var attack_power := default_value setget ,get_attack_power
-var attack_range := default_value setget ,get_attack_range
-var duration := default_value setget ,get_duration
-var attribute := "Blank" setget ,get_attribute
+var attack_power := 1.0
+var attribute := "Blank"
 
 
 
-func set_states(dict):
+
+
+
+func energy_charge(dict):
+	in_energy = true
 	attack_power = dict["power"]
-	attack_range = dict["range"]
-	duration = dict["duration"]
+	attack_range.scale *= dict["range"]
 	attribute = dict["attribute"]
+	timer.start(dict["sustain"])
+	print("atk=", attack_power, " range= ", attack_range.scale)
 	
+#
+func _integrate_forces(state):
+	##速度の上限を設定する
+	var velocity = state.get_linear_velocity()
+	if velocity.length() > CLAMP_VELOCITY:
+		state.set_linear_velocity(velocity.clamped(CLAMP_VELOCITY))
 
-func get_attack_power() -> float:
-	if on_energy == false:
-		return default_value
-	else:
-		return attack_power
 
-func get_attack_range() -> float:
-	if on_energy == false:
-		return default_value
-	else:
-		return attack_range
+func _on_Ball_body_entered(body: Node) -> void:
+	if body.name in "Paddle":
+		print("paddle atach")
 
-func get_duration() -> float:
-	if on_energy == false:
-		return default_value
-	else:
-		return duration
-		
-func get_attribute() -> String:
-	if on_energy == false:
-		return "Blank"
-	else:
-		return attribute
 
+func _on_DurationTimer_timeout() -> void:
+	in_energy = false
+	attack_power = 1.0
+	attack_range.scale = Vector2.ONE
+	attribute = "Blank"
 
 
 
@@ -66,13 +61,8 @@ func _ready() -> void:
 #	get_tree().call_group("ui", "update_en", BaseInfo.ball_energy)
 #	enegy_modulate()
 	
-func _process(delta):
-	var speed = get_linear_velocity().length()
-
-func _integrate_forces(state):
-	var velocity = state.get_linear_velocity()
-	if velocity.length() > CLAMP_VELOCITY:
-		state.set_linear_velocity(velocity.clamped(CLAMP_VELOCITY))
+#func _process(delta):
+#	var speed = get_linear_velocity().length()
 
 func _unhandled_input(event: InputEvent) -> void:
 		if Input.is_action_pressed('spn'):
@@ -127,4 +117,5 @@ func _unhandled_input(event: InputEvent) -> void:
 #func home() -> void:
 ##	queue_free()
 #	$AnimationPlayer.play('rtn')
+
 

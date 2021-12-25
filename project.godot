@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "Path2D",
 "class": "HOME",
 "language": "GDScript",
 "path": "res://scene/Home/Home.gd"
@@ -101,7 +101,7 @@ paddle_4={
 
 2d_physics/layer_1="ball"
 2d_physics/layer_2="wall"
-2d_physics/layer_3="bar"
+2d_physics/layer_3="paddle"
 2d_physics/layer_4="tower"
 2d_physics/layer_5="enemy"
 2d_physics/layer_6="magic"
