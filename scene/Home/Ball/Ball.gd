@@ -5,8 +5,7 @@ const CLAMP_VELOCITY = 1700.0#ball最大速度
 
 export var in_energy := false
 
-onready var sprite := $Sprite
-onready var camera := $Camera2D
+onready var ball_sprite := $BallSprite
 onready var timer := $DurationTimer
 onready var attack_range := $CollisionShape2D
 
