@@ -13,6 +13,53 @@ var attack_power := 1.0
 var attribute := "Blank"
 
 
+func _physics_process(delta):
+	get_spirograph()
+
+
+
+func get_spirograph():
+	set_physics_process(false)
+#	var x = []
+#	var y = []
+#	for idx in range(100):
+#		var n = 50000
+#		var h = 100000
+#		yield(get_tree().create_timer(0.01), "timeout")
+#		position.x += func_x(t_radian(idx),n,h)*5
+#		position.y += func_y(t_radian(idx),n,h)*5
+	
+	yield(get_tree().create_timer(.1), "timeout")
+	position.x += func_x(t_radian(position.x),50000,100000)*5
+	position.y += func_y(t_radian(position.y),50000,100000)*5
+	set_physics_process(true)
+
+
+func func_x(t,n,h):
+	var ans = 0
+	ans = ((n-1)*cos(t) + h*cos((n-1)*t))/n 
+	return ans
+
+func func_y(t,n,h):
+	var ans = 0
+	ans = ((n-1)*sin(t) + h*sin((n-1)*t))/n 
+	return ans
+
+func t_radian(index):
+	var rad = 0
+	var devide_point = 720
+	rad = (index*2*PI)/devide_point
+	return rad
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,7 +95,7 @@ func _on_DurationTimer_timeout() -> void:
 
 
 func _ready() -> void:
-	pass
+	get_spirograph()
 #	get_tree().call_group("ui", "update_en", BaseInfo.ball_energy)
 #	get_tree().call_group("ui", "update_max_en", BaseInfo.ball_energy)
 	

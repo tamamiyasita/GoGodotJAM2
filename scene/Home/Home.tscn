@@ -37,7 +37,7 @@ shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="PathFollow2D/KinematicBody2D"]
 current = true
-limit_left = 0
+zoom = Vector2( 5, 5 )
 
 [node name="Boundary" type="StaticBody2D" parent="PathFollow2D/KinematicBody2D"]
 position = Vector2( -0.640137, 1.26111 )
