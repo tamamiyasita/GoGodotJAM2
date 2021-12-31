@@ -19,7 +19,7 @@ onready var tween :Tween = $PathFollow2D/Tween
 func _ready():
 	pass
 	
-func _process(delta):
+func _process(_delta):
 	pass
 	#test
 #	h = get_global_mouse_position()
@@ -31,7 +31,9 @@ func _on_Timer_timeout():
 	curve.clear_points()
 	for point in navigator.get_simple_path(path_flollow.position, home.global_position):
 		curve.add_point(point)
-	tween.interpolate_property(path_flollow, "unit_offset",
+	var _t = tween.interpolate_property(path_flollow, "unit_offset",
 							   0.0, 1.0, curve.get_baked_length() / speed)
-	tween.start()
+	print(_t, " T")
+	var _s = tween.start()
+	print(_s, " S")
 #	timer.start()
