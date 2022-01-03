@@ -11,7 +11,6 @@ func _ready():
 	pass
 	
 func _physics_process(_delta):
-#	root_path.unit_offset += .0007
-	$PathFollow2D/KinematicBody2D.position.x += (a-b)*cos(t) - b*cos(((a-b)/b)*t)
-	$PathFollow2D/KinematicBody2D.position.y += (a-b)*sin(t) - b*sin(((a-b)/b)*t)
+	root_path.unit_offset += .0007
+
 
