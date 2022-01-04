@@ -1,4 +1,3 @@
-class_name ball
 extends RigidBody2D
 
 onready var sprite := $Sprite
@@ -7,7 +6,7 @@ onready var states := $States
 onready var buff = 0
 
 const CLAMP_VELOCITY = 1700.0
-
+const MIN_VELOCITY = 1000.0
 
 func _ready() -> void:
 	pass
@@ -29,17 +28,19 @@ func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
 	if velocity.length() > CLAMP_VELOCITY:
 		state.set_linear_velocity(velocity.clamped(CLAMP_VELOCITY))
+	elif velocity.length() < MIN_VELOCITY:
+		state.set_linear_velocity(velocity.clamped(MIN_VELOCITY))
 
 func _unhandled_input(event: InputEvent) -> void:
-		if Input.is_action_pressed('spn'):
+	if Input.is_action_pressed('spn'):
 #			applied_force = Vector2(-400,0)
-			applied_torque = 400000.0
-		if Input.is_action_just_released('spn'):
-			applied_force = Vector2(0,0)
-		if Input.is_action_pressed('spn2'):
-			applied_force = Vector2(400,0)
-		if Input.is_action_just_released('spn2'):
-			applied_force = Vector2(0,0)
+		applied_torque = 400000.0
+	if Input.is_action_just_released('spn'):
+		applied_force = Vector2(0,0)
+	if Input.is_action_pressed('spn2'):
+		applied_force = Vector2(400,0)
+	if Input.is_action_just_released('spn2'):
+		applied_force = Vector2(0,0)
 
 
 #func enegy_modulate() -> void:

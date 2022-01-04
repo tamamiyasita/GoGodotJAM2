@@ -43,7 +43,6 @@ func _on_Paddle_body_entered(body: Node) -> void:
 
 		var v = ball.get_linear_velocity()
 #		ball.add_force(v*1.5,v*1.5)
-		ball.apply_impulse(Vector2(0, -30),Vector2(5000, 0))
 #		ball.angular_damp = 1
 		attack_ready = false
 		delay_timer.start(paddle_charge_delay) 
