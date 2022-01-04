@@ -56,18 +56,18 @@ polygon = PoolVector2Array( -800, -318, -768, -318, -800, 2, -768.015, 325.838, 
 script = ExtResource( 4 )
 
 [node name="PaddlePosition1" parent="PathFollow2D/FourPaddles" instance=ExtResource( 5 )]
-position = Vector2( -687, 353 )
+position = Vector2( -687, 369 )
 
 [node name="PaddlePosition2" parent="PathFollow2D/FourPaddles" instance=ExtResource( 5 )]
-position = Vector2( -351, 385 )
+position = Vector2( -350, 401 )
 keycode = "paddle_2"
 
 [node name="PaddlePosition3" parent="PathFollow2D/FourPaddles" instance=ExtResource( 5 )]
-position = Vector2( 337, 385 )
+position = Vector2( 337, 401 )
 keycode = "paddle_3"
 
 [node name="PaddlePosition4" parent="PathFollow2D/FourPaddles" instance=ExtResource( 5 )]
-position = Vector2( 609, 353 )
+position = Vector2( 609, 369 )
 keycode = "paddle_4"
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]

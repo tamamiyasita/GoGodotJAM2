@@ -5,7 +5,7 @@ onready var paddle_r := $PaddleR
 onready var paddle_l := $PaddleL
 onready var delay_timer := $ChargeTimer
 onready var anime := $AnimationPlayer
-onready var states := $BallStates
+onready var states := $BaseStates
 
 export var paddle_degrees := 10
 
@@ -15,6 +15,8 @@ var attack_ready := true
 export var snap_time := 0.55
 
 export var snap_angle := 50
+
+export var ball_add_speed := 0.0
 
 
 func change_states() -> Dictionary:
@@ -41,7 +43,10 @@ func _on_Paddle_body_entered(body: Node) -> void:
 		ball.energy_charge(add_states)
 		
 
-		var v = ball.get_linear_velocity()
+		var v = ball.get_linear_velocity() * ball_add_speed
+		#impulseで瞬間的な力を加えられる
+		ball.apply_central_impulse(v)
+		#forceで継続的な力が加わる
 #		ball.add_force(v*1.5,v*1.5)
 #		ball.angular_damp = 1
 		attack_ready = false

@@ -28,13 +28,7 @@ func _ready() -> void:
 		var r = hero.get_node("PaddleR")
 		r.queue_free()
 	add_child(hero)
-#	if keycode == "paddle_3" or keycode == "paddle_4":
-#		add_child(hero.get_child(0))
-#		hero.paddle_r.position = Vector2.ZERO
-#	else:
-#		add_child(hero.paddle_l)
-#		add_child(hero.get_node("PaddleR"))
-#		hero.paddle_l.position = Vector2.ZERO
+
 
 func _physics_process(delta):
 #	if Input.is_action_just_pressed(keycode):
