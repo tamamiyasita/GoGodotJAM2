@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scene/Home/Ball/Ball.gd" type="Script" id=1]
 [ext_resource path="res://image/boul.png" type="Texture" id=2]
 [ext_resource path="res://image/ball2.png" type="Texture" id=3]
-[ext_resource path="res://resource/Ball.tres" type="Material" id=4]
 [ext_resource path="res://scene/Home/Ball/States.gd" type="Script" id=5]
 
 [sub_resource type="PhysicsMaterial" id=5]
@@ -13,26 +12,8 @@ bounce = 0.56
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.5
 
-[sub_resource type="Curve" id=10]
-_data = [ Vector2( 0, 0.0602273 ), 0.0, 0.0, 0, 0, Vector2( 0.523121, 1 ), -1.24004, -1.24004, 0, 0, Vector2( 1, 0.196591 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=21]
-curve = SubResource( 10 )
-
-[sub_resource type="ParticlesMaterial" id=9]
-emission_shape = 1
-emission_sphere_radius = 60.0
-flag_disable_z = true
-gravity = Vector3( 0, 0, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-radial_accel = -80.0
-radial_accel_random = 0.3
-scale = 0.2
-scale_curve = SubResource( 21 )
-
 [sub_resource type="CircleShape2D" id=12]
-radius = 43.0
+radius = 35.0
 
 [sub_resource type="Animation" id=17]
 length = 0.001
@@ -141,38 +122,7 @@ modulate = Color( 1, 0.231373, 0.231373, 1 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 5, 5, 5, 1 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 2 )
-
-[node name="TrailParticles2D" type="Particles2D" parent="Sprite"]
-visible = false
-amount = 6
-lifetime = 0.25
-visibility_rect = Rect2( -10, -10, 20, 20 )
-local_coords = false
-draw_order = 1
-process_material = ExtResource( 4 )
-texture = ExtResource( 2 )
-
-[node name="chargeParticles2D2" type="Particles2D" parent="Sprite"]
-visible = false
-amount = 16
-local_coords = false
-process_material = SubResource( 9 )
-texture = ExtResource( 2 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-rotating = true
-zoom = Vector2( 2.5, 2.5 )
-process_mode = 0
-limit_left = -512
-limit_top = -768
-limit_right = 2860
-limit_bottom = 1032
-limit_smoothed = true
-smoothing_enabled = true
+[node name="PadddleBall" type="Node" parent="."]
 
 [node name="Area2D" type="Area2D" parent="." groups=["ball", "damage"]]
 collision_layer = 33
@@ -212,5 +162,4 @@ script = ExtResource( 5 )
 [node name="DurationTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="DurationTimer" to="." method="_on_DurationTimer_timeout"]
