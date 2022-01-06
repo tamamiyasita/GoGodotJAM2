@@ -8,6 +8,7 @@ export var in_energy := false
 onready var ball_sprite := $BodySprite
 onready var timer := $DurationTimer
 onready var attack_range := $CollisionShape2D
+onready var skill_ball := $SkillBall
 
 var attack_power := 1.0
 var attribute := "Blank"

@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resource/Ball.tres" type="Material" id=1]
+[ext_resource path="res://image/boul.png" type="Texture" id=2]
+[ext_resource path="res://scene/Home/Hero/DefaultPaddle/Skill.gd" type="Script" id=3]
+
+[sub_resource type="Curve" id=22]
+_data = [ Vector2( 0, 0.0602273 ), 0.0, 0.0, 0, 0, Vector2( 0.523121, 1 ), -1.24004, -1.24004, 0, 0, Vector2( 1, 0.196591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=21]
+curve = SubResource( 22 )
+
+[sub_resource type="ParticlesMaterial" id=23]
+emission_shape = 5
+emission_ring_radius = 35.0
+emission_ring_inner_radius = 0.0
+emission_ring_height = 0.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 80.0
+radial_accel_random = 0.3
+scale = 0.2
+scale_curve = SubResource( 21 )
+
+[sub_resource type="CircleShape2D" id=24]
+radius = 32.0
+
+[node name="Skill" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 5, 5, 5, 1 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="TrailParticles2D" type="Particles2D" parent="Sprite"]
+amount = 6
+lifetime = 0.25
+visibility_rect = Rect2( -10, -10, 20, 20 )
+local_coords = false
+draw_order = 1
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+
+[node name="chargeParticles2D2" type="Particles2D" parent="Sprite"]
+amount = 10
+local_coords = false
+process_material = SubResource( 23 )
+texture = ExtResource( 2 )
+
+[node name="SkillArea2D" type="Area2D" parent="."]
+collision_mask = 152
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillArea2D"]
+position = Vector2( -2, -1 )
+shape = SubResource( 24 )
+
+[node name="SkillTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="SkillArea2D" to="." method="_on_SkillArea2D_area_entered"]
+[connection signal="timeout" from="SkillTimer" to="." method="_on_SkillTimer_timeout"]

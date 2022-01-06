@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scene/Home/Ball/Ball.gd" type="Script" id=1]
 [ext_resource path="res://image/boul.png" type="Texture" id=2]
 [ext_resource path="res://image/ball2.png" type="Texture" id=3]
-[ext_resource path="res://scene/Home/Ball/States.gd" type="Script" id=5]
 
 [sub_resource type="PhysicsMaterial" id=5]
 friction = 0.0
@@ -11,9 +10,6 @@ bounce = 0.56
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.5
-
-[sub_resource type="CircleShape2D" id=12]
-radius = 35.0
 
 [sub_resource type="Animation" id=17]
 length = 0.001
@@ -122,14 +118,7 @@ modulate = Color( 1, 0.231373, 0.231373, 1 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
-[node name="PadddleBall" type="Node" parent="."]
-
-[node name="Area2D" type="Area2D" parent="." groups=["ball", "damage"]]
-collision_layer = 33
-collision_mask = 24
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 12 )
+[node name="SkillBall" type="Node2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 17 )
@@ -155,9 +144,6 @@ scale_amount = 3.0
 scale_amount_random = 1.0
 scale_amount_curve = SubResource( 19 )
 color_ramp = SubResource( 20 )
-
-[node name="States" type="Node" parent="."]
-script = ExtResource( 5 )
 
 [node name="DurationTimer" type="Timer" parent="."]
 

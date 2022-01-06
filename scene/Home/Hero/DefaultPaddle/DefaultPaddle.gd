@@ -5,19 +5,21 @@ onready var paddle_r := $PaddleR
 onready var paddle_l := $PaddleL
 onready var delay_timer := $ChargeTimer
 onready var anime := $AnimationPlayer
-onready var states := $BaseStates
+onready var states := HeroBaseState.new()
+onready var Skill = preload('res://scene/Home/Hero/DefaultPaddle/Skill.tscn')
 
 export var paddle_degrees := 10
 
 export var paddle_charge_delay := 3
-var attack_ready := true
 
-export var snap_time := 0.55
+export var snap_time := 0.2
 
 export var snap_angle := 50
 
 export var ball_add_speed := 0.0
 
+var attack_ready := true
+var ball
 
 func change_states() -> Dictionary:
 	return {
@@ -35,12 +37,15 @@ func _ready() -> void:
 	
 
 func _on_Paddle_body_entered(body: Node) -> void:
-	var ball = body as RigidBody2D
+	ball = body as RigidBody2D
 	var add_states = change_states()
 	if attack_ready:
+		var skill = Skill.instance()
 		print("test_anime", body.name)
 		anime.play('RESET')
 		ball.energy_charge(add_states)
+		
+		ball.skill_ball.add_child(skill)
 		
 
 		var v = ball.get_linear_velocity() * ball_add_speed
@@ -57,3 +62,4 @@ func _on_Paddle_body_entered(body: Node) -> void:
 func _on_ChargeTimer_timeout() -> void:
 	attack_ready = true
 	anime.play('attack_ready')
+	

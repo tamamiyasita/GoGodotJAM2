@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scene/Home/Hero/DefaultPaddle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scene/Home/Hero/DefaultPaddle/DefaultPaddle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/Home/PaddlesPosition/PaddlePosition.gd" type="Script" id=2]
 
 [node name="PaddlePosition1" type="Position2D"]
