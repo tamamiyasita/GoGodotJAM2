@@ -51,6 +51,7 @@ process_material = SubResource( 23 )
 texture = ExtResource( 2 )
 
 [node name="SkillArea2D" type="Area2D" parent="."]
+collision_layer = 32
 collision_mask = 152
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SkillArea2D"]
@@ -59,6 +60,8 @@ shape = SubResource( 24 )
 
 [node name="SkillTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="SkillStates" type="Node" parent="."]
 
 [connection signal="area_entered" from="SkillArea2D" to="." method="_on_SkillArea2D_area_entered"]
 [connection signal="timeout" from="SkillTimer" to="." method="_on_SkillTimer_timeout"]

@@ -31,7 +31,7 @@ func _integrate_forces(state):
 
 
 func _on_Ball_body_entered(body: Node) -> void:
-	if body.name in "Paddle":
+	if "Paddle" in body.name:
 		print("paddle atach")
 
 

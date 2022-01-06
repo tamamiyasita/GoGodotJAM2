@@ -34,6 +34,7 @@ texture = ExtResource( 1 )
 position = Vector2( -1.28003, 2.52222 )
 rotation = 2.82583
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="PathFollow2D/KinematicBody2D"]
 current = true
