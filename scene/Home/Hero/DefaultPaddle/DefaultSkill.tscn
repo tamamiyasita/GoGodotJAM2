@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resource/Ball.tres" type="Material" id=1]
 [ext_resource path="res://image/boul.png" type="Texture" id=2]
-[ext_resource path="res://scene/Home/Hero/DefaultPaddle/Skill.gd" type="Script" id=3]
+[ext_resource path="res://scene/Home/Hero/DefaultPaddle/DefaultSkill.gd" type="Script" id=3]
+[ext_resource path="res://scene/Home/Hero/DefaultPaddle/DefaultSkillStates.gd" type="Script" id=4]
 
 [sub_resource type="Curve" id=22]
 _data = [ Vector2( 0, 0.0602273 ), 0.0, 0.0, 0, 0, Vector2( 0.523121, 1 ), -1.24004, -1.24004, 0, 0, Vector2( 1, 0.196591 ), 0.0, 0.0, 0, 0 ]
@@ -15,6 +16,7 @@ emission_shape = 5
 emission_ring_radius = 35.0
 emission_ring_inner_radius = 0.0
 emission_ring_height = 0.0
+emission_ring_axis = Vector3( 0, 0, 1 )
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
@@ -62,6 +64,7 @@ shape = SubResource( 24 )
 autostart = true
 
 [node name="SkillStates" type="Node" parent="."]
+script = ExtResource( 4 )
 
 [connection signal="area_entered" from="SkillArea2D" to="." method="_on_SkillArea2D_area_entered"]
 [connection signal="timeout" from="SkillTimer" to="." method="_on_SkillTimer_timeout"]

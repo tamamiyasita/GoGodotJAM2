@@ -6,7 +6,7 @@ onready var paddle_l := $PaddleL
 onready var delay_timer := $ChargeTimer
 onready var anime := $AnimationPlayer
 onready var states := HeroBaseState.new()
-onready var Skill = preload('res://scene/Home/Hero/DefaultPaddle/Skill.tscn')
+onready var Skill = preload('res://scene/Home/Hero/DefaultPaddle/DefaultSkill.tscn')
 
 export var paddle_degrees := 10
 
