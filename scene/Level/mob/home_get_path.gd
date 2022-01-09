@@ -1,12 +1,13 @@
 extends Path2D
 
-var speed := 400.0
+var speed := 40.0
 
 export var _navi_path : NodePath
 export var _home_path : NodePath
-export(PackedScene) var enemy_body
+export(PackedScene) var Enemy
+export var follower_num := 5
 
-
+onready var follower := $Follower
 onready var navigator : Navigation2D = get_node(_navi_path)
 onready var home = get_node(_home_path)
 
@@ -24,13 +25,13 @@ onready var states := $BlueSlimeStates
 #var h
 
 func _ready():
-	for e in range(4):
-		
-		var enemy = enemy_body.instance()
-		enemy.position.x += rand_range(12,120)
-		path_flollow.add_child(enemy)
-		yield(get_tree().create_timer(0.3), "timeout")
-#		path_flollow.h_offset += rand_range(1,100)
+	if follower_num:
+		for i in range(follower_num):
+			var enemy = Enemy.instance()
+			follower.add_child(enemy)
+			var d = rand_range(10, 200)
+			enemy.global_position = Vector2(d,d)
+		follower.set_process(true)
 	
 func _process(_delta):
 	pass

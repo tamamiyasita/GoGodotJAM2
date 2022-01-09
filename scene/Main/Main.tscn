@@ -35,6 +35,12 @@ shape = SubResource( 2 )
 
 [node name="Home" parent="Level/map" instance=ExtResource( 2 )]
 
+[node name="PathFollow2D" parent="Level/map/Home" index="0"]
+position = Vector2( -111.216, -35.0069 )
+
+[node name="Camera2D" parent="Level/map/Home/PathFollow2D/HomeBody" index="2"]
+current = false
+
 [node name="Navigation2D" type="Navigation2D" parent="Level"]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Level/Navigation2D"]
@@ -48,6 +54,10 @@ collision_mask = 21
 [node name="BlueSlime" parent="Level" instance=ExtResource( 4 )]
 _navi_path = NodePath("../Navigation2D")
 _home_path = NodePath("../map/Home/PathFollow2D/HomeBody")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 5, 5 )
 
 [editable path="Level/map/Home"]
 [editable path="Level/BlueSlime"]

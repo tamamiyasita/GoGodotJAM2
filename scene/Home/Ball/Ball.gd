@@ -1,7 +1,7 @@
 class_name ball
 extends RigidBody2D
 
-const CLAMP_VELOCITY = 1700.0#ball最大速度
+const CLAMP_VELOCITY = 1300.0#ball最大速度
 
 export var in_energy := false
 
