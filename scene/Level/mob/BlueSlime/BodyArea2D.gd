@@ -3,7 +3,7 @@ extends Area2D
 export var RULE_1_COEF := 0.01
 export var RULE_2_COEF := 1.0
 export var RULE_3_COEF := 0.2
-export var FOV := 190
+export var FOV := 90
 export var MAX_SPEED = 1.5
 
 var vel := Vector2.ZERO

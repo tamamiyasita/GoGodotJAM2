@@ -1,6 +1,6 @@
 extends Path2D
 
-var speed := 40.0
+var speed := 90.0
 
 export var _navi_path : NodePath
 export var _home_path : NodePath

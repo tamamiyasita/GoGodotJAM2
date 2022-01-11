@@ -14,7 +14,7 @@ _data = {
 curve = SubResource( 18 )
 script = ExtResource( 3 )
 Enemy = ExtResource( 1 )
-follower_num = 3
+follower_num = 30
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotate = false

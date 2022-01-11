@@ -270,7 +270,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ) ]
+"values": [ Vector2( 0.2, 0.2 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath(".:rotation_degrees")
@@ -384,7 +384,7 @@ radius = 40.7922
 
 [node name="BodyArea2D" type="Area2D" groups=["mob"]]
 material = SubResource( 19 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.2, 0.2 )
 collision_layer = 16
 collision_mask = 163
 script = ExtResource( 3 )
