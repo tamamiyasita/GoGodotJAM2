@@ -1,13 +1,15 @@
 extends Area2D
 
-export var RULE_1_COEF := 00.1
-export var RULE_2_COEF := 2.1
+export var RULE_1_COEF := 0.01
+export var RULE_2_COEF := 1.0
 export var RULE_3_COEF := 0.2
-export var FOV := 20
-export var MAX_SPEED = 40
+export var FOV := 190
+export var MAX_SPEED = 1.5
 
 var vel := Vector2.ZERO
 var acc := Vector2.ZERO
+var is_leader := false
+
 
 func _ready() -> void:
 	pass # Replace with function body.

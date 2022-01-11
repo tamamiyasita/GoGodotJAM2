@@ -14,6 +14,7 @@ _data = {
 curve = SubResource( 18 )
 script = ExtResource( 3 )
 Enemy = ExtResource( 1 )
+follower_num = 3
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotate = false
@@ -23,12 +24,10 @@ rotate = false
 [node name="Timer" type="Timer" parent="PathFollow2D"]
 autostart = true
 
-[node name="BodyArea2D" parent="PathFollow2D" instance=ExtResource( 1 )]
+[node name="Follower" type="Node2D" parent="PathFollow2D"]
+script = ExtResource( 2 )
 
 [node name="BlueSlimeStates" type="Node" parent="."]
 script = ExtResource( 4 )
-
-[node name="Follower" type="Node2D" parent="."]
-script = ExtResource( 2 )
 
 [connection signal="timeout" from="PathFollow2D/Timer" to="." method="_on_Timer_timeout"]

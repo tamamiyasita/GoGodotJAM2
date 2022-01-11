@@ -7,11 +7,11 @@ export var _home_path : NodePath
 export(PackedScene) var Enemy
 export var follower_num := 5
 
-onready var follower := $Follower
+onready var follower := $PathFollow2D/Follower
 onready var navigator : Navigation2D = get_node(_navi_path)
 onready var home = get_node(_home_path)
 
-#onready var enemy_body = $PathFollow2D/BodyArea2D
+onready var enemy_body = $PathFollow2D/BodyArea2D
 
 onready var path_flollow := $PathFollow2D
 
@@ -28,9 +28,15 @@ func _ready():
 	if follower_num:
 		for i in range(follower_num):
 			var enemy = Enemy.instance()
-			follower.add_child(enemy)
-			var d = rand_range(10, 200)
-			enemy.global_position = Vector2(d,d)
+			if i == 0:
+				enemy.is_leader = true
+				enemy.global_position = Vector2.ZERO
+				follower.add_child(enemy)
+			else:
+				follower.add_child(enemy)
+				var d = rand_range(-200, 200)
+				var p = rand_range(-200, 200)
+				enemy.global_position = Vector2(d,p)
 		follower.set_process(true)
 	
 func _process(_delta):
