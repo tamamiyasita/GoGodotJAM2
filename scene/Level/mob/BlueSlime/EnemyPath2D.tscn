@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scene/Level/mob/BlueSlime/BlueSlimeStates.gd" type="Script" id=1]
+[ext_resource path="res://scene/Level/mob/home_get_path.gd" type="Script" id=2]
+[ext_resource path="res://scene/Level/mob/BlueSlime/Follower.gd" type="Script" id=3]
+
+[sub_resource type="Curve2D" id=18]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[node name="BlueSlimePath2D" type="Path2D"]
+curve = SubResource( 18 )
+script = ExtResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotate = false
+
+[node name="Tween" type="Tween" parent="PathFollow2D"]
+
+[node name="Timer" type="Timer" parent="PathFollow2D"]
+autostart = true
+
+[node name="BlueSlimeStates" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Follower" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[connection signal="timeout" from="PathFollow2D/Timer" to="." method="_on_Timer_timeout"]

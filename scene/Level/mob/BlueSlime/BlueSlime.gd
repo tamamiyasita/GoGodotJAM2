@@ -1,28 +1,71 @@
-extends Path2D
+extends Area2D
 
-var speed := 400.0
+export var RULE_1_COEF := 0.01
+export var RULE_2_COEF := 1.0
+export var RULE_3_COEF := 0.2
+export var FOV := 90
+export var MAX_SPEED = 1.5
 
-export var _navi_path : NodePath
-export var _home_path : NodePath
-
-onready var navigator : Navigation2D = get_node(_navi_path)
-onready var home : HOME = get_node(_home_path)
-
-onready var enemy = $PathFollow2D/Area2D
-onready var path_flollow := $PathFollow2D
-
-onready var timer :Timer = $PathFollow2D/Area2D/Timer
-onready var tween :Tween = $PathFollow2D/Tween
+var vel := Vector2.ZERO
+var acc := Vector2.ZERO
+var is_leader := false
 
 
-func _ready():
-	pass
+func _ready() -> void:
+	pass # Replace with function body.
 
 
-func _on_Timer_timeout():
-	curve.clear_points()
-	for point in navigator.get_simple_path(path_flollow.position, home.position):
-		curve.add_point(point)
-	tween.interpolate_property(path_flollow, "unit_offset",
-							   0.0, 1.0, curve.get_baked_length() / speed)
-	tween.start()
+func update_vel(followers):
+	var vec1 = rule1(followers) 
+	var vec2 = rule2(followers) 
+	var vec3 = rule3(followers)
+	print(vec1, vec2, vec3, " vec")
+	acc = vec1 + vec2 + vec3
+
+
+func update_pos() -> void:
+	vel += acc
+	if vel.length() > MAX_SPEED:
+		vel /= vel.length() / MAX_SPEED
+	position += vel
+
+
+func rule1(followers) -> Vector2:
+	var vector = Vector2.ZERO
+	for b in followers:
+		vector += b.position
+	vector /= followers.size()
+	return (vector - position) * RULE_1_COEF
+
+
+func rule2(followers) -> Vector2:
+	var vector = Vector2.ZERO
+	for b in followers:
+		if b == self:
+			continue
+		print(b.position, position)
+		var dist = (b.position - position).length()
+		if dist == 0:
+			dist = 1
+		print(Vector2(100,100).length())
+		if dist <= FOV:
+			vector += (position - b.position)/dist
+	return vector * RULE_2_COEF
+
+
+func rule3(followers):
+	var vector = Vector2.ZERO
+	for b in followers:
+		vector += b.vel
+	vector /= followers.size()
+	return (vector - vel) * RULE_3_COEF
+
+
+
+
+
+
+
+
+
+	
