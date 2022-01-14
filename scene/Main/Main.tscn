@@ -5,14 +5,10 @@
 [ext_resource path="res://image/b_ball.png" type="Texture" id=3]
 [ext_resource path="res://scene/Level/mob/MobpopPosition2D.gd" type="Script" id=4]
 [ext_resource path="res://scene/Main/Level.gd" type="Script" id=5]
+[ext_resource path="res://scene/Level/mob/BlueSlime/EnemyPath2D.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 19.2354
-
-[sub_resource type="Curve2D" id=18]
-_data = {
-"points": PoolVector2Array(  )
-}
 
 [sub_resource type="NavigationPolygon" id=4]
 vertices = PoolVector2Array( 1194.67, 384, 1278, 338, 1354, 297, 1042, 514, 791, 2, 1578, 2, 1502, 4, 0, 0, 1600, 0, 687, 3, 1261, 286, 789.333, 170.667, 1253, 297, 1173.33, 320, 1050, 343, 942, 290, 858, 241, 797, 280, 746.667, 170.667, 1600, 896, 1515, 115, 807, 752, 832, 661.333, 786, 895, 0, 896, 765, 448, 832, 533.333, 756, 612, 794, 677, 697, 895, 732, 752, 713, 676, 789.333, 618.667, 901, 595, 1093, 433 )
@@ -23,7 +19,6 @@ outlines = [ PoolVector2Array( 0, 0, 0, 896, 1600, 896, 1600, 0 ), PoolVector2Ar
 
 [node name="Level" type="Node2D" parent="."]
 script = ExtResource( 5 )
-home = NodePath("map/Home")
 
 [node name="map" type="Sprite" parent="Level"]
 texture = ExtResource( 1 )
@@ -41,8 +36,6 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/map/GoalPoint"]
 shape = SubResource( 2 )
 
-[node name="Home" parent="Level/map" instance=ExtResource( 2 )]
-
 [node name="Wall" type="StaticBody2D" parent="Level"]
 collision_layer = 2
 collision_mask = 21
@@ -51,17 +44,7 @@ collision_mask = 21
 
 [node name="MobpopPosition2D" type="Position2D" parent="Level/Mob"]
 script = ExtResource( 4 )
-
-[node name="EnemyPath2D" type="Path2D" parent="Level/Mob/MobpopPosition2D"]
-curve = SubResource( 18 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Level/Mob/MobpopPosition2D/EnemyPath2D"]
-rotate = false
-
-[node name="Tween" type="Tween" parent="Level/Mob/MobpopPosition2D"]
-
-[node name="Timer" type="Timer" parent="Level/Mob/MobpopPosition2D"]
-autostart = true
+Enemy = ExtResource( 6 )
 
 [node name="Navigation2D" type="Navigation2D" parent="Level"]
 
@@ -69,7 +52,7 @@ autostart = true
 position = Vector2( -21.3333, 12.6667 )
 navpoly = SubResource( 4 )
 
+[node name="Home" parent="Level" instance=ExtResource( 2 )]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2( 5, 5 )
-
-[connection signal="timeout" from="Level/Mob/MobpopPosition2D/Timer" to="Level/Mob/MobpopPosition2D/EnemyPath2D" method="_on_Timer_timeout"]

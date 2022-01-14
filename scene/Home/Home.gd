@@ -12,7 +12,7 @@ var b = .7
 var t = .2
 
 func _ready():
-	print(GamePath.home)
+	print(MainPath.home)
 	pass
 func _physics_process(_delta):
 #	path_flollow.unit_offset += .0007
