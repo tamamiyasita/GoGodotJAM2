@@ -44,7 +44,12 @@ collision_mask = 21
 
 [node name="MobpopPosition2D" type="Position2D" parent="Level/Mob"]
 script = ExtResource( 4 )
-Enemy = ExtResource( 6 )
+EnemyPath = ExtResource( 6 )
+
+[node name="MobpopPosition2D2" type="Position2D" parent="Level/Mob"]
+position = Vector2( 1280, 448 )
+script = ExtResource( 4 )
+EnemyPath = ExtResource( 6 )
 
 [node name="Navigation2D" type="Navigation2D" parent="Level"]
 
@@ -55,4 +60,5 @@ navpoly = SubResource( 4 )
 [node name="Home" parent="Level" instance=ExtResource( 2 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
 zoom = Vector2( 5, 5 )

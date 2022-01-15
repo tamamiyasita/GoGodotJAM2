@@ -1,19 +1,21 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scene/Level/mob/BlueSlime/BlueSlimeStates.gd" type="Script" id=1]
-[ext_resource path="res://scene/Level/mob/home_get_path.gd" type="Script" id=2]
+[ext_resource path="res://scene/Level/mob/BlueSlime/EnemyPath2D.gd" type="Script" id=2]
 [ext_resource path="res://scene/Level/mob/BlueSlime/BlueSlime.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Curve2D" id=18]
+[sub_resource type="Curve2D" id=1]
+resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array(  )
 }
 
 [node name="BlueSlimePath2D" type="Path2D"]
-curve = SubResource( 18 )
+curve = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotate = false
 loop = false
 
 [node name="BlueSlime" parent="PathFollow2D" instance=ExtResource( 3 )]

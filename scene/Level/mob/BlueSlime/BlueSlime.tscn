@@ -424,3 +424,5 @@ shape = SubResource( 25 )
 
 [node name="BlueSlimeStates" type="Node" parent="."]
 script = ExtResource( 4 )
+
+[connection signal="body_entered" from="AttackArea2D2" to="." method="_on_AttackArea2D2_body_entered"]

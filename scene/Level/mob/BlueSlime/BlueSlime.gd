@@ -1,5 +1,13 @@
 extends Area2D
 
+
+
+onready var anime := $AnimationPlayer
+
+
+
+
+
 export var RULE_1_COEF := 0.01
 export var RULE_2_COEF := 1.0
 export var RULE_3_COEF := 0.2
@@ -12,8 +20,23 @@ var is_leader := false
 
 
 func _ready() -> void:
+	set_physics_process(false)
 	pass # Replace with function body.
 
+func _physics_process(delta):
+	var mob = get_tree().get_nodes_in_group("mob")
+	update_vel(mob)
+	update_pos()
+	set_physics_process(false)
+
+
+
+
+
+func _on_AttackArea2D2_body_entered(body):
+	if body.name == "HomeBody":
+		anime.play("attack")
+		yield(anime, "animation_finished" )
 
 func update_vel(followers):
 	var vec1 = rule1(followers) 

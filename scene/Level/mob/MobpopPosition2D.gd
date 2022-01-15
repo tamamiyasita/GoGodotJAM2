@@ -4,8 +4,8 @@ extends Position2D
 ##
 ##onready var navigator = MainPath.navi2d as Navigation2D
 ##onready var home = MainPath.home as KinematicBody2D
-export(PackedScene) var Enemy
-##export var follower_num := 5
+export(PackedScene) var EnemyPath
+export var enemy_num := 5
 ##
 ##
 ##onready var EnemyPath2D := $EnemyEnemyPath2D
@@ -25,9 +25,12 @@ export(PackedScene) var Enemy
 ###var h
 #
 func _ready():
-	var enemy = Enemy.instance()
-#	enemy.position = Vector2.ZERO
-	add_child(enemy)
+	for i in range(enemy_num):
+		var enemy = EnemyPath.instance()
+		enemy.global_position = global_position
+		yield(get_tree(), "idle_frame" )
+#		enemy.r()
+		add_child(enemy)
 
 ##	if follower_num:
 ##		for i in range(follower_num):
